@@ -11,11 +11,28 @@
             "id": "cc6db7a6d8195b95",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ac747156962cef56",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JAVA学习/java学习路线.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "JAVA学习/java学习路线.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "JAVA学习/java学习路线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,6 +137,16 @@
             "type": "leaf",
             "state": {
               "type": "outline",
+              "state": {
+                "file": "JAVA学习/java学习路线.md"
+              }
+            }
+          },
+          {
+            "id": "bda5569ab6f1118b",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
               "state": {}
             }
           }
@@ -138,8 +167,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "cc6db7a6d8195b95",
+  "active": "114aa6891181edb7",
   "lastOpenFiles": [
-    "Welcome.md"
+    "JAVA学习/attachments/mmexport1687927746689.jpg",
+    "JAVA学习/attachments",
+    "Welcome.md",
+    "JAVA学习/java学习路线.md",
+    "JAVA学习"
   ]
 }
