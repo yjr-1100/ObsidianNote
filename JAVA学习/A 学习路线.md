@@ -1,5 +1,9 @@
 [Java 学习路线 by 程序员鱼皮](https://github.com/liyupi/codefather/blob/main/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/Java%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%20by%20%E7%A8%8B%E5%BA%8F%E5%91%98%E9%B1%BC%E7%9A%AE.md)
 [Java后端学习路线](https://zhuanlan.zhihu.com/p/652601404)
+[Java学习路线](https://www.zhihu.com/tardis/bd/art/377897661?source_id=1001)
+[Java学习路线](https://www.bilibili.com/read/cv27536199/?jump_opus=1)
+[Java的数据结构和算法](https://blog.csdn.net/qq_43422402/article/details/136663325)
+[github刷题指导](https://github.com/labuladong/fucking-algorithm)
 # java SE
 
 
