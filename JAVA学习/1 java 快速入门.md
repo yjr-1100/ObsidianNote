@@ -134,3 +134,5 @@ package（包）
  class（类）
 
 > 就是真正写代码的地方。
+
+一个Java源码只能定义一个`public`类型的class，并且class名称和文件名要完全一致；
