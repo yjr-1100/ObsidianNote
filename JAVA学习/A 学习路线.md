@@ -247,10 +247,27 @@ public class IfDemo {
 }
 ```
 
+##### if else 语句
 
+![[1545616221283.png]]
 
-
-
+```java
+public class IfDemo02 {
+	public static void main(String[] args) {
+		System.out.println("开始");		
+		//定义两个变量
+		int a = 10;
+		int b = 20;
+		//需求：判断a是否大于b，如果是，在控制台输出：a的值大于b，否则，在控制台输出：a的值不大于b
+		if(a > b) {
+			System.out.println("a的值大于b");
+		} else {
+			System.out.println("a的值不大于b");
+		}		
+		System.out.println("结束");
+	}
+}
+```
 
 
 # 这些内容学字符串的时候再看
