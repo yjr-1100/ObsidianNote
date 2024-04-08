@@ -219,6 +219,36 @@ public class OperatorDemo12 {
 ![[1545615769372.png]]
 
 
+#### 判断和选择结构
+
+##### if 语句
+
+![[1545616039363.png]]
+
+
+```java
+public class IfDemo {
+	public static void main(String[] args) {
+		System.out.println("开始");	
+		//定义两个变量
+		int a = 10;
+		int b = 20;	
+		//需求：判断a和b的值是否相等，如果相等，就在控制台输出：a等于b
+		if(a == b) {
+			System.out.println("a等于b");
+		}		
+		//需求：判断a和c的值是否相等，如果相等，就在控制台输出：a等于c
+		int c = 10;
+		if(a == c) {
+			System.out.println("a等于c");
+		}		
+		System.out.println("结束");
+	}
+}
+```
+
+
+
 
 
 
