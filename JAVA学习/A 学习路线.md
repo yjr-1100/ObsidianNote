@@ -389,7 +389,80 @@ public static void main(String[]args){
 
 因为例子中，`flag ? i : j;` 片段中，第二段的 i 是一个包装类型的对象，而第三段的 j 是一个基本类型，所以会对包装类进行自动拆箱。如果这个时候 i 的值为 `null`，那么就会发生 NPE。（[自动拆箱导致空指针异常](http://www.hollischuang.com/archives/435)）
 
+###### 场景五、函数参数与返回值
 
+这个比较容易理解，直接上代码了：
+
+```
+    //自动拆箱
+    public int getNum1(Integer num) {
+     return num;
+    }
+    //自动装箱
+    public Integer getNum2(int num) {
+     return num;
+    }
+```
+
+##### 自动拆装箱与缓存
+
+Java SE 的自动拆装箱还提供了一个和缓存有关的功能，我们先来看以下代码，猜测一下输出结果：
+
+```java
+    public static void main(String... strings) {
+
+        Integer integer1 = 3;
+        Integer integer2 = 3;
+
+        if (integer1 == integer2)
+            System.out.println("integer1 == integer2");
+        else
+            System.out.println("integer1 != integer2");
+
+        Integer integer3 = 300;
+        Integer integer4 = 300;
+
+        if (integer3 == integer4)
+            System.out.println("integer3 == integer4");
+        else
+            System.out.println("integer3 != integer4");
+    }
+```
+
+我们普遍认为上面的两个判断的结果都是 false。虽然比较的值是相等的，但是由于比较的是对象，而对象的引用不一样，所以会认为两个 if 判断都是 false 的。在 Java 中，**`==` 比较的是对象引用，而 `equals` 比较的是值**。所以，在这个例子中，不同的对象有不同的引用，所以在进行比较的时候都将返回 false。奇怪的是，这里两个类似的 if 条件判断返回不同的布尔值。
+
+上面这段代码真正的输出结果：
+
+```
+integer1 == integer2
+integer3 != integer4
+```
+
+原因就和 Integer 中的缓存机制有关。在 Java 5 中，在 Integer 的操作上引入了一个新功能来节省内存和提高性能。**整型对象通过使用相同的对象引用实现了缓存和重用**。
+
+> 适用于整数值区间 -128 至 +127。
+> 
+> 只适用于自动装箱。使用构造函数创建对象不适用。
+
+具体的代码实现可以阅读[Java中整型的缓存机制](http://www.hollischuang.com/archives/1174)一文，这里不再阐述。
+
+我们只需要知道，当需要进行自动装箱时，如果数字在 -128 至 127 之间时，会直接使用缓存中的对象，而不是重新创建一个对象。
+
+其中的 Javadoc 详细的说明了缓存支持 -128 到 127 之间的自动装箱过程。最大值 127 可以通过 `-XX:AutoBoxCacheMax=size` 修改。
+
+实际上这个功能在 Java 5 中引入的时候,范围是固定的 -128 至 +127。后来在 Java 6 中，可以通过 `java.lang.Integer.IntegerCache.high` 设置最大值。
+
+这使我们可以根据应用程序的实际情况灵活地调整来提高性能。到底是什么原因选择这个 -128 到 127 范围呢？因为这个范围的数字是最被广泛使用的。 在程序中，第一次使用 Integer 的时候也需要一定的额外时间来初始化这个缓存。
+
+在 Boxing Conversion 部分的 Java 语言规范(JLS)规定如下：
+
+如果一个变量 p 的值是：
+
+- -128 至 127 之间的整数 (§3.10.1)
+- true 和 false 的布尔值 (§3.10.3)
+- `\u0000` 至 `\u007f` 之间的字符 (§3.10.4)
+
+范围内的时，将 p 包装成 a 和 b 两个对象时，可以直接使用 a == b 判断 a 和 b 的值是否相等。
 
 
 
