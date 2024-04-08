@@ -298,12 +298,34 @@ switch (表达式) {
 	不写break会引发case穿透现象
 
 
+#### 循环结构
 
 
+##### for 循环
+
+```java
+for (int i = 1; i <= 5; i++) {
+    System.out.println("HelloWorld");
+}
+```
+
+##### while 循环
+
+```java
+int i = 1;
+while(i <= 5){
+    System.out.println("HelloWorld");
+    i++;
+}
+System.out.println(i);
+```
 
 
+##### 循环控制语句
 
+break ：用在switch和循环中，表示结束，跳出的意思。
 
+continue：只能存在于循环当中，跳过本次循环，继续执行下次循环。
 
 # 这些内容学字符串的时候再看
 ## 字符串的+操作
