@@ -61,17 +61,18 @@ Java是将代码编译成一种“字节码”，它类似于抽象的CPU指令�
 
 ### java下载安装
 
-#### JDK 与 JRE
+#### JVM、JDK 与 JRE
 
-初学者学Java，经常听到JDK、JRE这些名词，它们到底是啥？
+初学者学Java，经常听到JVM、JDK、JRE这些名词，它们到底是啥？
 
 - JDK：Java Development Kit
 - JRE：Java Runtime Environment
+- JVM：Java Virtual Machine
 
-简单地说，**JRE**就是运行Java字节码的虚拟机。
+简单地说，**JRE**就是Java的运行环境。
 但是，如果只有Java源码，要编译成Java字节码，就需要**JDK**，因为**JDK**除了包含**JRE**，还提供了编译器、调试器等开发工具。
 
-![[Pasted image 20240408085114.png]]
+![[Pasted image 20240408091002.png]]
 
 ####  JDK的安装目录介绍
 
