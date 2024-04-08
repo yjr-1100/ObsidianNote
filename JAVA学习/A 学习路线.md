@@ -269,6 +269,27 @@ public class IfDemo02 {
 }
 ```
 
+##### if else-if else 语句
+
+![[1545616667104.png]]
+
+
+##### switch case 语句
+
+```java
+switch (表达式) {
+	case 1:
+		语句体1;
+		break;
+	case 2:
+		语句体2;
+		break;
+	...
+	default:
+		语句体n+1;
+		break;
+}
+```
 
 # 这些内容学字符串的时候再看
 ## 字符串的+操作
