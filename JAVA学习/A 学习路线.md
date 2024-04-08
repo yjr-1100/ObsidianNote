@@ -303,6 +303,99 @@ Java 语言是一个面向对象的语言，但是 Java 中的**基本数据类�
 
 `Integer i=10` 可以替代 `Integer i = new Integer(10);`，这就是因为 Java 帮我们提供了自动装箱的功能，不需要开发者手动去 new 一个 Integer 对象。
 
+> 自动装箱都是通过包装类的 `valueOf()` 方法来实现的.自动拆箱都是通过包装类对象的 `xxxValue()` 来实现的。
+
+```java
+public static void main(String[]args){ 
+	Integer integer=Integer.valueOf(1); 
+	int i=integer.intValue(); 
+}
+```
+
+##### 哪些地方会自动拆装箱
+
+我们了解过原理之后，在来看一下，什么情况下，Java 会帮我们进行自动拆装箱。前面提到的变量的初始化和赋值的场景就不介绍了，那是最简单的也最容易理解的。
+
+我们主要来看一下，那些可能被忽略的场景。
+
+###### 场景一、将基本数据类型放入集合类
+
+我们知道，Java 中的集合类只能接收对象类型，那么以下代码为什么会不报错呢，因为当我们把基本数据类型放入集合类中的时候，会进行自动装箱
+
+```
+    List<Integer> li = new ArrayList<>();
+    for (int i = 1; i < 50; i ++){
+        li.add(i);
+    }
+```
+
+###### 场景二、包装类型和基本类型的大小比较
+
+有没有人想过，当我们对 Integer 对象与基本类型进行大小比较的时候，实际上比较的是什么内容呢？看以下代码：
+
+```
+    Integer a = 1;
+    System.out.println(a == 1 ? "等于" : "不等于");
+    Boolean bool = false;
+    System.out.println(bool ? "真" : "假");
+```
+
+包装类与基本数据类型进行比较运算，是先将包装类进行拆箱成基本数据类型，然后进行比较的。
+###### 场景三、包装类型的运算
+
+有没有人想过，当我们对 Integer 对象进行四则运算的时候，是如何进行的呢？看以下代码：
+
+```
+    Integer i = 10;
+    Integer j = 20;
+
+    System.out.println(i+j);
+```
+
+反编译后代码如下：
+
+```
+    Integer i = Integer.valueOf(10);
+    Integer j = Integer.valueOf(20);
+    System.out.println(i.intValue() + j.intValue());
+```
+
+我们发现，两个包装类型之间的运算，会被自动拆箱成基本类型进行。
+
+###### 场景四、三目运算符的使用
+
+这是很多人不知道的一个场景，作者也是一次线上的血淋淋的 Bug 发生后才了解到的一种案例。看一个简单的三目运算符的代码：
+
+```
+    boolean flag = true;
+    Integer i = 0;
+    int j = 1;
+    int k = flag ? i : j;
+```
+
+很多人不知道，其实在 `int k = flag ? i : j;` 这一行，会发生自动拆箱（ JDK1.8 之前，详见：[《阿里巴巴Java开发手册-泰山版》提到的三目运算符的空指针问题到底是个怎么回事？](https://www.hollischuang.com/archives/4749) ）。
+
+反编译后代码如下：
+
+```
+    boolean flag = true;
+    Integer i = Integer.valueOf(0);
+    int j = 1;
+    int k = flag ? i.intValue() : j;
+    System.out.println(k);
+```
+
+这其实是三目运算符的语法规范。当第二，第三位操作数分别为基本类型和对象时，其中的对象就会拆箱为基本类型进行操作。
+
+因为例子中，`flag ? i : j;` 片段中，第二段的 i 是一个包装类型的对象，而第三段的 j 是一个基本类型，所以会对包装类进行自动拆箱。如果这个时候 i 的值为 `null`，那么就会发生 NPE。（[自动拆箱导致空指针异常](http://www.hollischuang.com/archives/435)）
+
+
+
+
+
+
+
+
 
 # java EE
 
