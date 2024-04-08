@@ -92,21 +92,133 @@ System.out.println(a);//11
 System.out.println(a);//12
 ```
 
+> 但是当存在其他操作时，结果不同
+
+```java
+int b;  
+int a = 19;  
+b = a++;  
+System.out.println(b);  // 19,先赋值，后对a进行自加
+System.out.println(a);  // 20,a自加结束后结果是20 
+b = ++a;  
+System.out.println(b);  // 21, 先对a自加，自加后的结果赋值
+System.out.println(a);  // 21,a自加结束后结果是21
+```
+
+### 赋值运算符
+
+把算术运算符和赋值运算符组合形成了**扩展赋值运算符**
+
+```
+=  +=  -=  *=  /=  %=
+```
+
+### 关系运算符
+
+又叫比较运算符，其实就是拿着左边跟右边进行了判断
+
+| 符号 | 解释                                                         |
+| ---- | ------------------------------------------------------------ |
+| ==   | 就是判断左边跟右边是否相等，如果成立就是true，如果不成立就是false |
+| !=   | 就是判断左边跟右边是否不相等，如果成立就是true，如果不成立就是false |
+| >    | 就是判断左边是否大于右边，如果成立就是true，如果不成立就是false |
+| >=   | 就是判断左边是否大于等于右边，如果成立就是true，如果不成立就是false |
+| <    | 就是判断左边是否小于右边，如果成立就是true，如果不成立就是false |
+| <=   | 就是判断左边是否小于等于右边，如果成立就是true，如果不成立就是false |
+
+> 注意：关系运算符最终的结果一定是布尔类型的。要么是true，要么是false
 
 
+### 逻辑运算符
+
+#### 与
+
+`&` :  两边都为真，结果才是真，只要有一个为假，那么结果就是假。
+
+``` java
+System.out.println(true & true);//true
+System.out.println(false & false);//false
+System.out.println(true & false);//false
+System.out.println(false & true);//false
+```
+#### 或
+
+`|` : 两边都为假，结果才是假，只要有一个为真，那么结果就是真。
+
+```java
+System.out.println(true | true);//true
+System.out.println(false | false);//false
+System.out.println(true | false);//true
+System.out.println(false | true);//true
+```
+#### 非
+
+`!` : 取反操作，false取反就是true，true取反就是false
+
+```java
+System.out.println(!false);//true
+System.out.println(!true);//false
+```
+#### 异或
+
+`^` : 如果两边相同，结果为false，如果两边不同，结果为true
+
+```java
+System.out.println(true ^ true);//false
+System.out.println(false ^ false);//false
+System.out.println(true ^ false);//true
+System.out.println(false ^ true);//true
+```
+
+#### 短路逻辑运算符&& 和 ||
+
+> `&&`：运算结果跟`&`是一模一样的，只不过具有短路效果。
+> `||`：运算结果跟`|`是一模一样的。只不过具有短路效果。
+
+ **逻辑核心：**
+
+​	当左边不能确定整个表达式的结果，右边才会执行。
+​	当左边能确定整个表达式的结果，那么右边就不会执行了。从而提高了代码的运行效率。
+
+### 三元运算符
+
+又叫做：三元表达式或者问号冒号表达式。
+
+格式：	关系表达式 ？ 表达式1 ：表达式2 ；
+
+### 计算规则：
+
+* 计算关系表达式的值。
+* 如果关系表达式的值为真，那么执行表达式1。
+* 如果关系表达式的值为假，那么执行表达式2。
+
+### 注意点：
+
+​	三元运算符的最终结果一定要被使用，要么赋值给一个变量，要么直接打印出来。
+
+### 案例：
+
+```java
+public class OperatorDemo12 {
+    public static void main(String[] args) {
+        //需求：求两个数的较大值
+        int a = 10;
+        int b = 20;
+
+        //格式：关系表达式 ？ 表达式1 ： 表达式2 ；
+        //注意点：
+        //三元运算符的最终结果一定要被使用。
+        //要么赋值给一个变量，要么直接输出。
+       int max =  a > b ? a : b ;
+        System.out.println(max);
 
 
+        System.out.println(a > b ? a : b);
+    }
+}
+```
 
-
-
-
-
-
-
-
-
-
-
+# 1
 
 
 
