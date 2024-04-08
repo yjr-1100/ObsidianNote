@@ -474,7 +474,41 @@ integer3 != integer4
 > 
 > 如果一个 for 循环中有大量拆装箱操作，会浪费很多资源。
 
+### 键盘录入
 
+​	键盘录入的实际功能Java已经帮我们写好了，不需要我们自己再实现了，而Java写好的功能都放在了Scanner这个类中，所以，我们只要直接使用Scanner这个类就可以了。
+
+使用步骤：
+
+第一步：
+
+​	导包：其实就是表示先找到Scanner这个类在哪。
+
+第二步：
+
+​	创建对象：其实就表示申明一下，我准备开始用Scanner这个类了。
+
+第三步：
+
+​	接收数据：也是真正干活的代码。
+
+代码示例：
+
+```java
+//导包，其实就是先找到Scanner这个类在哪
+import java.util.Scanner;
+public class ScannerDemo1{
+	public static void main(String[] args){
+		//2.创建对象，其实就是申明一下，我准备开始用Scanner这个类了。
+		Scanner sc = new Scanner(System.in);
+		//3.接收数据
+		//当程序运行之后，我们在键盘输入的数据就会被变量i给接收了
+		System.out.println("请输入一个数字");
+		int i = sc.nextInt();
+		System.out.println(i);
+	}
+}
+```
 
 
 
