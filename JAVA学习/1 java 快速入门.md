@@ -83,7 +83,7 @@ Java是将代码编译成一种“字节码”，它类似于抽象的CPU指令�
 
 1. 编写后缀为 `.java` 的源代码文件
 ```java
-	public class HelloWorld {
+public class HelloWorld {
 	public static void main(String[] args) {
 		System.out.println("HelloWorld");
 	}
@@ -92,6 +92,7 @@ Java是将代码编译成一种“字节码”，它类似于抽象的CPU指令�
 2. 使用 ` javac + 文件名 + .java ` 来进行编译 编译后生成 `.class` 文件
 3. 使用 ` java + 文件名` 来运行
 
+为什么要用main方法要public static：首先，由于java虚拟机需要在类外调用main方法，所以该方法的访问权限必须是public的，又因为Java虚拟机运行时系统在开始执行一个程序前并没有创建main（）方法所在类的一个实例对象 ，static 关键字告诉编译器，这个函数是静态函数，不需要创建对象，可以直接访问，并且static方法在静态数据区，可以直接调用，不用每次都生成。
 ### IDEA的使用
 
 #### IDEA概述
