@@ -104,6 +104,12 @@ java 中这种传递性还可以通过**实现** 来体现
 
 > 继承指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。所以，继承的根本原因是因为要`复用`，而实现的根本原因是需要定义一个`标准`。
 
+在Java中，继承使用`extends`关键字实现，而实现通过`implements`关键字。
+
+```java
+class Car extends Benz implements GasolineCar, ElectroCar{ }
+```
+
 
 ### 多态
 
