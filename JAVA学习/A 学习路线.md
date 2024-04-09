@@ -126,6 +126,89 @@ public class PhoneDemo {
 
 > 多个对象在堆内存中，都有不同的内存划分，成员变量存储在各自的内存区域中，成员方法多个对象共用的一份
 
+
+### 成员变量和局部变量的区别
+
+* 类中位置不同：成员变量（类中方法外）局部变量（方法内部或方法声明上）
+* 内存中位置不同：成员变量（堆内存）局部变量（栈内存）
+* 生命周期不同：成员变量（随着对象的存在而存在，随着对象的消失而消失）局部变量（随着方法的调用而存在，方法的调用完毕而消失）
+* 初始化值不同：成员变量（有默认初始化值）局部变量（没有默认初始化值，必须先定义，赋值才能使用）
+
+## 封装
+
+### 封装思想
+
+1. 封装概述
+   是面向对象三大特征之一（封装，继承，多态）
+
+   **对象代表什么，就得封装对应的数据，并提供数据对应的行为** 
+
+2. 封装代码实现
+   将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问
+   成员变量private，提供对应的getXxx()/setXxx()方法
+
+### private关键字
+
+private是一个修饰符，可以用来修饰成员（成员变量，成员方法）
+
+* 被private修饰的成员，只能在本类进行访问，针对private修饰的成员变量，如果需要被其他类使用，提供相应的操作
+- 提供“get变量名()”方法，用于获取成员变量的值，方法用public修饰
+- 提供“set变量名(参数)”方法，用于设置成员变量的值，方法用public修饰
+
+```java
+/*
+    学生类
+ */
+class Student {
+    //成员变量
+    private String name;
+    private int age;
+
+    //get/set方法
+    public void setName(String n) {
+        name = n;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setAge(int a) {
+        age = a;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void show() {
+        System.out.println(name + "," + age);
+    }
+}
+/*
+    学生测试类
+ */
+public class StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        Student s = new Student();
+        //使用set方法给成员变量赋值
+        s.setName("林青霞");
+        s.setAge(30);
+        s.show();
+        //使用get方法获取成员变量的值
+        System.out.println(s.getName() + "---" + s.getAge());
+        System.out.println(s.getName() + "," + s.getAge());
+    }
+}
+```
+
+### this关键字
+
+- this修饰的变量用于指代成员变量，其主要作用是（区分局部变量和成员变量的重名问题）
+- 方法的形参如果与成员变量同名，不带this修饰的变量指的是形参，而不是成员变量
+- 方法的形参没有与成员变量同名，不带this修饰的变量指的是成员变量
+
+
+
+
+
 # 5 数组和字符串
 
 
