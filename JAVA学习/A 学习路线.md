@@ -110,6 +110,7 @@ java 中这种传递性还可以通过**实现** 来体现
 class Car extends Benz implements GasolineCar, ElectroCar{ }
 ```
 
+Java中支持一个类同时实现多个接口，但是不支持同时继承多个类。
 
 ### 多态
 
