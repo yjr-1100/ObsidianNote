@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JAVA学习/2 基础语法.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JAVA学习/2 基础语法.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JAVA学习/2 基础语法.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JAVA学习/2 基础语法.md"
+                "file": "JAVA学习/A 学习路线.md"
               }
             }
           },
@@ -156,8 +156,8 @@
   },
   "active": "ac747156962cef56",
   "lastOpenFiles": [
-    "JAVA学习/1 java 快速入门.md",
     "JAVA学习/2 基础语法.md",
+    "JAVA学习/1 java 快速入门.md",
     "JAVA学习/A 学习路线.md",
     "JAVA学习/3 运算符和流程控制.md",
     "JAVA学习/attachments/1545616667104.png",
