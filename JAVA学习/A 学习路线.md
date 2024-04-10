@@ -126,7 +126,11 @@ public class StringDemo02 {
 }
 ```
 
+## StringBuilder
 
+StringBuilder 可以看成是一个容器，创建之后里面的内容是可变的。
+
+当我们在拼接字符串和反转字符串的时候会使用到
 
 # 这些内容学字符串的时候再看
 ## 字符串的+操作
