@@ -47,12 +47,41 @@ I：表示现在打印的数组是int类型的。
 10f87f48：就是数组在内存中真正的地址值。（十六进制的）
 
 
+## 字符串
 
+### String类概述
 
+​	String 类代表字符串，Java 程序中的所有字符串文字（例如“abc”）都被实现为此类的实例。也就是说，Java 程序中所有的双引号字符串，都是 String 类的对象。String 类在 java.lang 包下，所以使用的时候不需要导包！
 
+### String类的特点
 
+- 字符串不可变，它们的值在创建后不能被更改
+- 虽然 String 的值是不可变的，但是它们可以被共享
+- 字符串效果上相当于字符数组( char[] )，但是底层原理是字节数组( byte[] )
 
+```java
+public class StringDemo01 {
+    public static void main(String[] args) {
+        //public String()：创建一个空白字符串对象，不含有任何内容
+        String s1 = new String();
+        System.out.println("s1:" + s1);
 
+        //public String(char[] chs)：根据字符数组的内容，来创建字符串对象
+        char[] chs = {'a', 'b', 'c'};
+        String s2 = new String(chs);
+        System.out.println("s2:" + s2);
+
+        //public String(byte[] bys)：根据字节数组的内容，来创建字符串对象
+        byte[] bys = {97, 98, 99};
+        String s3 = new String(bys);
+        System.out.println("s3:" + s3);
+
+        //String s = “abc”;	直接赋值的方式创建字符串对象，内容就是abc
+        String s4 = "abc";
+        System.out.println("s4:" + s4);
+    }
+}
+```
 
 
 
