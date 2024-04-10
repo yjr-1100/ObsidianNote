@@ -169,11 +169,13 @@ public class StringBuilderDemo3 {
 - 当连续进行+操作时，从左到右逐个执行的。
     
 
-## 7.字符串相加的练习：
+### 字符串相加的练习：
 
 案例1：
 
+```JAVA
 1 + "abc" + 1
+```
 
 结果："1abc1"
 
@@ -185,7 +187,9 @@ public class StringBuilderDemo3 {
 
 案例2：
 
+```java
 1 + 2 + "abc" + 2 + 1
+```
 
 结果：“3abc21”
 
@@ -201,14 +205,16 @@ public class StringBuilderDemo3 {
 
 案例3：
 
+```java
 String name = "黑默丁格";  
 System.out.println("我的名字是" + name);
+```
 
 结果： 我的名字是黑默丁格
 
 解释：当字符串跟变量相加的时候，实际上是跟变量里面的值进行拼接。
 
-## 8.字符的+操作
+## 字符的+操作
 
 ### 规则：
 
@@ -216,9 +222,11 @@ System.out.println("我的名字是" + name);
 
 ### 案例：
 
+```java
 char c = 'a';  
 int result = c + 0;  
 System.out.println(result);//97
+```
 
 ASCII码表中：
 
