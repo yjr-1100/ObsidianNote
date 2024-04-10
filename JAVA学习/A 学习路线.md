@@ -139,10 +139,10 @@ public class StringBuilderDemo3 {
         StringBuilder sb = new StringBuilder("abc");
 
         //2.添加元素
-        /*sb.append(1);
+        sb.append(1);
         sb.append(2.3);
-        sb.append(true);*/
-
+        sb.append(true);
+		sb.append("aaa").append("bbb").append("ccc").append("ddd");
         //反转
         sb.reverse();
 
