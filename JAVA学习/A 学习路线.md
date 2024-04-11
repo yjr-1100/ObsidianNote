@@ -270,6 +270,8 @@ public class Test {
 
 内部类如果想要访问外部类的成员变量，外部类的变量必须用final修饰，JDK8以前必须手动写final，JDK8之后不需要手动写，JDK默认加上。
 
+> 内部类访问外部类对象的格式是：**外部类名.this**
+
 ```java
 class Outer {	// 外部类
     private int a = 30;
@@ -280,10 +282,58 @@ class Outer {	// 外部类
 
         public void method() {
             int a = 10;
-            System.out.println(???);	// 10   答案：a
-            System.out.println(???);	// 20	答案：this.a
-            System.out.println(???);	// 30	答案：Outer.this.a
+            System.out.println(???);// 10   答案：a
+            System.out.println(???);// 20	答案：this.a
+            System.out.println(???);// 30	答案：Outer.this.a
         }
+    }
+}
+```
+
+### 静态内部类
+
+**静态内部类特点**：
+
+- 静态内部类是一种特殊的成员内部类。
+    
+- 有static修饰，属于外部类本身的。
+    
+- 总结：静态内部类与其他类的用法完全一样。只是访问的时候需要加上**外部类.内部类**。
+    
+- **拓展1**:静态内部类可以直接访问外部类的**静态成员**。
+    
+- **拓展2**:静态内部类不可以直接访问外部类的**非静态成员**，如果要访问需要创建外部类的对象。
+    
+- **拓展3**:静态内部类中没有银行的Outer.this。
+    
+
+**内部类的使用格式**：
+
+```java
+// 外部类：Outer01
+class Outer01{
+    private static  String sc_name = "黑马程序";
+    // 内部类: Inner01
+    public static class Inner01{
+        // 这里面的东西与类是完全一样的。
+        private String name;
+        public Inner01(String name) {
+            this.name = name;
+        }
+        public void showName(){
+            System.out.println(this.name);
+            // 拓展:静态内部类可以直接访问外部类的静态成员。
+            System.out.println(sc_name);
+        }
+    }
+}
+
+public class InnerClassDemo01 {
+    public static void main(String[] args) {
+        // 创建静态内部类对象。
+        // 外部类.内部类  变量 = new  外部类.内部类构造器;
+        Outer01.Inner01 in  = new Outer01.Inner01("张三");
+        in.showName();
     }
 }
 ```
