@@ -397,30 +397,38 @@ new 父类名或者接口名(){
 以接口为例，匿名内部类的使用，代码如下：
 
 ```java
-interface Swim {
-    public abstract void swimming();
-}
-
-public class Demo07 {
-    public static void main(String[] args) {
-        // 使用匿名内部类
-		new Swim() {
-			@Override
-			public void swimming() {
-				System.out.println("自由泳...");
-			}
-		}.swimming();
-
-        // 接口 变量 = new 实现类(); // 多态,走子类的重写方法
-        Swim s2 = new Swim() {
-            @Override
-            public void swimming() {
-                System.out.println("蛙泳...");
-            }
-        };
- 
-        s2.swimming();
-    }
+interface Swim {  
+    public abstract void swimming();  
+}  
+abstract  class Niming{  
+    public abstract void go();  
+}  
+public class HelloWorld {  
+    public static void main(String[] args) {  
+        // 使用匿名内部类  
+        new Niming(){  
+            @Override  
+            public void go() {  
+                System.out.println("gogogo");  
+            }  
+        }.go();  
+        new Swim() {  
+            @Override  
+            public void swimming() {  
+                System.out.println("自由泳...");  
+            }  
+        }.swimming();  
+  
+        // 接口 变量 = new 实现类(); // 多态,走子类的重写方法  
+        Swim s2 = new Swim() {  
+            @Override  
+            public void swimming() {  
+                System.out.println("蛙泳...");  
+            }  
+        };  
+  
+        s2.swimming();  
+    }    
 }
 ```
 
