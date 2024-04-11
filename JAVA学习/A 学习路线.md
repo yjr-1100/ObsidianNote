@@ -158,6 +158,27 @@ Java中，接口与接口之间是可以多继承的：也就是一个接口可�
 
 接口继承接口就是把其他接口的抽象方法与本接口进行了合并。
 
+```java
+public interface Abc {
+    void go();
+    void test();
+}
+/** 法律规范：接口*/
+public interface Law {
+    void rule();
+    void test();
+}
+
+ /*
+ *  总结：
+ *     接口与类之间是多实现的。
+ *     接口与接口之间是多继承的。
+ * */
+public interface SportMan extends Law , Abc {
+    void run();
+}
+```
+
 
 
 [[7 数组和字符串]]
