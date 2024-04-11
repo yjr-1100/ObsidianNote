@@ -62,6 +62,31 @@ public class MathDemo01 {
 
 System类所在包为java.lang包，因此在使用的时候不需要进行导包
 
+```java
+public class SystemDemo01 {
+
+    public static void main(String[] args) {
+
+        // 获取当前时间所对应的毫秒值
+        long millis = System.currentTimeMillis();
+		// 定义源数组
+        int[] srcArray = {23 , 45 , 67 , 89 , 14 , 56 } ;
+
+        // 定义目标数组
+        int[] desArray = new int[10] ;
+
+        // 进行数组元素的copy: 把srcArray数组中从0索引开始的3个元素，从desArray数组中的1索引开始复制过去
+        System.arraycopy(srcArray , 0 , desArray , 1 , 3);
+
+        // 输出结果
+        System.out.println("当前时间所对应的毫秒值为：" + millis);
+		// 终止JVM
+        System.exit(0);
+    }
+
+}
+```
+
 
 
 
