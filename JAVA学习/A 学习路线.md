@@ -24,7 +24,6 @@
 - **抽象方法** ： 没有方法体的方法。
 - **抽象类**：包含抽象方法的类。
 
-
 ### abstract使用格式
 
 **abstract** 是抽象的意思，用于修饰方法方法和类，修饰的方法是抽象方法，修饰的类是抽象类。
@@ -36,6 +35,7 @@ public abstract class Animal {
     public abstract void run()；
 }
 ```
+
 
 
 
