@@ -198,6 +198,14 @@ public interface SportMan extends Law , Abc {
 
 ### 成员内部类
 
+**成员内部类特点**：
+
+- 无static修饰的内部类，属于外部类对象的。
+- 宿主：外部类对象。
+
+
+
+
 [[7 数组和字符串]]
 
 
