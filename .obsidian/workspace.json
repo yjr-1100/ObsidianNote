@@ -137,7 +137,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -153,8 +154,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8c7a7cae5042d404",
+  "active": "830b86687952c1b0",
   "lastOpenFiles": [
+    "JAVA学习/4 面向对象.md",
+    "JAVA学习/5 类和对象.md",
     "JAVA学习/6 数组和字符串.md",
     "JAVA学习/attachments/Pasted image 20240410211925.png",
     "JAVA学习/attachments/Pasted image 20240410202609.png",
@@ -162,8 +165,6 @@
     "JAVA学习/attachments/Pasted image 20240410201731.png",
     "JAVA学习/A 学习路线.md",
     "JAVA学习/2 基础语法.md",
-    "JAVA学习/5 类和对象.md",
-    "JAVA学习/4 面向对象.md",
     "JAVA学习/attachments/3.png",
     "JAVA学习/attachments/4.png",
     "JAVA学习/attachments/2.png",
