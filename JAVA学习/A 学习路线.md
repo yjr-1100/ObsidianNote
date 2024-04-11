@@ -323,6 +323,9 @@ class Outer01{
         public Inner01(String name) {
             this.name = name;
         }
+        static void fu(){  
+		    System.out.println("直接用");  
+		}
         public void showName(){
             System.out.println(this.name);
             // 拓展:静态内部类可以直接访问外部类的静态成员。
@@ -335,6 +338,7 @@ public class InnerClassDemo01 {
     public static void main(String[] args) {
         // 创建静态内部类对象。
         // 外部类.内部类  变量 = new  外部类.内部类构造器;
+        Outer01.Inner01.fu();
         Outer01.Inner01 in  = new Outer01.Inner01("张三");
         in.showName();
     }
