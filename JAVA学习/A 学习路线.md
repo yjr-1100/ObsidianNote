@@ -168,7 +168,11 @@ public class RunTimeDemo1 {
 
 ## Object类
 
+public String toString()				//返回该对象的字符串表示形式(可以看做是对象的内存地址值)
 
+public boolean equals(Object obj)		//比较两个对象地址值是否相等；true表示相同，false表示不相同
+
+protected Object clone()    			//对象克隆
 
 
 
