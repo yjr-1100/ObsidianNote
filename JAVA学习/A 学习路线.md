@@ -377,8 +377,52 @@ new 类名或者接口名() {
 
 **是为了简化代码**。
 
+#### 格式
+
+> 匿名内部类必须**继承一个父类**或者**实现一个父接口**。
 
 
+```java
+new 父类名或者接口名(){
+    // 方法重写
+    @Override 
+    public void method() {
+        // 执行语句
+    }
+};
+```
+
+#### 使用方式
+
+以接口为例，匿名内部类的使用，代码如下：
+
+```java
+interface Swim {
+    public abstract void swimming();
+}
+
+public class Demo07 {
+    public static void main(String[] args) {
+        // 使用匿名内部类
+		new Swim() {
+			@Override
+			public void swimming() {
+				System.out.println("自由泳...");
+			}
+		}.swimming();
+
+        // 接口 变量 = new 实现类(); // 多态,走子类的重写方法
+        Swim s2 = new Swim() {
+            @Override
+            public void swimming() {
+                System.out.println("蛙泳...");
+            }
+        };
+ 
+        s2.swimming();
+    }
+}
+```
 
 
 [[7 数组和字符串]]
