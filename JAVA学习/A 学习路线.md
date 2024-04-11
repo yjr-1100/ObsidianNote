@@ -270,6 +270,24 @@ public class Test {
 
 内部类如果想要访问外部类的成员变量，外部类的变量必须用final修饰，JDK8以前必须手动写final，JDK8之后不需要手动写，JDK默认加上。
 
+```java
+class Outer {	// 外部类
+    private int a = 30;
+
+    // 在成员位置定义一个类
+    class inner {
+        private int a = 20;
+
+        public void method() {
+            int a = 10;
+            System.out.println(???);	// 10   答案：a
+            System.out.println(???);	// 20	答案：this.a
+            System.out.println(???);	// 30	答案：Outer.this.a
+        }
+    }
+}
+```
+
 [[7 数组和字符串]]
 
 
