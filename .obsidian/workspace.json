@@ -20,6 +20,24 @@
             }
           }
         ]
+      },
+      {
+        "id": "97acd35035678667",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14b551a544031fe1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JAVA学习/4 面向对象.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -154,7 +172,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "830b86687952c1b0",
+  "active": "54d0a57401b1cba0",
   "lastOpenFiles": [
     "JAVA学习/4 面向对象.md",
     "JAVA学习/5 类和对象.md",
