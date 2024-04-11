@@ -58,7 +58,9 @@ public class MathDemo01 {
 ```
 
 
+## System
 
+System类所在包为java.lang包，因此在使用的时候不需要进行导包
 
 
 
