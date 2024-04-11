@@ -203,8 +203,51 @@ public interface SportMan extends Law , Abc {
 - 无static修饰的内部类，属于外部类对象的。
 - 宿主：外部类对象。
 
+```java
+// 方式一：
+public class Test {
+    public static void main(String[] args) {
+        //  宿主：外部类对象。
+       // Outer out = new Outer();
+        // 创建内部类对象。
+        Outer.Inner oi = new Outer().new Inner();
+        oi.method();
+    }
+}
+
+class Outer {
+    // 成员内部类，属于外部类对象的。
+    // 拓展：成员内部类不能定义静态成员。
+    public class Inner{
+        // 这里面的东西与类是完全一样的。
+        public void method(){
+            System.out.println("内部类中的方法被调用了");
+        }
+    }
+}
+```
+
+```java
+// 方式二：
+public class Outer {
+    String name;
+    private class Inner{
+        static int a = 10;
+    }
+    public Inner getInstance(){
+        return new Inner();
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Outer o = new Outer();
+        System.out.println(o.getInstance());
 
 
+    }
+}
+```
 
 [[7 数组和字符串]]
 
