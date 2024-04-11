@@ -117,6 +117,27 @@ public class Demo10 {
 
 我们已经学完了抽象类，抽象类中可以用抽象方法，也可以有普通方法，构造方法，成员变量等。那么什么是接口呢？**接口是更加彻底的抽象，JDK7之前，包括JDK7，接口中全部是抽象方法。接口同样是不能创建对象的**。
 
+```java
+public interface InterF {
+    // 抽象方法！
+    //    public abstract void run();
+    void run();
+    //    public abstract String getName();
+    String getName();
+    //    public abstract int add(int a , int b);
+    int add(int a , int b);
+
+    // 它的最终写法是：
+    // public static final int AGE = 12 ;
+    int AGE  = 12; //常量
+    String SCHOOL_NAME = "黑马程序员";
+}
+```
+
+### 接口的实现
+
+类与接口的关系为实现关系，即**类实现接口**，该类可以称为接口的实现类，也可以称为接口的子类。实现的动作类似继承，格式相仿，只是关键字不同，实现使用 ` implements`关键字。
+
 
 
 [[7 数组和字符串]]
