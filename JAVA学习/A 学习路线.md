@@ -175,7 +175,47 @@ public boolean equals(Object obj)		//比较两个对象地址值是否相等；t
 protected Object clone()    			//对象克隆
 
 
-
+```java
+class P{  
+    int a;  
+    P(int a){  this.a = a;  }  
+  
+    @Override  
+    public String toString() {  
+        return ""+a;  
+    }  
+}  
+class PP{  
+    int a;  
+    PP(int a){ this.a = a;  }  
+  
+    @Override  
+    public boolean equals(Object obj) {  
+        if(obj==null) return false;  
+        if (this==obj) return true;  
+        PP o = (PP)obj;  
+        return a==o.a;  
+    }  
+}  
+public class HelloWorld {  
+    public static void main(String[] args) {  
+        // 使用匿名内部类  
+        P p1 = new P(1);  
+        P p2 = new P(1);  
+        PP pp1 = new PP(1);  
+        PP pp2 = new PP(1);  
+        P p3 = p2;  
+        p3.a = 3;  
+        System.out.println(p2);//2  
+        System.out.println(p1==p2);//false  
+        System.out.println(p2==p3);// true  
+        System.out.println(pp1==pp2);// false  
+        System.out.println(p1.equals(p2));//false  
+        System.out.println(p2.equals(p3));//true  
+        System.out.println(pp1.equals(pp2));//true  
+    }  
+}
+```
 
 
 
