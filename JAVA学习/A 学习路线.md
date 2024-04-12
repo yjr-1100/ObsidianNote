@@ -566,8 +566,7 @@ public class BigDecimalDemo02 {
 
 把数据看成字符串，遍历得到里面的每一个字符，把这些字符在ASCII码表上的值，都存储到数组中。
 
-![bigdecimal存储原理](file://E:\BaiduSyncdisk\Java基础-资料\day18-API（常见API，对象克隆）\笔记\assets\bigdecimal存储原理.png?lastModify=1712922080)
-
+![[bigdecimal存储原理.png]]
 
 # java EE
 
