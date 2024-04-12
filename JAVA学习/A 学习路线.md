@@ -850,7 +850,34 @@ String result1 = s.replaceAll("[\\w&&[^_]]+", "vs");
 System.out.println(result1);
 ```
 
+### 忽略大小写的写法
 
+```java
+//(?i) ：表示忽略后面数据的大小写
+//忽略abc的大小写
+String regex = "(?i)abc";
+//a需要一模一样，忽略bc的大小写
+String regex = "a(?i)bc";
+//ac需要一模一样，忽略b的大小写
+String regex = "a((?i)b)c";
+```
+
+### 正则表达式-分组括号( )
+
+```java
+String str = "我要学学编编编编程程程程程程";
+
+//需求:把重复的内容 替换为 单个的
+//学学                学
+//编编编编            编
+//程程程程程程        程
+//  (.)表示把重复内容的第一个字符看做一组
+//  \\1表示第一字符再次出现
+//  + 至少一次
+//  $1 表示把正则表达式中第一组的内容，再拿出来用
+String result = str.replaceAll("(.)\\1+", "$1");
+System.out.println(result);
+```
 
 
 # java EE
