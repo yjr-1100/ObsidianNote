@@ -345,6 +345,10 @@ public class HelloWorld {
 ## Objects类
 
 
+public static String toString(Object o) 					// 获取对象的字符串表现形式
+public static boolean equals(Object a, Object b)			// 比较两个对象是否相等
+public static boolean isNull(Object obj)					// 判断对象是否为null
+public static boolean nonNull(Object obj)					// 判断对象是否不为null
 
 # java EE
 
