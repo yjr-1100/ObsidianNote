@@ -66,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "equals",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -173,8 +173,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b64565f846542156",
+  "active": "830b86687952c1b0",
   "lastOpenFiles": [
+    "JAVA学习/attachments/浅克隆.png",
+    "JAVA学习/attachments/深克隆.png",
     "JAVA学习/6 抽象类和接口.md",
     "JAVA学习/7 数组和字符串.md",
     "JAVA学习/A 学习路线.md",
@@ -192,7 +194,6 @@
     "JAVA学习/attachments/1.png",
     "JAVA学习/1 java 快速入门.md",
     "JAVA学习/3 运算符和流程控制.md",
-    "JAVA学习/attachments/1545616667104.png",
     "Welcome.md",
     "JAVA学习/attachments",
     "JAVA学习"
