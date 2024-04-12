@@ -228,7 +228,118 @@ Object类默认的是浅克隆
 
 ![[深克隆.png]]
 
-
+```java
+class User implements Cloneable{  
+    private int id;  
+    private String username;  
+    private int[] data;  
+    public User() {  
+    }  
+    public User(int id, String username, int[] data) {  
+        this.id = id;  
+        this.username = username;  
+        this.data = data;  
+    }  
+    public int getId() {  
+        return id;  
+    }  
+    public void setId(int id) {  
+        this.id = id;  
+    }  
+    public String getUsername() {  
+        return username;  
+    }  
+    public void setUsername(String username) {  
+        this.username = username;  
+    }  
+    public int[] getData() {  
+        return data;  
+    }  
+    public void setData(int[] data) {  
+        this.data = data;  
+    }  
+  
+    public String toString() {  
+        return "角色编号为：" + id + "，用户名为：" + username + ", 进度:" + arrToString();  
+    }  
+  
+    public String arrToString() {  
+        StringJoiner sj = new StringJoiner(", ", "[", "]");  
+        for (int i = 0; i < data.length; i++) {  
+            sj.add(data[i] + "");  
+        }  
+        return sj.toString();  
+    }  
+//    默认的拷贝方式  
+//    @Override  
+//    protected Object clone() throws CloneNotSupportedException {  
+//        return super.clone();  
+//    }  
+  
+// 自己写深拷贝  
+    @Override  
+    protected Object clone() throws CloneNotSupportedException {  
+        //调用父类中的clone方法  
+        //相当于让Java帮我们克隆一个对象，并把克隆之后的对象返回出去。  
+        //先把被克隆对象中的数组获取出来  
+        int[] data = this.data;  
+        //创建新的数组  
+        int[] newData =new int[data.length];  
+        //拷贝数组中的数据  
+        for (int i = 0; i < data.length; i++) {  
+            newData[i] = data[i];  
+        }  
+        //调用父类中的方法克隆对象  
+        User u=(User)super.clone();  
+        //因为父类中的克隆方法是浅克隆，替换克隆出来对象中的数组地址值  
+        u.data =newData;  
+        return u;  
+    }  
+}  
+public class HelloWorld {  
+    public static void main(String[] args) throws CloneNotSupportedException {  
+        // 使用匿名内部类  
+        //1.先创建一个对象  
+        int[] data = {1, 2, 3, 4};  
+        User u1 = new User(1, "zhangsan", data);  
+        System.out.println(u1);  
+  
+        //2.克隆对象  
+        //细节:  
+        //方法在底层会帮我们创建一个对象,并把原对象中的数据拷贝过去。  
+        //书写细节:  
+        //1.重写Object中的clone方法  
+        //2.让javabean类实现Cloneable接口  
+        //3.创建原对象并调用clone就可以了  
+        User u2 =(User)u1.clone();  
+  
+        //验证一件事情：Object中的克隆是浅克隆  
+        //想要进行深克隆，就需要重写clone方法并修改里面的方法体  
+        int[] arr = u1.getData();  
+        arr[0] = 100;// 这个arr改了，u1 u2的都改了  
+        System.out.println(u1);  
+        System.out.println(u2);  
+  
+  
+        //以后一般会用第三方工具进行克隆  
+        //1.第三方写的代码导入到项目中  
+        //2.编写代码  
+        Gson gson =new Gson();  
+//        把对象变成一个字符串  
+        String s=gson.toJson(u1);  
+//        再把字符串变回对象就可以了  
+        User user =gson.fromJson(s, User.class);  
+  
+        int[] arr1=u1.getData();  
+        arr1[0] = 100;  
+  
+//        打印对象  
+        System.out.println(user);  
+    }  
+  
+  
+}
+```
 
 # java EE
 
