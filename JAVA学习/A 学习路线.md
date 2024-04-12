@@ -641,6 +641,53 @@ public class RegexDemo2 {
     }
 }
 ```
+
+### 正则表达式-逻辑运算符
+
+- 语法示例：
+
+  1. &&：并且
+  2. |    ：或者
+  3. \  ：转义字符
+
+- 代码示例：
+
+```java
+public class Demo {
+	public static void main(String[] args) {
+		String str = "had";
+		
+		//1.要求字符串是小写辅音字符开头，后跟ad
+		String regex = "[a-z&&[^aeiou]]ad";
+		System.out.println("1." + str.matches(regex));
+		
+		//2.要求字符串是aeiou中的某个字符开头，后跟ad
+		regex = "[a|e|i|o|u]ad";//这种写法相当于：regex = "[aeiou]ad";
+		System.out.println("2." + str.matches(regex));
+	}
+}
+```
+
+### 正则表达式-预定义字符
+
+- 语法示例：
+    
+    1. "." ： 匹配任何字符。
+        
+    2. "\d"：任何数字`[0-9]`的简写；
+        
+    3. "\D"：任何非数字`[^0-9]`的简写；
+        
+    4. "\s"： 空白字符：`[ \t\n\x0B\f\r]` 的简写
+        
+    5. "\S"： 非空白字符：`[^\s] `的简写
+        
+    6. "\w"：单词字符：`[a-zA-Z_0-9]`的简写
+        
+    7. "\W"：非单词字符：`[^\w]`
+
+
+
 # java EE
 
 
