@@ -865,6 +865,15 @@ String regex = "a((?i)b)c";
 ### 正则表达式-分组括号( )
 
 ```java
+//需求1:判断一个字符串的开始字符和结束字符是否一致?只考虑一个字符
+//举例: a123a b456b 17891 &abc& a123b(false)
+// \\组号:表示把第X组的内容再出来用一次
+String regex1 = "(.).+\\1";
+System.out.println("a123a".matches(regex1));
+System.out.println("&abc&".matches(regex1));
+System.out.println("a123b".matches(regex1));
+System.out.println("--------------------------");
+
 String str = "我要学学编编编编程程程程程程";
 
 //需求:把重复的内容 替换为 单个的
@@ -879,7 +888,24 @@ String result = str.replaceAll("(.)\\1+", "$1");
 System.out.println(result);
 ```
 
+### 非捕获分组
 
+非捕获分组：分组之后不需要再用本组数据，仅仅是把数据括起来。
+
+```java
+//身份证号码的简易正则表达式
+//非捕获分组:仅仅是把数据括起来
+//特点:不占用组号
+//这里\\1报错原因:(?:)就是非捕获分组，此时是不占用组号的。
+
+
+//(?:) (?=) (?!)都是非捕获分组//更多的使用第一个
+//String regex1 ="[1-9]\\d{16}(?:\\d|x|x)\\1";
+String regex2 ="[1-9]\\d{16}(\\d Xx)\\1";
+//^([01]\d|2[0-3]):[0-5]\d:[@-5]\d$
+
+System.out.println("41080119930228457x".matches(regex2));
+```
 # java EE
 
 
