@@ -405,12 +405,59 @@ int GetMidIndex(int *arr, int left, int right){
 
 }
 
-int midi = GetMidIndex(arr, left, right); 
-Swap(&arr[midi], &arr[left]); 
-int key = left;
+int Partion1(int *arr, int left, int right){
+	//三数取中 -- 有序的情况每次二分，将最坏情况变成最好情况
+	int midi = GetMidIndex(arr, left, right);
+	Swap(&arr[midi], &arr[left]);
+	int keyi = left;
+	while (left < right)
+	{
+		//右边先走，找小
+		//">="  "<="注意等于条件，防止死循环
+		//每次都要判断left<right，防止越界
+		while (left < right && arr[right] >= arr[keyi])
+		{
+			right--;
+		}
+		//左边再走，找大
+		while (left < right && arr[left] <= arr[keyi])
+		{
+			left++;
+		}
+		//交换left，right的值
+		Swap(&arr[left], &arr[right]);
+	}
+	//left和right相遇时，left与key交换
+	Swap(&arr[left], &arr[keyi]);
+	return left;
+}
 
+void QuickSort(int *arr, int left, int right){
+	//小区间优化：当分割到小区间时（10左右），不再用递归分割的思路让这段子区间有序。对于递归快排，大量减少了递归次数
+	if (right - left + 1 < 10)
+	{
+		//right - left + 1 区间内元素的数量
+		//arr + left 起始位置不都在开头
+		InsertSort(arr+left, right - left + 1);
+		return;
+	}
 
-
+	// 按照基准值对array数组的 [left, right]区间中的元素进行划分
+	int div = Partion1(arr, left, right);
+	// 划分成功后以div为边界形成了左右两部分 [left, div-1] 和 [div+1, right]
+	//left == right 区间内只有一个值，left > right 区间内没有值
+	if(left < div-1)
+	{
+		// 递归排[left, div]
+		QuickSort(arr, left, div - 1);
+	}
+	if(div+1<right)
+	{
+		//递归排[div+1, right]
+		QuickSort(arr, div + 1, right);
+	}	
+	
+}
 ```
 
 # java EE
