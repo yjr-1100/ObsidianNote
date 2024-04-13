@@ -404,6 +404,13 @@ int GetMidIndex(int *arr, int left, int right){
 	return arr[tmp1] > arr[tmp2] ? tmp2 : tmp1;
 
 }
+
+int midi = GetMidIndex(arr, left, right); 
+Swap(&arr[midi], &arr[left]); 
+int key = left;
+
+
+
 ```
 
 # java EE
