@@ -394,6 +394,18 @@ private void quickSort(int[] nums, int star, int end) {
 
 对于无序程度越大的序列, 快速排序的效率越好, 时间复杂度O(n logn), 因为这样左右两边的树比较均匀，
 
+对于比较有序的序列，通过三数取中的方法，改变key的选取，优化最坏的情况
+
+``` java
+int GetMidIndex(int *arr, int left, int right){
+	int mid = left + (right - left) / 2;
+	int tmp1 = arr[left] > arr[mid] ? left : mid;
+	int tmp2 = arr[mid] > arr[right] ? mid : right;
+	return arr[tmp1] > arr[tmp2] ? tmp2 : tmp1;
+
+}
+```
+
 # java EE
 
 
