@@ -326,22 +326,24 @@ protected void sort(int[] nums) {
     if (nums == null || nums.length < 2) {
         return;
     }
-    int length = nums.length;
-    int temp;
-    //步长
-    int gap = length / 3+1;
-    while (gap > 1) {
-        for (int i = gap; i < length; i++) {
-            curr = nums[i];
-            int preIndex = i - gap;
-            while (preIndex >= 0 && nums[preIndex] > curr) {
-                nums[preIndex + gap] = nums[preIndex];
-                preIndex -= gap;
-            }
-            nums[preIndex + gap] = temp;
-        }
-        gap =gap/3+1;
-    }
+    int length = nums.length;  
+	int curr;  
+	//步长  
+	int gap = length;  
+	while (gap>1){  
+	    gap = gap / 3+1;  
+	    for(int i = 0;i<gap;i++) {  
+	        for (int j = i; j < length - gap; j += gap) {  
+	            curr = nums[j + gap];  
+	            int index = j;  
+	            while (index >= 0 && curr < nums[index]) {  
+	                nums[index + gap] = nums[index];  
+	                index -= gap;  
+	            }  
+	            nums[index + gap] = curr;  
+	        }  
+	    }  
+	}
 }
 ```
 # java EE
