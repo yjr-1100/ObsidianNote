@@ -79,22 +79,31 @@ public class A01_BasicSearchDemo1 {
 代码示例：
 
 ```java
-public static void main(String[] args) {
-    //二分查找/折半查找
-    //核心：
-    //每次排除一半的查找范围
-
-    int[] arr = {7, 23, 79, 81, 103, 127, 131, 147};
-    System.out.println(binarySearch(arr, 150));
+public class HelloWorld {  
+    public static void main(String[] args){  
+        int[] arr = {7, 23, 79, 81, 103, 127, 131};  
+        System.out.println(binarySearch(arr, 127));  
+    }  
+  
+    public static int binarySearch(int[] arr,int target){  
+        int l = 0;  
+        int r = arr.length-1;  // qu
+        while (l<=r){  
+            int mid = l+(r-l)/2;  
+            if(arr[mid]>target){  
+                r = mid-1;  
+            }  
+            else if(arr[mid]<target){  
+                l = mid+1;  
+            }  
+            else{  
+                return mid;  
+            }  
+        }  
+        return -1;  
+    }  
+  
 }
- public static int binarySearch(int[] arr, int number){
-	int l = 0;
-	int r = arr.length-1;
-	while(){
-		if 
-	}
-	
- }
 ```
 
 
