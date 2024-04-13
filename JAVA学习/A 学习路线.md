@@ -392,6 +392,7 @@ private void quickSort(int[] nums, int star, int end) {
     }
 ```
 
+对于无序程度越大的序列, 快速排序的效率越好, 时间复杂度O(n logn), 因为这样左右两边的树比较均匀，
 
 # java EE
 
