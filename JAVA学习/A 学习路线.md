@@ -77,6 +77,19 @@ public class A01_BasicSearchDemo1 {
     
 
 代码示例：
+
+```java
+public static void main(String[] args) {
+    //二分查找/折半查找
+    //核心：
+    //每次排除一半的查找范围
+
+    int[] arr = {7, 23, 79, 81, 103, 127, 131, 147};
+    System.out.println(binarySearch(arr, 150));
+}
+```
+
+
 # java EE
 
 
