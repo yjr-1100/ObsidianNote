@@ -330,7 +330,7 @@ protected void sort(int[] nums) {
     int temp;
     //步长
     int gap = length / 3+1;
-    while (gap > 0) {
+    while (gap > 1) {
         for (int i = gap; i < length; i++) {
             temp = nums[i];
             int preIndex = i - gap;
@@ -340,7 +340,7 @@ protected void sort(int[] nums) {
             }
             nums[preIndex + gap] = temp;
         }
-        gap /= 2;
+        gap =gap/3+1;
     }
 }
 ```
