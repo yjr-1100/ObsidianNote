@@ -170,40 +170,26 @@ public class A03_BlockSearchDemo {
         Block b1 = new Block(21,0,5);
         Block b2 = new Block(45,6,11);
         Block b3 = new Block(73,12,17);
-
         //定义数组用来管理三个块的对象（索引表）
         Block[] blockArr = {b1,b2,b3};
-
         //定义一个变量用来记录要查找的元素
         int number = 37;
-
         //调用方法，传递索引表，数组，要查找的元素
         int index = getIndex(blockArr,arr,number);
-
         //打印一下
         System.out.println(index);
-
-
-
     }
-
     //利用分块查找的原理，查询number的索引
     private static int getIndex(Block[] blockArr, int[] arr, int number) {
         //1.确定number是在那一块当中
         int indexBlock = findIndexBlock(blockArr, number);
-
         if(indexBlock == -1){
             //表示number不在数组当中
             return -1;
         }
-
         //2.获取这一块的起始索引和结束索引   --- 30
-        // Block b1 = new Block(21,0,5);   ----  0
-        // Block b2 = new Block(45,6,11);  ----  1
-        // Block b3 = new Block(73,12,17); ----  2
         int startIndex = blockArr[indexBlock].getStartIndex();
         int endIndex = blockArr[indexBlock].getEndIndex();
-
         //3.遍历
         for (int i = startIndex; i <= endIndex; i++) {
             if(arr[i] == number){
@@ -212,12 +198,8 @@ public class A03_BlockSearchDemo {
         }
         return -1;
     }
-
-
     //定义一个方法，用来确定number在哪一块当中
     public static int findIndexBlock(Block[] blockArr,int number){ //100
-
-
         //从0索引开始遍历blockArr，如果number小于max，那么就表示number是在这一块当中的
         for (int i = 0; i < blockArr.length; i++) {
             if(number <= blockArr[i].getMax()){
