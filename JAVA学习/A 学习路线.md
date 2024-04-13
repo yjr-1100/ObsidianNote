@@ -365,7 +365,6 @@ protected void sort(int[] nums) {
 ![[v2-c411339b79f92499dcb7b5f304c826f4_b.gif]]
 
 ```java
-```text
 private void quickSort(int[] nums, int star, int end) {
         if (star > end) {
             return;
@@ -392,7 +391,8 @@ private void quickSort(int[] nums, int star, int end) {
         quickSort(nums, i + 1, end);
     }
 ```
-```
+
+
 # java EE
 
 
