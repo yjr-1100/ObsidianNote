@@ -331,9 +331,9 @@ protected void sort(int[] nums) {
     //步长
     int gap = length / 3+1;
     while (gap > 1) {
-        for (int i = gap; i < length; i++) {
+        for (int i = 0; i < gap; i++) {
             temp = nums[i];
-            int preIndex = i - gap;
+            int preIndex = i + gap;
             while (preIndex >= 0 && nums[preIndex] > temp) {
                 nums[preIndex + gap] = nums[preIndex];
                 preIndex -= gap;
