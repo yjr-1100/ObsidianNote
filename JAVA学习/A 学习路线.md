@@ -87,8 +87,8 @@ public class HelloWorld {
   
     public static int binarySearch(int[] arr,int target){  
         int l = 0;  
-        int r = arr.length-1;  // qu
-        while (l<=r){  
+        int r = arr.length-1;  // 区间是左闭右闭的
+        while (l<=r){  // l==r 是有意义的
             int mid = l+(r-l)/2;  
             if(arr[mid]>target){  
                 r = mid-1;  
