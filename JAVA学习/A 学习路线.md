@@ -309,6 +309,41 @@ for(int i = 1;i<arr.length;i++){
 2. 时间复杂度：O(N) ~ O(N^2)
 3. 空间复杂度：O(1)
 4. 稳定性：稳定
+
+### 希尔排序
+
+希尔排序是直接插入排序的优化版本：由于直接插入排序对顺序有序或接近有序的序列排序效率很高。所以希尔排序先通过多次分组预排序使序列接近有序，最后再进行直接插入排序≈O(N)，以此来提高效率。
+多次分组预排序：就是将序列进行间隔分组，对同一组内的元素进行直接插入排序，并不断缩小分组间距。
+如何分组：
+通过增量gap对序列进行分组控制，gap是组内元素之间的间距，同时也是组数。
+gap初始化为n; 每次分组预排gap = gap/3+1；除3是进过多次试验得出的最佳缩小系数，加1是为了避免跳过最后一次直接插入排序。
+直到gap\==1 进行最后一次直接插入排序使序列顺序有序。
+
+![[5ff92087b3634e58b5e9689b5d1fee40.gif]]
+
+```java
+protected void sort(int[] nums) {
+    if (nums == null || nums.length < 2) {
+        return;
+    }
+    int length = nums.length;
+    int temp;
+    //步长
+    int gap = length / 3+1;
+    while (gap > 0) {
+        for (int i = gap; i < length; i++) {
+            temp = nums[i];
+            int preIndex = i - gap;
+            while (preIndex >= 0 && nums[preIndex] > temp) {
+                nums[preIndex + gap] = nums[preIndex];
+                preIndex -= gap;
+            }
+            nums[preIndex + gap] = temp;
+        }
+        gap /= 2;
+    }
+}
+```
 # java EE
 
 
