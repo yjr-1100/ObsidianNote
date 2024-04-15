@@ -472,7 +472,11 @@ void QuickSort(int *arr, int left, int right){
 
 归并排序的优点在于最好情况和最坏的情况的时间复杂度都是O(nlogn)，所以是比较稳定的排序方式。
 
+![[v2-cdda3f11c6efbc01577f5c29a9066772_b.gif]]
 
+```java
+
+```
 # java EE
 
 
