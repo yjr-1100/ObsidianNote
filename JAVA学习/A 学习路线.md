@@ -544,3 +544,11 @@ public class MergeSort extends BaseSort {
 
 
 
+
+
+
+
+
+
+Facing the drastically increasing generation, collection, storing, and processing requirements of data, traditional relational databases struggle with the storage and processing performance of massive amounts of data \cite{cyc1,cyc2}.
+Due to their framework flexibility and commendable scalability, distributed key-value storage databases are widely utilized in industrial production, displaying strong performance, especially in handling massive data. Consequently, they have become the primary storage system of choice for major Internet companies, such as Amazon \cite{cyc2}, Facebook \cite{cyc3}, and LinkedIn \cite{das2}.
