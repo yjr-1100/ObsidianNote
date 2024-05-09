@@ -547,6 +547,8 @@ public class MergeSort extends BaseSort {
 4. 然后将剩余n-1 个元素重新构造成-一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了。
 
 
+![[堆排序.gif]]
+
 
 # java EE
 
