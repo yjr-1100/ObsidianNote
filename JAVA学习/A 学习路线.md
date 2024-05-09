@@ -549,6 +549,63 @@ public class MergeSort extends BaseSort {
 
 ![[堆排序.gif]]
 
+```java
+public void swap(int[] arr,int index1,int index2){  
+    arr[index1] = arr[index1] ^ arr[index2];  
+    arr[index2] = arr[index1] ^ arr[index2];  
+    arr[index1] = arr[index1] ^ arr[index2];  
+}  
+public void downAdjust(int[] arr,int index,int arrlen){  
+    if(index > (arrlen-2)>>1){ // 判断，如果是叶子节点，就没有需要调整的节点  
+        return;  
+    }  
+    else if(index*2+2>=arrlen){//判断有孩子是不是大于数组长度，大于说明没有右孩子，只调整左半部分  
+        if(arr[index*2+1]>arr[index]){  
+            swap(arr,index*2+1,index);  
+        }  
+    }  
+    else{ // 既有左孩子，又有右孩子  
+        if(arr[index*2+2]>arr[index]&&arr[index*2+2]>=arr[index*2+1]){  
+            swap(arr,index*2+2,index);  
+            downAdjust(arr,index*2+2,arrlen);  
+        }  
+        else if(arr[index*2+1]>arr[index]&&arr[index*2+1]>arr[index*2+2]){  
+            swap(arr,index*2+1,index);  
+            downAdjust(arr,index*2+1,arrlen);  
+        }  
+    }  
+}  
+public void initHeap(int[] arr,int arrlen){   
+    boolean hasTwoChild = (arrlen%2)==1? true :false;  
+    for(int i = (arrlen-2)>>1;i>=0;i--){//从最后一个非叶节点开始构建大顶堆  
+        if(hasTwoChild){  
+            if(arr[i*2+2]>arr[i]&&arr[i*2+2]>=arr[i*2+1]){// 右孩子大于根节点和左孩子  
+                swap(arr,i*2+2,i);  
+                downAdjust(arr,i*2+2,arrlen);  
+            }  
+            else if(arr[i*2+1]>arr[i]&&arr[i*2+1]>arr[i*2+2]){// 左孩子大于根节点和右孩子  
+                swap(arr,i*2+1,i);  
+                downAdjust(arr,i*2+1,arrlen);  
+            }  
+        }  
+        else{  
+            if(arr[i*2+1]>arr[i]){  
+                swap(arr,i*2+1,i);  
+            }  
+            hasTwoChild = true;  
+        }  
+    }  
+}  
+public void heapSort(int[] arr){  
+    int arrlen = arr.length;  
+    for(int i = arr.length-1;i>=0;i--){  
+        initHeap(arr,arrlen);  
+        swap(arr,i,0); // 将堆顶与最后一个交换位置  
+        arrlen--; // 换位置后需要排序的数量减一  
+    }  
+}
+```
+
 
 # java EE
 
