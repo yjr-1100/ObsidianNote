@@ -219,13 +219,13 @@ public class MyListDemo {
     }
 
     private static void method4(List<String> list) {
-        //        E get(int index)		返回指定索引处的元素
+        //返回指定索引处的元素
         String s = list.get(0);
         System.out.println(s);
     }
 
     private static void method3(List<String> list) {
-        //        E set(int index,E element)	修改指定索引处的元素，返回被修改的元素
+        // 修改指定索引处的元素，返回被修改的元素
         //被替换的那个元素,在集合中就不存在了.
         String result = list.set(0, "qqq");
         System.out.println(result);
@@ -233,7 +233,7 @@ public class MyListDemo {
     }
 
     private static void method2(List<String> list) {
-        //        E remove(int index)		删除指定索引处的元素，返回被删除的元素
+        // 删除指定索引处的元素，返回被删除的元素
         //在List集合中有两个删除的方法
         //第一个 删除指定的元素,返回值表示当前元素是否删除成功
         //第二个 删除指定索引的元素,返回值表示实际删除的元素
