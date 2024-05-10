@@ -72,7 +72,7 @@
     
     - 迭代器,集合的专用遍历方式
         
-    - Iterator<E> iterator(): 返回此集合中元素的迭代器,通过集合对象的iterator()方法得到
+    - Iterator< E > iterator(): 返回此集合中元素的迭代器,通过集合对象的iterator()方法得到
         
 - Iterator中的常用方法
     
@@ -185,6 +185,8 @@ public class MyCollectonDemo1 {
 ```
 
 ## List集合
+
+
 
 # java EE
 
