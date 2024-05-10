@@ -64,6 +64,23 @@
 | boolean contains(Object o) | 判断集合中是否存在指定的元素    |
 | boolean isEmpty()          | 判断集合是否为空          |
 | int size()                 | 集合的长度，也就是集合中元素的个数 |
+### Collection集合的遍历
+
+#### 迭代器遍历
+
+- 迭代器介绍
+    
+    - 迭代器,集合的专用遍历方式
+        
+    - Iterator<E> iterator(): 返回此集合中元素的迭代器,通过集合对象的iterator()方法得到
+        
+- Iterator中的常用方法
+    
+    boolean hasNext(): 判断当前位置是否有元素可以被取出 E next(): 获取当前位置的元素,将迭代器对象移向下一个索引位置
+    
+- Collection集合的遍历
+
+
 
 # java EE
 
