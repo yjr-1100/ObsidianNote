@@ -251,7 +251,24 @@ public class MyListDemo {
 }
 ```
 
+### List的遍历
 
+除了上面cllection的遍历方式，还添加了一种遍历方法
+
+```java
+//获取一个列表迭代器的对象，里面的指针默认也是指向0索引的
+
+//额外添加了一个方法：在遍历的过程中，可以添加元素
+ListIterator<String> it = list.listIterator();
+while(it.hasNext()){
+    String str = it.next();
+    if("bbb".equals(str)){
+        //qqq
+        it.add("qqq");
+    }
+}
+System.out.println(list);
+```
 
 
 # java EE
