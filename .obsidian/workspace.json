@@ -6,6 +6,7 @@
       {
         "id": "68422092a6041ff2",
         "type": "tabs",
+        "dimension": 72.23903177004539,
         "children": [
           {
             "id": "830b86687952c1b0",
@@ -24,6 +25,7 @@
       {
         "id": "97acd35035678667",
         "type": "tabs",
+        "dimension": 27.760968229954614,
         "children": [
           {
             "id": "14b551a544031fe1",
@@ -174,6 +176,7 @@
   },
   "active": "830b86687952c1b0",
   "lastOpenFiles": [
+    "JAVA学习/attachments/01_集合类体系结构图.png",
     "JAVA学习/8 常用API.md",
     "JAVA学习/A 学习路线.md",
     "JAVA学习/9 查找和排序.md",
