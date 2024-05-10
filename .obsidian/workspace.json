@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md",
+                "file": "JAVA学习/8 常用API.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md",
+                "file": "JAVA学习/8 常用API.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md",
+                "file": "JAVA学习/8 常用API.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md"
+                "file": "JAVA学习/8 常用API.md"
               }
             }
           },
