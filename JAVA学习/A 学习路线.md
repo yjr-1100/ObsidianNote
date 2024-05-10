@@ -559,7 +559,55 @@ public static void main(String[] args) {
 }
 ```
 
+## HashSet集合
+### HashSet集合概述和特点【应用】
 
+- 底层数据结构是哈希表
+    
+- 存取无序
+    
+- 不可以存储重复元素
+    
+- 没有索引,不能使用普通for循环遍历
+
+```java
+public class HashSetDemo {
+    public static void main(String[] args) {
+        //创建集合对象
+        HashSet<String> set = new HashSet<String>();
+
+        //添加元素
+        set.add("hello");
+        set.add("world");
+        set.add("java");
+        //不包含重复元素的集合
+        set.add("world");
+
+        //遍历
+        for(String s : set) {
+            System.out.println(s);
+        }
+    }
+}
+```
+
+### 哈希值【理解】
+
+- 哈希值简介
+    
+    是JDK根据对象的地址或者字符串或者数字算出来的int类型的数值
+    
+- 如何获取哈希值
+    
+    Object类中的public int hashCode()：返回对象的哈希码值
+    
+- 哈希值的特点
+    
+    - 同一个对象多次调用hashCode()方法返回的哈希值是相同的
+        
+    - 默认情况下，不同对象的哈希值是不同的。而重写hashCode()方法，可以实现让不同对象的哈希值相同
+
+- HashSet集合存储自定义类型元素,要想实现元素的唯一,要求必须重写hashCode方法和equals方法
 # java EE
 
 
