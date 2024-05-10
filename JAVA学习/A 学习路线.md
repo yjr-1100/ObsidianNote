@@ -54,8 +54,17 @@
     - 具体的实现类ArrayList
         
 - Collection集合常用方法
-    
-    
+	      
+| 方法名                        | 说明                |
+| -------------------------- | ----------------- |
+| boolean add(E e)           | 添加元素              |
+| boolean remove(Object o)   | 从集合中移除指定的元素       |
+| boolean removeIf(Object o) | 根据条件进行移除          |
+| void clear()               | 清空集合中的元素          |
+| boolean contains(Object o) | 判断集合中是否存在指定的元素    |
+| boolean isEmpty()          | 判断集合是否为空          |
+| int size()                 | 集合的长度，也就是集合中元素的个数 |
+
 # java EE
 
 
