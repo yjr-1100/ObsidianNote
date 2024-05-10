@@ -96,7 +96,93 @@
 	 }
 	```
 
+迭代器中删除的方法
 
+void remove(): 删除迭代器对象当前指向的元素
+
+```java
+public class IteratorDemo2 {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+
+        Iterator<String> it = list.iterator();
+        while(it.hasNext()){
+            String s = it.next();
+            if("b".equals(s)){
+                //指向谁,那么此时就删除谁.
+                it.remove();
+            }
+        }
+        System.out.println(list);
+    }
+}
+```
+
+注意：迭代器遍历完毕，指针不会复位，我们再次遍历的时候，要重新创建一个迭代器。迭代器遍历时，不能用集合的方法进行增加或者删除
+
+#### lambda表达式遍历
+
+利用forEach方法，再结合lambda表达式的方式进行遍历
+
+```java
+public static void main(String[] args) {
+//1.创建集合并添加元素
+    Collection<String> coll = new ArrayList<>();
+    coll.add("zhangsan");
+    coll.add("lisi");
+    coll.add("wangwu");
+    //2.利用匿名内部类的形式
+    //底层原理：
+    //其实也会自己遍历集合，依次得到每一个元素
+    //把得到的每一个元素，传递给下面的accept方法
+    //s依次表示集合中的每一个数据
+    /* coll.forEach(new Consumer<String>() {
+        @Override
+        public void accept(String s) {
+            System.out.println(s);
+        }
+        });*/
+
+        //lambda表达式
+        coll.forEach(s -> System.out.println(s));
+}
+```
+
+#### 增强for循环
+
+介绍
+
+- 它是JDK5之后出现的,其内部原理是一个Iterator迭代器
+    
+- 实现Iterable接口的类才可以使用迭代器和增强for
+    
+- 简化数组和Collection集合的遍历
+
+```java
+public class MyCollectonDemo1 {
+    public static void main(String[] args) {
+        ArrayList<String> list =  new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        list.add("f");
+
+        //1,数据类型一定是集合或者数组中元素的类型
+        //2,str仅仅是一个变量名而已,在循环的过程中,依次表示集合或者数组中的每一个元素
+        //3,list就是要遍历的集合或者数组
+        for(String str : list){
+            System.out.println(str);
+        }
+    }
+}
+```
 
 # java EE
 
