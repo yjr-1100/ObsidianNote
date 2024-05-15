@@ -84,6 +84,7 @@ class Seanon{
 2. public static final Season SPRING = new Season("春天"，"温暖")直接使用 SPRING("春天"，"温暖")解读 常量名(实参列表)
 3. 如果有多个常量(对象)，使用号间隔即可
 4. 如果使用enum 来实现枚举，要求将定义常量对象，写在前面
+5. 使用了enum关键字以后就不能再继承它了，因为enum会隐式继承Enum，而java是单继承机制，但是还可以实现接口
 
 ```java
 package top.jerry1100.demo1;  
