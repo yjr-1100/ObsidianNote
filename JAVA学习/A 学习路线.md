@@ -80,7 +80,49 @@ class Seanon{
 
 ### 使用enum关键字实现枚举
 
+1. 使用关键字 enum 替代 class
+2. public static final Season SPRING = new Season("春天"，"温暖")直接使用 SPRING("春天"，"温暖")解读 常量名(实参列表)
+3. 如果有多个常量(对象)，使用号间隔即可
+4. 如果使用enum 来实现枚举，要求将定义常量对象，写在前面
 
+```java
+package top.jerry1100.demo1;  
+  
+public class Enumeration {  
+    public static void main(String[] args) {  
+        System.out.println(Seanon.AUTUMN);  
+        System.out.println(Seanon.SPRINT);  
+        System.out.println(Seanon.WINTER);  
+        System.out.println(Seanon.SUMMER);  
+    }  
+}  
+enum Seanon{  
+//    定义四个对象  
+    SPRINT("春天","温暖"),  
+    SUMMER("夏天","炎热"),  
+    AUTUMN("秋天","凉爽"),  
+    WINTER("冬天","寒冷");  
+    private String name; // 名字  
+    private String desc; // 描述  
+    private Seanon(String name,String desc){  
+        this.name = name;  
+        this.desc = desc;  
+    }  
+    public String getDesc() {  
+        return desc;  
+    }  
+    public String getName() {  
+        return name;  
+    }  
+    @Override  
+    public String toString() {  
+        return "Seanon{" +  
+                "name='" + name + '\'' +  
+                ", desc='" + desc + '\'' +  
+                '}';  
+    }  
+}
+```
 # java EE
 
 
