@@ -123,6 +123,27 @@ enum Seanon{
     }  
 }
 ```
+
+### enum 关键字的一些常用方法
+
+```java
+//        输出枚举对象的顺序和名字  
+        Seanon autumn = Seanon.AUTUMN;  
+        System.out.println(autumn.ordinal()); //2  
+        System.out.println(autumn.name()); //AUTUMN  
+//        得到所有枚举对象  
+        Seanon[] values = Seanon.values();  
+        for(Seanon i :values){  
+            System.out.println(i);  
+        }  
+//        根据输入的字符串，得到枚举对象，如果没有会报错  
+        Seanon autumn2 = Seanon.valueOf("AUTUMN");  
+        System.out.println(autumn2);  
+//        比较两个常量，就是在比较他们的ordinal  
+        System.out.println(Seanon.AUTUMN.compareTo(autumn2));//0  
+        System.out.println(autumn.compareTo(autumn2));//0  
+        System.out.println(Seanon.SPRINT.compareTo(autumn2));//-2
+```
 # java EE
 
 
