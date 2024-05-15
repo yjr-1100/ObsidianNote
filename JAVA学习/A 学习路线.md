@@ -145,6 +145,17 @@ enum Seanon{
         System.out.println(autumn.compareTo(autumn2));//0  
         System.out.println(Seanon.SPRINT.compareTo(autumn2));//-2
 ```
+
+## 注解
+
+注解的理解
+1)注解(Annotation)也被称为元数据(Metadata),用于修饰解释 包、类、方法、属性、构造器、局部变量等数据信息。
+2)和注释一样，注解不影响程序逻辑，但注解可以被编译或运行，相当于嵌入在代码中的补充信息。
+3)在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替java EE旧版中所遗留的繁冗代码和XML配置等。
+
+
+
+
 # java EE
 
 
