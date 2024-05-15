@@ -161,7 +161,12 @@ enum Seanon{
 
 ### @Override
 
-
+**Override 使用说明**
+1. @Override 表示指定重写父类的方法(从编译层面验证)，如果父类没有fly方法，则会报错
+2. 如果不写@Override 注解,而父类仍有 public void fly(){}，仍然构成重写
+3. @Override 只能修饰方法，不能修饰其它类，包，属性等等
+4. 查看@Override注解源码为 @Target(ElementType.METHOD),说明只能修饰方法
+5. @Target 是修饰注解的注解， 称为元注解
 
 ```java
 class Father{//父类
