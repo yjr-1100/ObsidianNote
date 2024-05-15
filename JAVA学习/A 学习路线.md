@@ -159,6 +159,24 @@ enum Seanon{
 @Deprecated: 用于表示某个程序元素(类,方法等)已过时
 @SuppressWarnings: 抑制编译器警告
 
+### @Override
+
+```java
+class Father{//父类
+	public void fly(){
+		System.out.println("Father fly...");
+	}
+}
+class Son extends Father {//子类
+	@0verride
+	//说明 写不写override都是重写，但是写了注解，编译器会去检查该方法是否真的重写，如果重写就编译通过，如果没重写则编译不通过
+	public void fly(){
+		System.out.println("Son fly...."),
+	}
+}
+```
+
+### 
 # java EE
 
 
