@@ -154,8 +154,7 @@ enum Seanon{
 3)在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替java EE旧版中所遗留的繁冗代码和XML配置等。
 
 
-使用 Annotation 时要在其前面增加 @ 符号, 并把该 Annotation 当成一个修饰符使用。用于修饰它支持的程序元素
-三个基本的 Annotation:
+使用 Annotation 时要在其前面增加 @ 符号, 并把该 Annotation 当成一个修饰符使用。用于修饰它支持的程序元素，三个基本的 Annotation:
 @Override: 限定某个方法，是重写父类方法,该注解只能用于方法
 @Deprecated: 用于表示某个程序元素(类,方法等)已过时
 @SuppressWarnings: 抑制编译器警告
