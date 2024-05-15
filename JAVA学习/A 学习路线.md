@@ -26,6 +26,59 @@
 
 枚举是一组常量的集合。可以理解:枚举属于一种特殊的类，里面只包含一组有限的特定的对象
 
+### 自定义枚举类
+
+1. 构造函数私有，禁止在外部直接**new**
+2. 不需要提供setXxx 方法，因为枚举对象值通常为只读,
+3. 对枚举对象/属性使用 final + static 共同修饰，实现底层优化
+4. 枚举对象名通常使用全部大写，常量的命名规范.
+5. 枚举对象根据需要，也可以有多个属性 
+
+```java
+package top.jerry1100.demo1;  
+  
+public class Enumeration {  
+    public static void main(String[] args) {  
+        System.out.println(Seanon.AUTUMN);  
+        System.out.println(Seanon.SPRINT);  
+        System.out.println(Seanon.WINTER);  
+        System.out.println(Seanon.SUMMER);  
+    }  
+  
+}  
+  
+class Seanon{  
+    private String name; // 名字  
+    private String desc; // 描述  
+//    定义四个对象  
+    public static final Seanon SPRINT = new Seanon("春天","温暖");  
+    public static final Seanon SUMMER = new Seanon("夏天","炎热");  
+    public static final Seanon AUTUMN = new Seanon("秋天","凉爽");  
+    public static final Seanon WINTER = new Seanon("冬天","寒冷");  
+    private Seanon(String name,String desc){  
+        this.name = name;  
+        this.desc = desc;  
+    }  
+  
+    public String getDesc() {  
+        return desc;  
+    }  
+  
+    public String getName() {  
+        return name;  
+    }  
+  
+    @Override  
+    public String toString() {  
+        return "Seanon{" +  
+                "name='" + name + '\'' +  
+                ", desc='" + desc + '\'' +  
+                '}';  
+    }  
+}
+```
+
+### 使用enum关键字实现枚举
 
 
 # java EE
