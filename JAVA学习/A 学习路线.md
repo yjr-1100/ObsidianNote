@@ -204,7 +204,20 @@ class A {
 
 ### @SupperessWarngin
 
+1. 当我们不希望看到这些警告的时候，可以使用 SuppressWarnings注解来抑制警告信息
+2. 在{""}中，可以写入你希望抑制(不显示)警告信息
 
+```java
+@SuppressWarnings({"rawtypes","unchecked","unused"})
+public static void main(string[l args){
+	List list = new ArrayList();
+	List.add("jack");
+	List.add("tom");
+	List.add("mary");
+	int i;
+	System.out.println(list.get(1));
+}
+```
 # java EE
 
 
