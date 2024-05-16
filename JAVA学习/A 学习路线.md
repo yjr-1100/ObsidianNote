@@ -245,6 +245,18 @@ public static void main(string[l args){
 	System.out.println(list.get(1));
 }
 ```
+
+### 元注解
+
+元注解就是修饰注解的注解（JDK 的元 Annotation 用于修饰其他 Annotation）
+
+原注解的种类：
+1. Retention //指定注解的作用范围，三种 SOURCE,CLASS,RUNTIME
+2. Target // 指定注解可以在哪些地方使用
+3. Documented //指定该注解是否会在javadoc体现
+4. Inherited //子类会继承父类注解
+
+
 # java EE
 
 
