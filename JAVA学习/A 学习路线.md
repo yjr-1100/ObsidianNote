@@ -18,7 +18,7 @@
 [[9 查找和排序]]
 [[10 List集合]]
 
-# 11 枚举和注解
+# 11 枚举、注解和异常处理
 
 ## 枚举
 
@@ -256,6 +256,7 @@ public static void main(string[l args){
 3. Documented //指定该注解是否会在javadoc体现
 4. Inherited //子类会继承父类注解
 
+## 异常处理
 
 # java EE
 
