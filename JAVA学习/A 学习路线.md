@@ -185,6 +185,23 @@ class Son extends Father {//子类
 
 ### @Deprecated
 
+1. 用于表示某个程序元素(类,方法等)已过时
+2. 可以修饰方法，类，字段,包,参数 等等
+3. @Target(value={CONSTRUCTOR, FIELD, LOCAL VARIABLE, METHOD PACKAGE,PARAMETER, TYPE})
+4. Deprecated 的作用可以做到新旧版本的兼容和过渡
+
+```java
+@Deprecated
+class A {
+	@Deprecated
+	public int n1 = 10;
+	@Deprecated
+	public void hi(){
+		System.out.println("hi");
+	}
+}
+```
+
 
 # java EE
 
