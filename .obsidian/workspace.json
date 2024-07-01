@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "力扣刷题/A 刷题路线.md",
+                "file": "力扣刷题/1 二分查找.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "力扣刷题/A 刷题路线.md",
+                "file": "力扣刷题/1 二分查找.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "力扣刷题/A 刷题路线.md",
+                "file": "力扣刷题/1 二分查找.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "力扣刷题/A 刷题路线.md"
+                "file": "力扣刷题/1 二分查找.md"
               }
             }
           },
@@ -167,10 +167,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "114aa6891181edb7",
+  "active": "a0a8660f80998045",
   "lastOpenFiles": [
-    "Welcome.md",
     "力扣刷题/A 刷题路线.md",
+    "力扣刷题/1 二分查找.md",
+    "Welcome.md",
     "力扣刷题",
     "JAVA学习/9 查找和排序.md",
     "JAVA学习/A 学习路线.md",
