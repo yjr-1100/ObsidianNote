@@ -11,11 +11,28 @@
             "id": "ed276a9aa3e6fe46",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a0a8660f80998045",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "力扣刷题/A 刷题路线.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "力扣刷题/A 刷题路线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "力扣刷题/A 刷题路线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "力扣刷题/A 刷题路线.md"
+              }
             }
           },
           {
@@ -146,8 +167,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ed276a9aa3e6fe46",
+  "active": "114aa6891181edb7",
   "lastOpenFiles": [
+    "Welcome.md",
+    "力扣刷题/A 刷题路线.md",
+    "力扣刷题",
     "JAVA学习/9 查找和排序.md",
     "JAVA学习/A 学习路线.md",
     "JAVA学习/7 数组和字符串.md",
@@ -169,7 +193,6 @@
     "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b.gif",
     "JAVA学习/1 java 快速入门.md",
     "JAVA学习/3 运算符和流程控制.md",
-    "Welcome.md",
     "JAVA学习/attachments",
     "JAVA学习"
   ]
