@@ -4,14 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "97acd35035678667",
+        "id": "f4619d47d006df3f",
         "type": "tabs",
         "children": [
           {
-            "id": "14b551a544031fe1",
+            "id": "ed276a9aa3e6fe46",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {}
             }
           }
@@ -146,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "14b551a544031fe1",
+  "active": "ed276a9aa3e6fe46",
   "lastOpenFiles": [
     "JAVA学习/9 查找和排序.md",
     "JAVA学习/A 学习路线.md",
