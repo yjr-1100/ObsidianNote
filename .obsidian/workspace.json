@@ -11,12 +11,8 @@
             "id": "14b551a544031fe1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JAVA学习/9 查找和排序.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JAVA学习/9 查找和排序.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "JAVA学习/9 查找和排序.md"
-              }
+              "state": {}
             }
           },
           {
@@ -154,8 +146,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "114aa6891181edb7",
+  "active": "14b551a544031fe1",
   "lastOpenFiles": [
+    "JAVA学习/9 查找和排序.md",
     "JAVA学习/A 学习路线.md",
     "JAVA学习/7 数组和字符串.md",
     "JAVA学习/10 List集合.md",
@@ -165,7 +158,6 @@
     "JAVA学习/2 基础语法.md",
     "JAVA学习/attachments/01_集合类体系结构图.png",
     "JAVA学习/8 常用API.md",
-    "JAVA学习/9 查找和排序.md",
     "JAVA学习/attachments/堆排序.gif",
     "JAVA学习/attachments/v2-cdda3f11c6efbc01577f5c29a9066772_b.gif",
     "JAVA学习/attachments/89eba1c0e40940e68fe05c538691bfc3.gif",
