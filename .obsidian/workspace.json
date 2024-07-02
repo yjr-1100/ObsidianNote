@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "42b9d7e7254f1629",
+        "id": "dbce0ca9e5554c1f",
         "type": "tabs",
         "children": [
           {
-            "id": "5c321179d5df4617",
+            "id": "75288049e5408ac7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JAVA学习/A 学习路线.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JAVA学习/A 学习路线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JAVA学习/A 学习路线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "JAVA学习/A 学习路线.md"
-              }
+              "state": {}
             }
           },
           {
@@ -154,15 +146,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5c321179d5df4617",
+  "active": "75288049e5408ac7",
   "lastOpenFiles": [
     "力扣刷题/2 移除元素.md",
-    "力扣刷题/A 刷题路线.md",
     "力扣刷题/1 二分查找.md",
+    "JAVA学习/A 学习路线.md",
+    "力扣刷题/A 刷题路线.md",
     "Welcome.md",
     "力扣刷题",
     "JAVA学习/9 查找和排序.md",
-    "JAVA学习/A 学习路线.md",
     "JAVA学习/7 数组和字符串.md",
     "JAVA学习/10 List集合.md",
     "JAVA学习/6 抽象类和接口.md",
