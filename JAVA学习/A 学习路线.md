@@ -15,530 +15,248 @@
 [[6 抽象类和接口]]
 [[7 数组和字符串]]
 [[8 常用API]]
+[[9 查找和排序]]
+[[10 List集合]]
 
-# 9 查找和排序
+# 11 枚举、注解和异常处理
 
-## 查找
+## 枚举
 
-### 顺序查找
+枚举对应英文(enumeration,简写 enum)
 
-说明：顺序查找适合于存储结构为数组或者链表。
+枚举是一组常量的集合。可以理解:枚举属于一种特殊的类，里面只包含一组有限的特定的对象
 
-**基本思想**：顺序查找也称为线形查找，属于无序查找算法。从数据结构线的一端开始，顺序扫描，依次将遍历到的结点与要查找的值相比较，若相等则表示查找成功；若遍历结束仍没有找到相同的，表示查找失败。
+### 自定义枚举类
 
-示例代码：
-```java
-public class A01_BasicSearchDemo1 {
-    public static void main(String[] args) {
-
-        int[] arr = {131, 127, 147, 81, 103, 23, 7, 79};
-        int number = 82;
-        System.out.println(basicSearch(arr, number));
-    }
-
-    //参数：
-    //一：数组
-    //二：要查找的元素
-    //返回值：
-    //元素是否存在
-    public static boolean basicSearch(int[] arr, int number){
-        //利用基本查找来查找number在数组中是否存在
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == number){
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-### 二分查找
-
-也叫做折半查找
-
-说明：元素必须是有序的，从小到大，或者从大到小都是可以的。
-
-如果是无序的，也可以先进行排序。但是排序之后，会改变原有数据的顺序，查找出来元素位置跟原来的元素可能是不一样的，所以排序之后再查找只能判断当前数据是否在容器当中，返回的索引无实际的意义。
-
-　　**基本思想**：也称为是折半查找，属于有序查找算法。用给定值先与中间结点比较。比较完之后有三种情况：
-
-- 相等
-    
-    说明找到了
-    
-- 要查找的数据比中间节点小
-    
-    说明要查找的数字在中间节点左边
-    
-- 要查找的数据比中间节点大
-    
-    说明要查找的数字在中间节点右边
-    
-
-代码示例：
+1. 构造函数私有，禁止在外部直接**new**
+2. 不需要提供setXxx 方法，因为枚举对象值通常为只读,
+3. 对枚举对象/属性使用 final + static 共同修饰，实现底层优化
+4. 枚举对象名通常使用全部大写，常量的命名规范.
+5. 枚举对象根据需要，也可以有多个属性 
 
 ```java
-public class HelloWorld {  
-    public static void main(String[] args){  
-        int[] arr = {7, 23, 79, 81, 103, 127, 131};  
-        System.out.println(binarySearch(arr, 127));  
+package top.jerry1100.demo1;  
+  
+public class Enumeration {  
+    public static void main(String[] args) {  
+        System.out.println(Seanon.AUTUMN);  
+        System.out.println(Seanon.SPRINT);  
+        System.out.println(Seanon.WINTER);  
+        System.out.println(Seanon.SUMMER);  
     }  
   
-    public static int binarySearch(int[] arr,int target){  
-        int l = 0;  
-        int r = arr.length-1;  // 区间是左闭右闭的
-        while (l<=r){  // l==r 是有意义的
-            int mid = l+(r-l)/2;  
-            if(arr[mid]>target){  
-                r = mid-1;  
-            }  
-            else if(arr[mid]<target){  
-                l = mid+1;  
-            }  
-            else{  
-                return mid;  
-            }  
-        }  
-        return -1;  
+}  
+  
+class Seanon{  
+    private String name; // 名字  
+    private String desc; // 描述  
+//    定义四个对象  
+    public static final Seanon SPRINT = new Seanon("春天","温暖");  
+    public static final Seanon SUMMER = new Seanon("夏天","炎热");  
+    public static final Seanon AUTUMN = new Seanon("秋天","凉爽");  
+    public static final Seanon WINTER = new Seanon("冬天","寒冷");  
+    private Seanon(String name,String desc){  
+        this.name = name;  
+        this.desc = desc;  
     }  
   
-}
-```
-
-### 插值查找
-
-在介绍插值查找之前，先考虑一个问题：
-
-为什么二分查找算法一定要是折半，而不是折四分之一或者折更多呢？
-
-其实就是因为方便，简单，但是如果我能在二分查找的基础上，让中间的mid点，尽可能靠近想要查找的元素，那不就能提高查找的效率了吗？
-
-二分查找中查找点计算如下：
-
-　　mid=l+1/2*(r-l);
-
-我们可以将查找的点改进为如下：
-
-```java
-　　mid=l+(key-a[l])/(a[r]-a[l])*(r-l)
-```
-
-这样，让mid值的变化更靠近关键字key，这样也就间接地减少了比较次数。
-
-　　基本思想：基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。
-
-**细节：** 对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。
-
-代码跟二分查找类似，只要修改一下mid的计算方式即可。
-
-### 分块查找
-
-```java
-package com.itheima.search;
-class Block{
-    private int max;//最大值
-    private int startIndex;//起始索引
-    private int endIndex;//结束索引
-    public Block() {}
-    public Block(int max, int startIndex, int endIndex) {
-        this.max = max;
-        this.startIndex = startIndex;
-        this.endIndex = endIndex;
-    }
-    public int getMax() {  return max;  }
-    public void setMax(int max) { this.max = max; }
-    public int getStartIndex() {  return startIndex;  }
-    public void setStartIndex(int startIndex) {
-        this.startIndex = startIndex;
-    }
-    public int getEndIndex() { return endIndex;  }
-    public void setEndIndex(int endIndex) {
-        this.endIndex = endIndex;
-    }
-    public String toString() {
-        return "Block{max = " + max + ", startIndex = " + startIndex + ", endIndex = " + endIndex + "}";
-    }
-}
-public class A03_BlockSearchDemo {
-    public static void main(String[] args) {
-        int[] arr = {16, 5, 9, 12,21, 18,
-                     32, 23, 37, 26, 45, 34,
-                     50, 48, 61, 52, 73, 66};
-
-        //创建三个块的对象
-        Block b1 = new Block(21,0,5);
-        Block b2 = new Block(45,6,11);
-        Block b3 = new Block(73,12,17);
-        //定义数组用来管理三个块的对象（索引表）
-        Block[] blockArr = {b1,b2,b3};
-        //定义一个变量用来记录要查找的元素
-        int number = 37;
-        //调用方法，传递索引表，数组，要查找的元素
-        int index = getIndex(blockArr,arr,number);
-        //打印一下
-        System.out.println(index);
-    }
-    //利用分块查找的原理，查询number的索引
-    private static int getIndex(Block[] blockArr, int[] arr, int number) {
-        //1.确定number是在那一块当中
-        int indexBlock = findIndexBlock(blockArr, number);
-        if(indexBlock == -1){
-            //表示number不在数组当中
-            return -1;
-        }
-        //2.获取这一块的起始索引和结束索引   --- 30
-        int startIndex = blockArr[indexBlock].getStartIndex();
-        int endIndex = blockArr[indexBlock].getEndIndex();
-        //3.遍历
-        for (int i = startIndex; i <= endIndex; i++) {
-            if(arr[i] == number){
-                return i;
-            }
-        }
-        return -1;
-    }
-    //定义一个方法，用来确定number在哪一块当中
-    public static int findIndexBlock(Block[] blockArr,int number){ //100
-        //从0索引开始遍历blockArr，如果number小于max，那么就表示number是在这一块当中的
-        for (int i = 0; i < blockArr.length; i++) {
-            if(number <= blockArr[i].getMax()){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
-
-}
-```
-
-### 哈希查找
-
-### 树的查找
-
-## 排序
-
-### 冒泡排序
-
-冒泡排序的基本思想是：
-
-1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
-2. 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。
-3. 针对所有的元素重复以上的步骤，除了最后一个。
-4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-
-![[v2-33a947c71ad62b254cab62e5364d2813_b.gif]]
-
-这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端，故名。
-
-冒泡排序的时间复杂度在最坏和平均情况下都是 O(n^2)，其中 n 是列表的长度。
-解释如下：
-
-最坏情况下，即输入数组完全逆序，需要进行 n(n-1)/2 次比较和交换，所以最坏情况下的时间复杂度是 O(n^2)。
-
-平均情况下，需要进行近似 n(n-1)/4 次比较和交换，所以平均情况下的时间复杂度也是 O(n^2)。
-
-在最好情况下，即输入数组已经完全有序，冒泡排序只需要进行 n-1 次比较，不需要进行交换，所以最好情况下的时间复杂度是 O(n)。
-
-```java
-for(int i = 0;i<arr.length-1;i++){  
-    for(int j = 0;j<arr.length-1-i;j++){  
-        if(arr[j]>arr[j+1]){  
-            int tmp = arr[j];  
-            arr[j] = arr[j+1];  
-            arr[j+1] = tmp;  
-        }  
+    public String getDesc() {  
+        return desc;  
+    }  
+  
+    public String getName() {  
+        return name;  
+    }  
+  
+    @Override  
+    public String toString() {  
+        return "Seanon{" +  
+                "name='" + name + '\'' +  
+                ", desc='" + desc + '\'' +  
+                '}';  
     }  
 }
 ```
 
-### 选择排序
+### 使用enum关键字实现枚举
 
-选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是：第一次从待排序的数据元素中选出最小 的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小元素，然后放到已排序的序列的末尾 。以此类推，直到全部待排序的数据元素的个数为零。选择排序是不稳定的排序方法。
-
-![[v2-1c7e20f306ddc02eb4e3a50fa7817ff4_b.gif]]
+1. 使用关键字 enum 替代 class
+2. public static final Season SPRING = new Season("春天"，"温暖")直接使用 SPRING("春天"，"温暖")解读 常量名(实参列表)
+3. 如果有多个常量(对象)，使用号间隔即可
+4. 如果使用enum 来实现枚举，要求将定义常量对象，写在前面
+5. 使用了enum关键字以后就不能再继承它了，因为enum会隐式继承Enum，而java是单继承机制，但是还可以实现接口
 
 ```java
-for(int i = 0;i<arr.length-1;i++){  
-    int min = i;  // 最小的下标
-    for(int j = i+1;j<arr.length;j++){  
-        if(arr[min]>arr[j]){  
-            min = j;  // 改变下标
-        }  
+package top.jerry1100.demo1;  
+  
+public class Enumeration {  
+    public static void main(String[] args) {  
+        System.out.println(Seanon.AUTUMN);  
+        System.out.println(Seanon.SPRINT);  
+        System.out.println(Seanon.WINTER);  
+        System.out.println(Seanon.SUMMER);  
     }  
-    int tmp = arr[min];  
-    arr[min] =arr[i];  
-    arr[i] = tmp;  
-}
-```
-
-最好的情况全部元素已经有序，则 交换次数为0；最差的情况，全部元素逆序，就要交换 n-1 次；所以**最优的时间复杂度和最差的时间复杂度和平均时间复杂度 都为 ：O(n^2)** 不稳定
-
-### 插入排序
-
-思路：
-
-1. 从第一个元素开始，该元素可以认为已经被排序；
-2. 取出下一个元素，在前面已排序的元素序列中，从后向前扫描；
-3. 如果该元素（已排序）大于新元素，将该元素移到下一位置；
-4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；
-5. 将新元素插入到该位置后；
-6. 重复步骤2~5。
-
-![[v2-33a947c71ad62b254cab62e5364d2813_b 1.gif]]
-
-
-```java
-if(arr.length<2) return;  
-for(int i = 1;i<arr.length;i++){  
-    int j = i-1;  
-    int curr = arr[i];  //当前比较的元素
-    for(;j>=0;j--){  
-        if(curr<arr[j]){  
-            arr[j+1] = arr[j];  // 后移
-        }  
-        else break;  
+}  
+enum Seanon{  
+//    定义四个对象  
+    SPRINT("春天","温暖"),  
+    SUMMER("夏天","炎热"),  
+    AUTUMN("秋天","凉爽"),  
+    WINTER("冬天","寒冷");  
+    private String name; // 名字  
+    private String desc; // 描述  
+    private Seanon(String name,String desc){  
+        this.name = name;  
+        this.desc = desc;  
     }  
-    arr[j+1] = curr;   // 插入
+    public String getDesc() {  
+        return desc;  
+    }  
+    public String getName() {  
+        return name;  
+    }  
+    @Override  
+    public String toString() {  
+        return "Seanon{" +  
+                "name='" + name + '\'' +  
+                ", desc='" + desc + '\'' +  
+                '}';  
+    }  
 }
 ```
 
-1. 元素集合越接近有序，直接插入排序算法的时间效率越高
-2. 时间复杂度：O(N) ~ O(N^2)
-3. 空间复杂度：O(1)
-4. 稳定性：稳定
-
-### 希尔排序
-
-希尔排序是直接插入排序的优化版本：由于直接插入排序对顺序有序或接近有序的序列排序效率很高。所以希尔排序先通过多次分组预排序使序列接近有序，最后再进行直接插入排序≈O(N)，以此来提高效率。
-多次分组预排序：就是将序列进行间隔分组，对同一组内的元素进行直接插入排序，并不断缩小分组间距。
-如何分组：
-通过增量gap对序列进行分组控制，gap是组内元素之间的间距，同时也是组数。
-gap初始化为n; 每次分组预排gap = gap/3+1；除3是进过多次试验得出的最佳缩小系数，加1是为了避免跳过最后一次直接插入排序。
-直到gap\==1 进行最后一次直接插入排序使序列顺序有序。
-
-![[5ff92087b3634e58b5e9689b5d1fee40.gif]]
+### enum 关键字的一些常用方法
 
 ```java
-protected void sort(int[] nums) {
-    if (nums == null || nums.length < 2) {
-        return;
-    }
-    int length = nums.length;  
-	int curr;  
-	//步长  
-	int gap = length;  
-	while (gap>1){  
-	    gap = gap / 3+1;  
-	    for(int i = 0;i<gap;i++) {  
-	        for (int j = i; j < length - gap; j += gap) {  
-	            curr = nums[j + gap];  
-	            int index = j;  
-	            while (index >= 0 && curr < nums[index]) {  
-	                nums[index + gap] = nums[index];  
-	                index -= gap;  
-	            }  
-	            nums[index + gap] = curr;  
-	        }  
-	    }  
-	}
-}
+//        输出枚举对象的顺序和名字  
+        Seanon autumn = Seanon.AUTUMN;  
+        System.out.println(autumn.ordinal()); //2  
+        System.out.println(autumn.name()); //AUTUMN  
+//        得到所有枚举对象  
+        Seanon[] values = Seanon.values();  
+        for(Seanon i :values){  
+            System.out.println(i);  
+        }  
+//        根据输入的字符串，得到枚举对象，如果没有会报错  
+        Seanon autumn2 = Seanon.valueOf("AUTUMN");  
+        System.out.println(autumn2);  
+//        比较两个常量，就是在比较他们的ordinal  
+        System.out.println(Seanon.AUTUMN.compareTo(autumn2));//0  
+        System.out.println(autumn.compareTo(autumn2));//0  
+        System.out.println(Seanon.SPRINT.compareTo(autumn2));//-2
 ```
 
-希尔排序对直接插入排序的优化在于：优化了直接插入排序对逆序数据排序效率很差的缺点。我们将数据进行了一个gap分组，然后进行组预排序，这样下来数据会越来越接近有序，等到最后一次排序的时候，我们无需进行大量的数据遍历，只需遍历个别不满足升序的数据即可。这样希尔排序效率就会比直接插入排序高很多。
-对于希尔排序的时间复杂度：计算是不好计算的，需要进行数学推导，推导出来平均时间复杂度： O(N^1.3—N^2）算法复杂度：**O(nlog2n)**
+## 注解
 
-算法空间复杂度：**O(1)**  
-算法稳定性：稳定
+注解的理解
+1)注解(Annotation)也被称为元数据(Metadata),用于修饰解释 包、类、方法、属性、构造器、局部变量等数据信息。
+2)和注释一样，注解不影响程序逻辑，但注解可以被编译或运行，相当于嵌入在代码中的补充信息。
+3)在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替java EE旧版中所遗留的繁冗代码和XML配置等。
 
-### 快速排序
 
-1. 从数组中选一个数做为基准值，一般选第一个数，或者最后一个数。
-2. 采用双指针(头尾两端)遍历，从左往右找到比基准值大的第一个数，从右往左找到比基准值小的第一个数，交换两数位置，直到头尾指针相等或头指针大于尾指针，把基准值与头指针的数交换。这样一轮之后，左边的数就比基准值小，右边的数就比基准值大。
-3. 对左边的数列，重复上面1，2步骤。对右边重复1，2步骤。
-4. 左右两边数列递归结束后，排序完成。
+使用 Annotation 时要在其前面增加 @ 符号, 并把该 Annotation 当成一个修饰符使用。用于修饰它支持的程序元素，三个基本的 Annotation:
+@Override: 限定某个方法，是重写父类方法,该注解只能用于方法
+@Deprecated: 用于表示某个程序元素(类,方法等)已过时
+@SuppressWarnings: 抑制编译器警告
 
-![[89eba1c0e40940e68fe05c538691bfc3.gif]]
+### @Override
 
-![[v2-c411339b79f92499dcb7b5f304c826f4_b.gif]]
+**Override 使用说明**
+1. @Override 表示指定重写父类的方法(从编译层面验证)，如果父类没有fly方法，则会报错
+2. 如果不写@Override 注解,而父类仍有 public void fly(){}，仍然构成重写
+3. @Override 只能修饰方法，不能修饰其它类，包，属性等等
+4. 查看@Override注解源码为 @Target(ElementType.METHOD),说明只能修饰方法
+5. @Target 是修饰注解的注解， 称为元注解
 
 ```java
-private void quickSort(int[] nums, int star, int end) {
-        if (star > end) {
-            return;
-        }
-        int i = star;
-        int j = end;
-        int key = nums[star];
-        while (i < j) {
-            while (i < j && nums[j] > key) {
-                j--;
-            }
-            while (i < j && nums[i] <= key) {
-                i++;
-            }
-            if (i < j) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-            }
-        }
-        nums[star] = nums[i];
-        nums[i] = key;
-        quickSort(nums, star, i - 1);
-        quickSort(nums, i + 1, end);
-    }
-```
-
-对于无序程度越大的序列, 快速排序的效率越好, 时间复杂度O(n logn), 因为这样左右两边的树比较均匀，
-
-对于比较有序的序列，通过三数取中的方法，改变key的选取，优化最坏的情况
-
-``` java
-int GetMidIndex(int *arr, int left, int right){
-	int mid = left + (right - left) / 2;
-	int tmp1 = arr[left] > arr[mid] ? left : mid;
-	int tmp2 = arr[mid] > arr[right] ? mid : right;
-	return arr[tmp1] > arr[tmp2] ? tmp2 : tmp1;
-
+class Father{//父类
+	public void fly(){
+		System.out.println("Father fly...");
+	}
 }
-
-int Partion1(int *arr, int left, int right){
-	//三数取中 -- 有序的情况每次二分，将最坏情况变成最好情况
-	int midi = GetMidIndex(arr, left, right);
-	Swap(&arr[midi], &arr[left]);
-	int keyi = left;
-	while (left < right)
-	{
-		//右边先走，找小
-		//">="  "<="注意等于条件，防止死循环
-		//每次都要判断left<right，防止越界
-		while (left < right && arr[right] >= arr[keyi])
-		{
-			right--;
-		}
-		//左边再走，找大
-		while (left < right && arr[left] <= arr[keyi])
-		{
-			left++;
-		}
-		//交换left，right的值
-		Swap(&arr[left], &arr[right]);
+class Son extends Father {//子类
+	@0verride
+	//说明 写不写override都是重写，但是写了注解，编译器会去检查该方法是否真的重写，如果重写就编译通过，如果没重写则编译不通过
+	public void fly(){
+		System.out.println("Son fly...."),
 	}
-	//left和right相遇时，left与key交换
-	Swap(&arr[left], &arr[keyi]);
-	return left;
-}
-
-void QuickSort(int *arr, int left, int right){
-	//小区间优化：当分割到小区间时（10左右），不再用递归分割的思路让这段子区间有序。对于递归快排，大量减少了递归次数
-	if (right - left + 1 < 10)
-	{
-		//right - left + 1 区间内元素的数量
-		//arr + left 起始位置不都在开头
-		InsertSort(arr+left, right - left + 1);
-		return;
-	}
-
-	// 按照基准值对array数组的 [left, right]区间中的元素进行划分
-	int div = Partion1(arr, left, right);
-	// 划分成功后以div为边界形成了左右两部分 [left, div-1] 和 [div+1, right]
-	//left == right 区间内只有一个值，left > right 区间内没有值
-	if(left < div-1)
-	{
-		// 递归排[left, div]
-		QuickSort(arr, left, div - 1);
-	}
-	if(div+1<right)
-	{
-		//递归排[div+1, right]
-		QuickSort(arr, div + 1, right);
-	}	
-	
 }
 ```
 
-算法复杂度：**O(nlogn)**  
-算法空间复杂度：**O(1)**  
-算法稳定性：不稳定
-### 归并排序
+### @Deprecated
 
-归并排序是采用分治法的典型应用，而且是一种稳定的排序方式，不过需要使用到额外的空间。
-
-思路：
-
-1. 把数组不断划分成子序列，划成长度只有2或者1的子序列。
-2. 然后利用临时数组，对子序列进行排序，合并，再把临时数组的值复制回原数组。
-3. 反复操作1~2步骤，直到排序完成。
-
-归并排序的优点在于最好情况和最坏的情况的时间复杂度都是O(nlogn)，所以是比较稳定的排序方式。
-
-![[v2-cdda3f11c6efbc01577f5c29a9066772_b.gif]]
+1. 用于表示某个程序元素(类,方法等)已过时
+2. 可以修饰方法，类，字段,包,参数 等等
+3. @Target(value={CONSTRUCTOR, FIELD, LOCAL VARIABLE, METHOD PACKAGE,PARAMETER, TYPE})
+4. Deprecated 的作用可以做到新旧版本的兼容和过渡
 
 ```java
-public class MergeSort extends BaseSort {
-
-    public static void main(String[] args) {
-        MergeSort sort = new MergeSort();
-        sort.printNums();
-    }
-
-    @Override
-    protected void sort(int[] nums) {
-        if (nums == null || nums.length < 2) {
-            return;
-        }
-        //归并排序
-        mergeSort(0, nums.length - 1, nums, new int[nums.length]);
-    }
-
-    private void mergeSort(int star, int end, int[] nums, int[] temp) {
-        //递归终止条件
-        if (star >= end) {
-            return;
-        }
-        int mid = star + (end - star) / 2;
-        //左边进行归并排序
-        mergeSort(star, mid, nums, temp);
-        //右边进行归并排序
-        mergeSort(mid + 1, end, nums, temp);
-        //合并左右
-        merge(star, end, mid, nums, temp);
-    }
-
-    private void merge(int star, int end, int mid, int[] nums, int[] temp) {
-        int index = 0;
-        int i = star;
-        int j = mid + 1;
-        while (i <= mid && j <= end) {
-            if (nums[i] > nums[j]) {
-                temp[index++] = nums[j++];
-            } else {
-                temp[index++] = nums[i++];
-            }
-        }
-        while (i <= mid) {
-            temp[index++] = nums[i++];
-        }
-        while (j <= end) {
-            temp[index++] = nums[j++];
-        }
-        //把临时数组中已排序的数复制到nums数组中
-        if (index >= 0) System.arraycopy(temp, 0, nums, star, index);
-    }
+@Deprecated
+class A {
+	@Deprecated
+	public int n1 = 10;
+	@Deprecated
+	public void hi(){
+		System.out.println("hi");
+	}
 }
 ```
 
-算法复杂度：**O(nlogn)**  
-算法空间复杂度：**O(n)**  
-算法稳定性：稳定
+### @SupperessWarngin
 
-### 堆排序
+1. 当我们不希望看到这些警告的时候，可以使用 SuppressWarnings注解来抑制警告信息
+2. 在{""}中，可以写入你希望抑制(不显示)警告信息
+3. 可以选择的警告抑制类型
+	all，抑制所有警告
+	boxing，抑制与封装/拆装作业相关的警告
+	cast，抑制与强制转型作业相关的警告
+	dep-ann，抑制与淘汰注释关的警告
+	deprecation，抑制与淘汰的关警告
+	fallthrough，抑制与switch陈述式中遗漏break关的警告
+	finally，抑制与未传回finally区块相关的警告
+	hiding，抑制与隐藏变数的区域变数相关的警告
+	incomplete-switch，抑制与switch陈述式(enum case)中遗漏项目关的警告
+	javadoc，抑制与javadoc关的警告
+	nls，抑制与非nls字串文字相关的警告
+		null，抑制与空值分析相关的警告
+	rawtypes，抑制与使用raw类型相关的警告
+	resource，抑制与使用Closeable类型的资源关的警告
+	restriction，抑制与使用不建议或禁止参照关的警告
+	serial，抑制与可序列化的类遗漏serialVersionUID栏位相关的警告
+	static-access，抑制与静态存取不正确关的警告
+	static-method，抑制与可能宣告为static的方法关的警告
+	super，抑制与置换方法相关但不含super呼叫的警告
+	synthetic-access，抑制与内部类别的存取未最佳化关的警告
+	sync-override，抑制因为置换同步方法而遗漏同步化的警告
+	unchecked，抑制与未检查的作业相关的警告
+	unqualified-field-access，抑制与栏位存取不合格关的警告
+	unused，抑制与未用的程式码及停用的程式码关的警告
+4. 关于SuppressWarnings 作用范围是和你放置的位置关：比如 @SuppressWarnings放置在 main方法，那么抑制警告的范围就是 main，一般可以放在语句，方法，类上面
 
-大顶堆概念：每个节点的值都大于或者等于它的左右子节点的值，所以顶点的数就是最大值。
 
+```java
+@SuppressWarnings({"rawtypes","unchecked","unused"})
+public static void main(string[l args){
+	List list = new ArrayList();
+	List.add("jack");
+	List.add("tom");
+	List.add("mary");
+	int i;
+	System.out.println(list.get(1));
+}
+```
+
+### 元注解
+
+元注解就是修饰注解的注解（JDK 的元 Annotation 用于修饰其他 Annotation）
+
+原注解的种类：
+1. Retention //指定注解的作用范围，三种 SOURCE,CLASS,RUNTIME
+2. Target // 指定注解可以在哪些地方使用
+3. Documented //指定该注解是否会在javadoc体现
+4. Inherited //子类会继承父类注解
+
+## 异常处理
 
 # java EE
 

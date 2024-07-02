@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ce1a1d336863179f",
+        "id": "42b9d7e7254f1629",
         "type": "tabs",
         "children": [
           {
-            "id": "ac747156962cef56",
+            "id": "5c321179d5df4617",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JAVA学习/A 学习路线.md",
+                "file": "力扣刷题/2 移除元素.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "内部类",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,8 +85,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JAVA学习/A 学习路线.md",
-                "collapseAll": false,
+                "file": "力扣刷题/2 移除元素.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JAVA学习/A 学习路线.md",
+                "file": "力扣刷题/2 移除元素.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JAVA学习/A 学习路线.md"
+                "file": "力扣刷题/2 移除元素.md"
               }
             }
           },
@@ -154,28 +154,32 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ac747156962cef56",
+  "active": "5c321179d5df4617",
   "lastOpenFiles": [
-    "JAVA学习/7 数组和字符串.md",
+    "力扣刷题/A 刷题路线.md",
+    "力扣刷题/2 移除元素.md",
+    "力扣刷题/1 二分查找.md",
+    "Welcome.md",
+    "力扣刷题",
+    "JAVA学习/9 查找和排序.md",
     "JAVA学习/A 学习路线.md",
-    "JAVA学习/8 常用API.md",
-    "JAVA学习/attachments/深克隆.png",
-    "JAVA学习/attachments/浅克隆.png",
-    "JAVA学习/attachments/v2-c411339b79f92499dcb7b5f304c826f4_b.gif",
-    "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b.gif",
-    "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b 1.gif",
-    "JAVA学习/attachments/v2-1c7e20f306ddc02eb4e3a50fa7817ff4_b.jpg",
-    "JAVA学习/attachments/v2-1c7e20f306ddc02eb4e3a50fa7817ff4_b.gif",
-    "JAVA学习/attachments/bigdecimal存储原理.png",
-    "JAVA学习/attachments/Pasted image 20240410211925.png",
-    "JAVA学习/attachments/Pasted image 20240410202609.png",
+    "JAVA学习/7 数组和字符串.md",
+    "JAVA学习/10 List集合.md",
     "JAVA学习/6 抽象类和接口.md",
     "JAVA学习/5 类和对象.md",
     "JAVA学习/4 面向对象.md",
     "JAVA学习/2 基础语法.md",
+    "JAVA学习/attachments/01_集合类体系结构图.png",
+    "JAVA学习/8 常用API.md",
+    "JAVA学习/attachments/堆排序.gif",
+    "JAVA学习/attachments/v2-cdda3f11c6efbc01577f5c29a9066772_b.gif",
+    "JAVA学习/attachments/89eba1c0e40940e68fe05c538691bfc3.gif",
+    "JAVA学习/attachments/v2-c411339b79f92499dcb7b5f304c826f4_b.gif",
+    "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b.gif",
+    "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b 1.gif",
+    "JAVA学习/attachments/v2-33a947c71ad62b254cab62e5364d2813_b.gif",
     "JAVA学习/1 java 快速入门.md",
     "JAVA学习/3 运算符和流程控制.md",
-    "Welcome.md",
     "JAVA学习/attachments",
     "JAVA学习"
   ]
