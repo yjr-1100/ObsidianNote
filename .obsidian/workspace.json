@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "力扣刷题/2 移除元素.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "力扣刷题/2 移除元素.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "力扣刷题/2 移除元素.md",
+                "file": "JAVA学习/A 学习路线.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "力扣刷题/2 移除元素.md"
+                "file": "JAVA学习/A 学习路线.md"
               }
             }
           },
@@ -156,8 +156,8 @@
   },
   "active": "5c321179d5df4617",
   "lastOpenFiles": [
-    "力扣刷题/A 刷题路线.md",
     "力扣刷题/2 移除元素.md",
+    "力扣刷题/A 刷题路线.md",
     "力扣刷题/1 二分查找.md",
     "Welcome.md",
     "力扣刷题",
