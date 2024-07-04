@@ -99,9 +99,46 @@ public:
 
 下面介绍另一种循环控制方法：
 
+```cpp
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size(); // 行
+        int n = matrix[0].size(); // 列
+        vector<int> ans;
+        int row_start = 0,row_end = m-1;
+        int col_start = 0,col_end = n-1;
+        int short_line = m<n?m:n;
+        int loop = m<n?m/2:n/2;
+        int i = row_start;
+        int j = col_start;
+        while(ans.size()<m*n){
+            if(row_start<=row_end){
+                for(i=row_start,j=col_start;j<=col_end;j++) 
+	                ans.push_back(matrix[i][j]);
+                row_start++;
+            }
+            if(col_start<=col_end){
+                for(j=col_end,i=row_start;i<=row_end;i++) 
+	                ans.push_back(matrix[i][j]);
+                col_end--;
+            }
+            if(row_start<=row_end){
+                for(i=row_end,j=col_end;j>=col_start;j--) 
+	                ans.push_back(matrix[i][j]);
+                row_end--;
+            }
+            if(col_start<=col_end){
+                for(j = col_start,i=row_end;i>=row_start;i--) 
+	                ans.push_back(matrix[i][j]);
+                col_start++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
-```
-
+这种方法就是一次填完一行或者一列，然后就移动指针；
 ## [剑指Offer 29.顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
 
