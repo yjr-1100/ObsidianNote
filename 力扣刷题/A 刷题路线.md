@@ -55,6 +55,9 @@ struct ListNode {
 [[2.6 链表相交]]
 [[2.7 环形链表]]
 
+合并链表
+[21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
+[23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 ---
 
