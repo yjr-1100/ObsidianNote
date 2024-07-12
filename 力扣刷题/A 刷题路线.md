@@ -104,5 +104,6 @@ struct ListNode {
 [双指针总结](https://programmercarl.com/%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%BB%E7%BB%93.html)
 
 ---
-# 栈和队列
+# 6 栈和队列
 
+[[6.1 用栈实现队列]]
