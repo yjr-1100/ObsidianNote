@@ -123,4 +123,22 @@ struct ListNode {
 
 **二叉树的存储方式：**
 + 顺序存储：用一个数组，节点i的左孩子 `2 * i + 1`，右节点：`2 * i + 2`
-+ 链式
++ 链式： 一个节点，有左指针和右指针
+```cpp
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+```
+
+**二叉树的遍历**
++ 深度优先遍历
+	+ 前序遍历：中左右
+	+ 中序遍历：左中右
+	+ 后序遍历：左右中
++ 广度优先遍历
+	+ 层次遍历
+
+[[7.1 递归遍历]]
