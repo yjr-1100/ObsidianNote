@@ -117,3 +117,10 @@ struct ListNode {
 ---
 # 7 二叉树
 
+**二叉树的种类**   满二叉树，完全二叉树，二叉搜索树，平衡二叉搜索树
+
+**C++中map、set、multimap，multiset的底层实现都是平衡二叉搜索树**，所以map、set的增删操作时间时间复杂度是logn，注意我这里没有说unordered_map、unordered_set，unordered_map、unordered_set底层实现是哈希表。
+
+**二叉树的存储方式：**
++ 顺序存储：用一个数组，节点i的左孩子 `2 * i + 1`，右节点：`2 * i + 2`
++ 链式
