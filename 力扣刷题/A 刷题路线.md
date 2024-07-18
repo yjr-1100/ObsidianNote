@@ -152,7 +152,7 @@ struct TreeNode {
 
 [222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes/)
 
-可以像普通的二叉树一样通过遍历计数
+可以像普通的二叉树一样通过遍历计数,层序遍历也可以
 
 ```cpp
 class Solution {
