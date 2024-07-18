@@ -171,8 +171,28 @@ public:
 
 还可以利用完全二叉树的性质
 
-```cpp
+完全二叉树只有最后一层会残缺，并且完全二叉树有子树是满二叉树，可以用公式直接计算出来满二叉树的节点个数。
 
+```cpp
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if(root==nullptr) return 0;
+        int leftnum = 0,rightnum = 0;
+        TreeNode* left = root->left;
+        TreeNode* right = root->right;
+        while(left){
+            left=left->left;
+            leftnum++;
+        }
+        while(right){
+            right = right->right;
+            rightnum++;
+        }
+        if(leftnum==rightnum) return (2<<leftnum)-1;
+        return 1+ countNodes(root->left)+countNodes(root->right);
+    }
+};
 ```
 
 
