@@ -148,5 +148,10 @@ struct TreeNode {
 [[7.5 对称二叉树]]
 [[7.6 二叉树的最大深度]]
 [[7.7 二叉树的最小深度]]
+# 7.8 完全二叉树的节点个数
+
+[222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes/)
+
+
 
 
