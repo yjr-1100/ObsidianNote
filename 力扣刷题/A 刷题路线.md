@@ -153,5 +153,25 @@ struct TreeNode {
 
 [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
 
-主要是求根节点左右子树的高度差是否小于等于1；因此主要就是求
+主要是求根节点左右子树的高度差是否小于等于1；因此主要就是求根节点左右子树的高度差
+
+求高度，用的是后序遍历。
+
+```cpp
+class Solution {
+public:
+    int getheight(TreeNode* node){
+        if(node==nullptr) return 0;
+        int leftheight = getheight(node->left);
+        int rightheight = getheight(node->right);
+        if(leftheight==-1||rightheight==-1) return -1;
+        if(abs(leftheight-rightheight)>1) return -1;
+        else return 1+max(leftheight,rightheight);
+    }
+    bool isBalanced(TreeNode* root) {
+        if(getheight(root)!=-1) return true;
+        else return false;
+    }
+};
+```
 
