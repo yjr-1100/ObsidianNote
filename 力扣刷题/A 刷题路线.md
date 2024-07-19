@@ -151,42 +151,11 @@ struct TreeNode {
 [[7.8 完全二叉树的节点个数]]
 [[7.9 平衡二叉树]]
 [[7.10 二叉树的所有路径]]
-# 7.11 左孩子之和
+[[7.11 左孩子之和]]
+# 7.12 找树左下角的值
 
-[404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves/)
+[513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value/)
 
-```cpp
-class Solution {
-public:
-    void getsum(TreeNode* node,int& ans){
-        if(node->left!=nullptr&&node->left->left==nullptr&&node->left->right==nullptr) {ans+=node->left->val;}
-        if(node->left) getsum(node->left,ans);
-        if(node->right) getsum(node->right,ans);
-        return;
-    }
-    int sumOfLeftLeaves(TreeNode* root) {
-        int ans = 0;
-        if(root==nullptr) return 0;
-        getsum(root,ans);
-        return ans;
-    }
-};
 ```
 
-后序遍历
-
-```cpp
-class Solution {
-public:
-    int sumOfLeftLeaves(TreeNode* root) {
-        if(root==nullptr) return 0;
-        if(root->left==nullptr&&root->right==nullptr) return 0;
-        int leftsum = sumOfLeftLeaves(root->left);
-        if(root->left!=nullptr&&root->left->left==nullptr&&root->left->right==nullptr){
-            leftsum = root->left->val;
-        }
-        int rightsum = sumOfLeftLeaves(root->right);
-        return leftsum+rightsum;
-    }
-};
 ```
