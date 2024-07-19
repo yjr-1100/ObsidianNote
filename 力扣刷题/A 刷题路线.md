@@ -152,3 +152,5 @@ struct TreeNode {
 [[7.9 平衡二叉树]]
 # 7.10 二叉树的所有路径
 
+[257. 二叉树的所有路径](https://leetcode.cn/problems/binary-tree-paths/)
+
