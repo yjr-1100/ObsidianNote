@@ -172,3 +172,21 @@ public:
     }
 };
 ```
+
+后序遍历
+
+```cpp
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        if(root==nullptr) return 0;
+        if(root->left==nullptr&&root->right==nullptr) return 0;
+        int leftsum = sumOfLeftLeaves(root->left);
+        if(root->left!=nullptr&&root->left->left==nullptr&&root->left->right==nullptr){
+            leftsum = root->left->val;
+        }
+        int rightsum = sumOfLeftLeaves(root->right);
+        return leftsum+rightsum;
+    }
+};
+```
