@@ -150,7 +150,4 @@ struct TreeNode {
 [[7.7 二叉树的最小深度]]
 [[7.8 完全二叉树的节点个数]]
 [[7.9 平衡二叉树]]
-# 7.10 二叉树的所有路径
-
-[257. 二叉树的所有路径](https://leetcode.cn/problems/binary-tree-paths/)
-
+[[7.10 二叉树的所有路径]]
