@@ -155,6 +155,20 @@ struct TreeNode {
 
 [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves/)
 
-```
-
+```cpp
+class Solution {
+public:
+    void getsum(TreeNode* node,int& ans){
+        if(node->left!=nullptr&&node->left->left==nullptr&&node->left->right==nullptr) {ans+=node->left->val;}
+        if(node->left) getsum(node->left,ans);
+        if(node->right) getsum(node->right,ans);
+        return;
+    }
+    int sumOfLeftLeaves(TreeNode* root) {
+        int ans = 0;
+        if(root==nullptr) return 0;
+        getsum(root,ans);
+        return ans;
+    }
+};
 ```
