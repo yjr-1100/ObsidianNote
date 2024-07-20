@@ -152,28 +152,4 @@ struct TreeNode {
 [[7.9 平衡二叉树]]
 [[7.10 二叉树的所有路径]]
 [[7.11 左孩子之和]]
-# 7.12 找树左下角的值
-
-[513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value/)
-
-```cpp
-class Solution {
-public:
-    int findBottomLeftValue(TreeNode* root) {
-        queue<TreeNode*> que;
-        if(root!=nullptr) que.push(root);
-        int ans;
-        while(!que.empty()){
-            int size = que.size();
-            for(int i = 0;i<size;i++){
-                TreeNode* node = que.front();
-                que.pop();
-                if(i==0) ans = node->val;
-                if(node->left) que.push(node->left);
-                if(node->right) que.push(node->right);
-            }
-        }
-        return ans;
-   }
-};
-```
+[[7.12 找树左下角的值]]
