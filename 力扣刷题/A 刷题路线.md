@@ -188,5 +188,35 @@ public:
 
 
 ```cpp
-
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if(root==nullptr) return nullptr;
+        if(root->val==val) return root;
+  
+        TreeNode* result;
+        if(root->val>val) result = searchBST(root->left,val);
+        if(root->val<val) result = searchBST(root->right,val);
+  
+        return result;
+    }
+};
 ```
+
+迭代写法：
+
+```cpp
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        while (root != NULL) {
+            if (root->val > val) root = root->left;
+            else if (root->val < val) root = root->right;
+            else return root;
+        }
+        return NULL;
+    }
+};
+```
+
+
