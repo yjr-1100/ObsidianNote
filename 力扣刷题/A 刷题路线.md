@@ -156,3 +156,10 @@ struct TreeNode {
 [[7.13 路径总和]]
 [[7.14 中序和后序遍历构造二叉树]]
 [[7.15 最大二叉树]]
+# 7.16 合并二叉树
+
+[617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
+
+```
+
+```
