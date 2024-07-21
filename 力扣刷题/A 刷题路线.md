@@ -161,6 +161,8 @@ struct TreeNode {
 
 [700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
 
+按照普通的树进行搜索：
+
 ```cpp
 class Solution {
 public:
@@ -175,4 +177,16 @@ public:
         return nullptr;
     }
 };
+```
+
+利用二叉搜索树的性值：
+
+二叉搜索树是一个有序树：
+- 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；
+- 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
+- 它的左、右子树也分别为二叉搜索树
+
+
+```
+
 ```
