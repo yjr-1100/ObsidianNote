@@ -160,6 +160,18 @@ struct TreeNode {
 
 [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
 
-```
-
+```cpp
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if(root1==nullptr&& root2==nullptr) return nullptr;
+        if(root1==nullptr&& root2!=nullptr) return root2;
+        if(root2==nullptr&& root1!=nullptr) return root1;
+  
+        root2->val +=root1->val;
+        root2->left = mergeTrees(root2->left,root1->left);
+        root2->right = mergeTrees(root2->right,root1->right);
+        return root2;
+    }
+};
 ```
