@@ -156,22 +156,23 @@ struct TreeNode {
 [[7.13 路径总和]]
 [[7.14 中序和后序遍历构造二叉树]]
 [[7.15 最大二叉树]]
-# 7.16 合并二叉树
+[[7.16 合并二叉树]]
+# 二叉树中的搜索
 
-[617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/)
+[700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
 
 ```cpp
 class Solution {
 public:
-    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
-        if(root1==nullptr&& root2==nullptr) return nullptr;
-        if(root1==nullptr&& root2!=nullptr) return root2;
-        if(root2==nullptr&& root1!=nullptr) return root1;
-  
-        root2->val +=root1->val;
-        root2->left = mergeTrees(root2->left,root1->left);
-        root2->right = mergeTrees(root2->right,root1->right);
-        return root2;
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if(root==nullptr) return nullptr;
+        if(root->val==val) return root; 
+        TreeNode* sleft = searchBST(root->left,val);
+        TreeNode* sright = searchBST(root->right,val);
+
+        if(sleft) return sleft;
+        if(sright) return sright;
+        return nullptr;
     }
 };
 ```
