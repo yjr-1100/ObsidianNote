@@ -158,3 +158,7 @@ struct TreeNode {
 [[7.15 最大二叉树]]
 [[7.16 合并二叉树]]
 [[7.17 二叉树搜索树]]
+# 7.18 二叉搜索树中的众数
+
+[501. 二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)
+
