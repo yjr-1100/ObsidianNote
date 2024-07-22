@@ -158,34 +158,4 @@ struct TreeNode {
 [[7.15 最大二叉树]]
 [[7.16 合并二叉树]]
 [[7.17 二叉树搜索树]]
-# 7.18 二叉搜索树中的众数
-
-[501. 二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)
-
-```cpp
-class Solution {
-public:
-    vector<int> ans;
-    TreeNode* pre;
-    int cont,maxcont = INT_MIN;
-    void tranversal(TreeNode* node){
-        if(node==nullptr) return;
-        tranversal(node->left);
-        if(pre==nullptr) cont=1;
-        else if(pre->val==node->val) cont++;
-        else cont=1;
-        if(cont==maxcont) ans.push_back(node->val);
-        else if(cont>maxcont){
-            maxcont = cont;
-            ans.clear();
-            ans.push_back(node->val);
-        }
-        pre = node;
-        tranversal(node->right);
-    }
-    vector<int> findMode(TreeNode* root) {
-        tranversal(root);
-        return ans;
-    }
-};
-```
+[[7.18 二叉搜索树中的众数]]
