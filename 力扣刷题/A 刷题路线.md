@@ -162,3 +162,8 @@ struct TreeNode {
 [[7.19 二叉树的最近公共祖先]]
 [[7.20 二叉搜索树的插入]]
 [[7.21 删除二叉搜索树中的节点]]
+# 7.22 修剪二叉搜索树
+
+[669. 修剪二叉搜索树](https://leetcode.cn/problems/trim-a-binary-search-tree/)
+
+
