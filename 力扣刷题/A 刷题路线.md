@@ -245,3 +245,27 @@ public:
 
 递归的写法：
 
+```cpp
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if(root==nullptr) return root;
+        if(root->val==key){
+            if(root->left==nullptr&&root->right==nullptr) return nullptr;
+            else if(root->left==nullptr&&root->right!=nullptr) return root->right;
+            else if(root->left!=nullptr&&root->right==nullptr) return root->left;
+            else{
+                TreeNode* cur = root->left;
+                while(cur->right!=nullptr) cur=cur->right;
+                cur->right=root->right;
+                return root->left;
+            }
+        }
+        else{
+            if(key>root->val)root->right = deleteNode(root->right,key);
+            else root->left = deleteNode(root->left,key);
+        }
+        return root;
+    }
+};
+```
