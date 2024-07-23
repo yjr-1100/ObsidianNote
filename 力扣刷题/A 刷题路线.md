@@ -165,6 +165,80 @@ struct TreeNode {
 
 [450. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/)
 
-```
+通过迭代找到需要删的节点，然后分情况进行讨论
 
+```cpp
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if(root==nullptr) return root;
+        TreeNode* pre=nullptr;
+        TreeNode* curr = root;
+        while(root){
+            if(root->val==key) break;
+            if(root->val > key ) {
+                pre = root;
+                root = root->left;
+            }
+            else{
+                pre = root;
+                root=root->right;
+            }
+        }
+        if(root==nullptr) return curr;
+        else if(root->left==nullptr&&root->right==nullptr) {
+            if(pre==nullptr) return pre;
+            if(pre->left==root) pre->left=nullptr;
+            else pre->right = nullptr;
+            return curr;
+        }
+        else if(root->left==nullptr&&root->right!=nullptr){
+            if(pre!=nullptr){
+                if(pre->left==root) pre->left=root->right;
+                else pre->right = root->right;
+                return curr;
+            }
+            else{
+                return root->right;
+            }
+        }
+        else if(root->right==nullptr&&root->left!=nullptr){
+            if(pre!=nullptr){
+                if(pre->left==root) pre->left=root->left;
+                else pre->right = root->left;
+                return curr;
+            }
+            else{
+                return root->left;
+            }
+        }
+        else{
+            TreeNode* right = root->right;
+            if(pre==nullptr){
+                root = root->left;
+                curr = root;
+                while(root->right!=nullptr) root=root->right;
+                root->right = right;
+                return curr;
+            }
+            else{
+                if(pre->left==root) {
+                pre->left=root->left;
+                pre = pre->left;
+                }
+                else {
+                    pre->right = root->left;
+                    pre = pre->right;
+
+                }
+                while(pre->right!=nullptr){
+                    pre = pre->right;
+                }
+                pre->right = right;
+                return curr;
+            }
+        }
+        
+    }
+};
 ```
