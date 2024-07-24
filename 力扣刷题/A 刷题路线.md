@@ -167,6 +167,19 @@ struct TreeNode {
 
 [108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
 
-```
-
+```cpp
+class Solution {
+public:
+    TreeNode* traversal(vector<int>& nums, int left, int right){
+        if(left>right) return nullptr;
+        int mid = left+((right-left)>>1);
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->right = traversal(nums,mid+1,right);
+        root->left = traversal(nums,left,mid-1);
+        return root;
+    }
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return traversal(nums,0,nums.size()-1);
+    }
+};
 ```
