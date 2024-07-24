@@ -164,57 +164,5 @@ struct TreeNode {
 [[7.21 删除二叉搜索树中的节点]]
 [[7.22 修剪二叉搜索树]]
 [[7.23 构建二叉搜索树]]
-# 7.24 把二叉搜索树转换为累加树 
+[[7.24 把二叉搜索树转换为累加树]]
 
-[538. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/)
-
-```cpp
-class Solution {
-public:
-    TreeNode* pre=nullptr;
-    void tranversal(TreeNode* node){
-        if(node==nullptr) return;
-        tranversal(node->right);
-        if(pre!=nullptr)
-            node->val = node->val+pre->val;
-        pre = node;
-        tranversal(node->left);
-    }
-    TreeNode* convertBST(TreeNode* root) {
-        tranversal(root);
-        return root;
-    }
-};
-```
-
-迭代法：
-
-```cpp
-class Solution {
-public:
-    TreeNode* convertBST(TreeNode* root) {
-        if(root==nullptr) return nullptr;
-        stack<TreeNode*> st;
-        st.push(root);
-        int pre = 0;
-        while(!st.empty()){
-            TreeNode* node = st.top();
-            if(node!=nullptr){
-                st.pop();
-                if(node->left) st.push(node->left);
-                st.push(node);
-                st.push(nullptr);
-                if(node->right) st.push(node->right);
-            }
-            else{
-                st.pop();
-                node = st.top();
-                st.pop();
-                node->val = node->val+pre;
-                pre = node->val;
-            }
-        }
-        return root;
-    }
-};
-```
