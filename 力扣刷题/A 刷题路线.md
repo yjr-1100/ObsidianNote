@@ -186,3 +186,35 @@ public:
     }
 };
 ```
+
+迭代法：
+
+```cpp
+class Solution {
+public:
+    TreeNode* convertBST(TreeNode* root) {
+        if(root==nullptr) return nullptr;
+        stack<TreeNode*> st;
+        st.push(root);
+        int pre = 0;
+        while(!st.empty()){
+            TreeNode* node = st.top();
+            if(node!=nullptr){
+                st.pop();
+                if(node->left) st.push(node->left);
+                st.push(node);
+                st.push(nullptr);
+                if(node->right) st.push(node->right);
+            }
+            else{
+                st.pop();
+                node = st.top();
+                st.pop();
+                node->val = node->val+pre;
+                pre = node->val;
+            }
+        }
+        return root;
+    }
+};
+```
