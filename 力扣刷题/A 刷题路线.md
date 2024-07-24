@@ -163,23 +163,7 @@ struct TreeNode {
 [[7.20 二叉搜索树的插入]]
 [[7.21 删除二叉搜索树中的节点]]
 [[7.22 修剪二叉搜索树]]
-# 7.23 构建二叉搜索树
+[[7.23 构建二叉搜索树]]
+# 7.24 把二叉搜索树转换为累加树 
 
-[108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
-
-```cpp
-class Solution {
-public:
-    TreeNode* traversal(vector<int>& nums, int left, int right){
-        if(left>right) return nullptr;
-        int mid = left+((right-left)>>1);
-        TreeNode* root = new TreeNode(nums[mid]);
-        root->right = traversal(nums,mid+1,right);
-        root->left = traversal(nums,left,mid-1);
-        return root;
-    }
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return traversal(nums,0,nums.size()-1);
-    }
-};
-```
+[538. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/)
