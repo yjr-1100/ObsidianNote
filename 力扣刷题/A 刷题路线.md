@@ -162,25 +162,11 @@ struct TreeNode {
 [[7.19 二叉树的最近公共祖先]]
 [[7.20 二叉搜索树的插入]]
 [[7.21 删除二叉搜索树中的节点]]
-# 7.22 修剪二叉搜索树
+[[7.22 修剪二叉搜索树]]
+# 7.23 构建二叉搜索树
 
-[669. 修剪二叉搜索树](https://leetcode.cn/problems/trim-a-binary-search-tree/)
+[108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
 
+```
 
-```cpp
-class Solution {
-public:
-    TreeNode* trimBST(TreeNode* root, int low, int high) {
-        if(root==nullptr) return nullptr;
-        if(root->val<low){
-            return trimBST(root->right,low,high);
-        }
-        if(root->val>high){
-            return trimBST(root->left,low,high);
-        }
-        root->right = trimBST(root->right,low,high);
-        root->left = trimBST(root->left,low,high);
-        return root; 
-    }
-};
 ```
