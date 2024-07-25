@@ -209,6 +209,30 @@ public:
 };
 ```
 
+加上剪枝
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> result;
+    void backtracking(int n,int k,int num,vector<int> ans){
+        if(ans.size()==k){
+            result.push_back(ans);
+            return;
+        }
+        for(int i = num ;i<=n - (k - ans.size()) + 1;i++){
+            ans.push_back(i);
+            backtracking(n,k,i+1,ans);
+            ans.pop_back();
+        }  
+    }
+    vector<vector<int>> combine(int n, int k) {
+        vector<int> ans;
+        backtracking(n,k,1,ans);
+        return result;
+    }
+};
+```
 
 17
 39
