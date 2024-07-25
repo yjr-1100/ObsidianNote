@@ -237,34 +237,54 @@ public:
 [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 
 ```cpp
-class Solution {
+class Solution
+{
 public:
-    vector<string> result;
-    void backtracking(string s,map<string,vector<string>> mp,string ans){
-        if(s=="") result.push_back(ans);
-  
+  vector<string> result;
+  void backtracking(string s, map<int, vector<string>> mp, string ans)
+  {
+    if (s == ""){
+        if(!ans.empty())
+            result.push_back(ans);
+        return;
     }
-    vector<string> letterCombinations(string digits) {
-        map<string,vector<string>> mp;
-        char c = 'a';
-        int k = 3;
-        vector<string> v;
-        for(int i = 2;i<=9;i++){
-            if(i==7||i==9) k=4;
-            else k=3;
-            for(int j=k;j>0;j--){
-                string cc(1,c);
-                v.push_back(cc);
-                c++;
-            }
-            mp[to_string(i)] = v;
-            v.clear();
-        }
-        backtracking(digits,mp);
-        return result;
+    int curr = s[0] - '0';
+    s = s.substr(1);
+    vector<string> v = mp[curr];
+    for (int i = 0; i < v.size(); i++)
+    {
+      ans += (v[i]);
+      backtracking(s, mp, ans);
+      ans.pop_back();
     }
+  }
+  vector<string> letterCombinations(string digits)
+  {
+    map<int, vector<string>> mp;
+    char c = 'a';
+    int k = 3;
+    vector<string> v;
+    for (int i = 2; i <= 9; i++)
+    {
+      if (i == 7 || i == 9)
+        k = 4;
+      else
+        k = 3;
+      for (int j = k; j > 0; j--)
+      {
+        string cc(1, c);
+        v.push_back(cc);
+        c++;
+      }
+      mp[i] = v;
+      v.clear();
+    }
+    backtracking(digits, mp, "");
+    return result;
+  }
 };
 ```
+
 39
 40
 
