@@ -186,6 +186,28 @@ struct TreeNode {
 
 [77. 组合](https://leetcode.cn/problems/combinations/)
 
+```cpp
+class Solution {
+public:
+    vector<vector<int>> result;
+    void backtracking(int n,int k,int num,vector<int> ans){
+        if(k==0){
+            result.push_back(ans);
+            return;
+        }
+        for(int i = num ;i<=n;i++){
+            ans.push_back(i);
+            backtracking(n,k-1,i+1,ans);
+            ans.pop_back();
+        } 
+    }
+    vector<vector<int>> combine(int n, int k) {
+        vector<int> ans;
+        backtracking(n,k,1,ans);
+        return result;
+    }
+};
+```
 
 
 17
