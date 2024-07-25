@@ -234,11 +234,36 @@ public:
 };
 ```
 
-17
+[17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 39
 40
 
 [216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii/)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> result;
+    vector<int> ans;
+    void backtracking(int k,int n,int startindex){
+        if(n<0||ans.size()>k) return;
+        if(ans.size()==k&&n!=0) return;
+        if(ans.size()==k&&n==0){
+            result.push_back(ans);
+            return;
+        } 
+        for(int i = startindex;i<=9;i++){
+            ans.push_back(i);
+            backtracking(k,n-i,i+1);
+            ans.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSum3(int k, int n) {
+        backtracking(k,n,1);
+        return result;
+    }
+};
+```
 
 
 8.2 分割
