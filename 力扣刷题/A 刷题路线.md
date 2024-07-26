@@ -229,8 +229,37 @@ public:
 
 这样真实的切割太浪费了，可以用下标当作分割线来模拟切割
 
-```
-
+```cpp
+class Solution {
+public:
+    vector<vector<string>> result;
+    bool is_palindromic(string s,int i,int j){
+        while(i<=j){
+            if(s[i]!=s[j]) return false;
+            i++;j--;
+        }
+        return true;
+    }
+    void splitstring(string s,int startindex,vector<string> ans){
+        if(startindex==s.size()) {
+            result.push_back(ans);
+            return;
+        }
+        for(int i = startindex;i<s.size();i++){
+            if(is_palindromic(s,startindex,i)){
+                string curr = s.substr(startindex,i-startindex+1);
+                ans.push_back(curr);
+                splitstring(s,i+1,ans);
+                ans.pop_back();
+            }
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        vector<string> ans;
+        splitstring(s,0,ans);
+        return result;
+    }
+};
 ```
 
 93
