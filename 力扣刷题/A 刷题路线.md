@@ -187,6 +187,45 @@ struct TreeNode {
 
 [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/)
 
+```cpp
+class Solution {
+public:
+    vector<vector<string>> result;
+    bool is_palindromic(string s){
+        int i = 0,j=s.size()-1;
+        while(i<=j){
+            if(s[i]!=s[j]) return false;
+            i++;
+            j--;
+        }
+        return true;
+    }
+    void splitstring(string s,vector<string> ans){
+        if(s.empty()) {
+            result.push_back(ans);
+            return;
+        }
+  
+        for(int i = 1;i<=s.size();i++){
+            string curr = s.substr(0,i);
+            cout<<curr<<endl;
+            if(is_palindromic(curr)){
+                ans.push_back(curr);
+                string last = s.substr(i,s.size()-i);
+                splitstring(last,ans);
+                ans.pop_back();
+            }else{
+                continue;
+            }
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        vector<string> ans;
+        splitstring(s,ans);
+        return result;
+    }
+};
+```
 
 93
 
