@@ -183,9 +183,11 @@ struct TreeNode {
 
 
 [[8.1 组合]]
-8.2 分割
+# 8.2 分割
 
-131
+[131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/)
+
+
 93
 
 8.3 子集
