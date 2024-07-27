@@ -184,14 +184,7 @@ struct TreeNode {
 
 [[8.1 组合]]
 [[8.2 分割]]
-
-
-# 8.3 子集
-
-[78. 子集](https://leetcode.cn/problems/subsets/)
-
-
-90
+[[8.3 子集]]
 
 
 8.4 排列
