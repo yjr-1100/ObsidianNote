@@ -192,10 +192,38 @@ struct TreeNode {
 [讲解](https://programmercarl.com/0046.%E5%85%A8%E6%8E%92%E5%88%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> result;
+    vector<int> ans;
+    void backtrace(vector<int>& nums,vector<int>& used){
+        if(ans.size()==nums.size()){
+            result.push_back(ans);
+        }
+        for(int i = 0;i<nums.size();i++){
+            if(used[i]==1) continue;
+            used[i]=1;
+            ans.push_back(nums[i]);
+            backtrace(nums,used);
+            ans.pop_back();
+            used[i]=0;
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int> used(nums.size(),0);
+        backtrace(nums,used);
+        return result;
+    }
+};
 ```
 
-47
+# 相关题目
+
+## [47. 全排列 II](https://leetcode.cn/problems/permutations-ii/)
+
+[讲解](https://programmercarl.com/0047.%E5%85%A8%E6%8E%92%E5%88%97II.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+
 
 8.5 棋盘
 
