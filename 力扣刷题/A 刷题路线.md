@@ -198,8 +198,38 @@ struct TreeNode {
 
 # 8.6 其他
 
-[491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences/)
+## [491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences/)
 
 [讲解](https://programmercarl.com/0491.%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> result;
+    vector<int> ans;
+    void backtrace(vector<int>& nums,int startindex){
+        unordered_map<int,bool> used;
+        if(ans.size()>1) result.push_back(ans);
+        for(int i = startindex;i<nums.size();i++){
+            // if(i>startindex&&nums[i]==nums[i-1]) continue;
+            if(used.find(nums[i])!=used.end()) continue;
+            if(ans.size()==0) ans.push_back(nums[i]);
+            else{
+                if(nums[i]>=ans[ans.size()-1]) ans.push_back(nums[i]);
+                else continue;
+            }
+            used[nums[i]]==true;
+            backtrace(nums,i+1);
+            ans.pop_back();
+        }
+    }
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        backtrace(nums,0);
+        return result;
+    }
+};
+```
+
+
 
 332
