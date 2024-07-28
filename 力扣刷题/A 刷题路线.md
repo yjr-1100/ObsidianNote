@@ -199,6 +199,7 @@ public:
     void backtrace(vector<int>& nums,vector<int>& used){
         if(ans.size()==nums.size()){
             result.push_back(ans);
+            return;
         }
         for(int i = 0;i<nums.size();i++){
             if(used[i]==1) continue;
