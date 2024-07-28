@@ -187,7 +187,13 @@ struct TreeNode {
 [[8.3 子集]]
 # 8.4 排列
 
-46
+[46. 全排列](https://leetcode.cn/problems/permutations/)
+
+[讲解](https://programmercarl.com/0046.%E5%85%A8%E6%8E%92%E5%88%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+```cpp
+
+```
 
 47
 
@@ -208,17 +214,16 @@ public:
     vector<vector<int>> result;
     vector<int> ans;
     void backtrace(vector<int>& nums,int startindex){
-        unordered_map<int,bool> used;
+        int used[201]={0};
         if(ans.size()>1) result.push_back(ans);
         for(int i = startindex;i<nums.size();i++){
-            // if(i>startindex&&nums[i]==nums[i-1]) continue;
-            if(used.find(nums[i])!=used.end()) continue;
+            if(used[nums[i]+100]==1) continue;
             if(ans.size()==0) ans.push_back(nums[i]);
             else{
                 if(nums[i]>=ans[ans.size()-1]) ans.push_back(nums[i]);
                 else continue;
             }
-            used[nums[i]]==true;
+            used[nums[i]+100]=1;
             backtrace(nums,i+1);
             ans.pop_back();
         }
