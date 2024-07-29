@@ -229,6 +229,11 @@ public:
 
 ## [332. 重新安排行程](https://leetcode.cn/problems/reconstruct-itinerary/)
 
+[讲解](https://programmercarl.com/0332.%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B.html#%E6%80%9D%E8%B7%AF)
+
+这里，字典序可以通过map来得到，map默认键是有序的，我们将目的地作为key，可以得到按字典序排列的map，map的value就表示目的地的次数，并将这个map作为出发地的value。
+
+一定要加上引用即 `& target`，因为后面有对 target.second 做减减操作，如果没有引用，单纯复制，这个结果就没记录下来，那最后的结果就不对了。加上引用之后，就必须在 string 前面加上 const，因为map中的key 是不可修改了，这就是语法规定了
 
 ```cpp
 class Solution {
