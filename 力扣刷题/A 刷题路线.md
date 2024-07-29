@@ -228,3 +228,34 @@ public:
 
 
 ## [332. 重新安排行程](https://leetcode.cn/problems/reconstruct-itinerary/)
+
+
+```cpp
+class Solution {
+public:
+    unordered_map<string,map<string,int>> mp;
+    bool backtrace(int ticketNum, vector<string>& result){
+        if(result.size() == ticketNum+1) return true;
+        for( pair<const string,int>& p:mp[result[result.size()-1]]){
+            if(p.second>0){
+                result.push_back(p.first);
+                p.second--;
+                if(backtrace(ticketNum,result)) return true;
+                p.second++;
+                result.pop_back();
+            }
+        }
+        return false;
+
+    }
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        vector<string> result;
+        result.push_back("JFK");
+        for(int i = 0;i<tickets.size();i++){
+            mp[tickets[i][0]][tickets[i][1]]++;
+        }
+        backtrace(tickets.size(),result);
+        return result;
+    }
+};
+```
