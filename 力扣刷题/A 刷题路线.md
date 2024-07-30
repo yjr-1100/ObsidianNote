@@ -193,9 +193,11 @@ struct TreeNode {
 # 9 贪心
 
 [[9.1 分发饼干]]
-# 9.2 摆动序列
+[[9.2 摆动序列]]
+# 9.3 最大子序和
 
-[376. 摆动序列](https://leetcode.cn/problems/wiggle-subsequence/)
+[53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
 
-[讲解](https://programmercarl.com/0376.%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+[讲解](https://programmercarl.com/0053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
 
