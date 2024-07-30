@@ -200,4 +200,18 @@ struct TreeNode {
 
 [讲解](https://programmercarl.com/0053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
-
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int result = INT_MIN;
+        int ans=0;
+        for(int i = 0;i<nums.size();i++){
+            ans+=nums[i];
+            if(result<ans) result = ans;
+            if(ans<0) ans = 0;
+        }
+        return result;
+    }
+};
+```
