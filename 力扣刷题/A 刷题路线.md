@@ -190,5 +190,9 @@ struct TreeNode {
 [[8.6 其他]]
 
 ---
-# 贪心
+# 9 贪心
+
+# 9.1 分发饼干
+
+[455. 分发饼干](https://leetcode.cn/problems/assign-cookies/)
 
