@@ -252,7 +252,35 @@ public:
 
 ## [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
 
+只要当前的利润空间比原来小了，就卖掉，然后重新买入。
 
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans =0;
+        int tmpans=0;
+        int min = prices[0];
+        for(int i=1;i<prices.size();i++ ){
+            if(prices[i]-min>tmpans){
+                tmpans = prices[i]-min;
+                min = prices[i]<min?prices[i]:min;
+            }
+            else{
+                ans+=tmpans;
+                tmpans = 0;
+                min = prices[i];
+            }
+            if(i==prices.size()-1){
+                ans+=tmpans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+考虑利润分解，[讲解](https://programmercarl.com/0122.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII.html#%E6%80%9D%E8%B7%AF)从第一天到第三天的利润可以分为第一题和第二天的利润加上第二天和第三天的利润
 
 [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)[188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 [309. 买卖股票的最佳时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
