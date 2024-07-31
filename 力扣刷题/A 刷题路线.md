@@ -196,6 +196,7 @@ struct TreeNode {
 [[9.2 摆动序列]]
 [[9.3 最大子序和]]
 # 9.4 买股票的最佳时机
+
 [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
 ```cpp
