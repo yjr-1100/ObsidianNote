@@ -198,6 +198,36 @@ struct TreeNode {
 # 9.4 买股票的最佳时机
 [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans=0,indexin = 0,indexout = 0;
+        int max = INT_MIN;
+        int min = INT_MAX;
+        for(int i = 0;i<prices.size();i++){
+            if(prices[i]>max){
+                max = prices[i];
+                indexout = i;
+            }
+            if(prices[i]<min){
+                min = prices[i];
+                indexin = i;
+            }
+            if(indexin<indexout){
+                if(ans<max-min){
+                    ans = max-min;
+                }
+            }else{
+                max=INT_MIN;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
 [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
 [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)[188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 [309. 买卖股票的最佳时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
