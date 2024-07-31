@@ -199,6 +199,8 @@ struct TreeNode {
 
 [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
+贪心方法：最低点买入，最高点卖出，但是最高点要在最低点之后
+
 ```cpp
 class Solution {
 public:
@@ -228,8 +230,30 @@ public:
 };
 ```
 
+下面这个写法更清晰
 
-[122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        // 贪心，最低点买入，最高点卖出
+        int profit = 0;
+        int minval = prices[0];
+        for (int i=1; i < prices.size(); i++) {
+            profit = max(profit, prices[i]-minval);
+            minval = min(minval,prices[i]);
+        }
+        return profit;
+    }
+};
+```
+
+# 相关题目
+
+## [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
+
+
+
 [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)[188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 [309. 买卖股票的最佳时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 [714. 买卖股票的最佳时机含手续费](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
