@@ -202,3 +202,37 @@ struct TreeNode {
 [1005. K 次取反后最大化的数组和](https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/)
 
 [讲解](https://programmercarl.com/1005.K%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+```cpp
+class Solution {
+public:
+    int largestSumAfterKNegations(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        int i = 0;
+        while(i<nums.size()&&nums[i]<0)i++;
+        int ans = 0;
+        if(i>=k){ // 负数比k多，直接翻转
+            for(int j = 0;j<k;j++) nums[j] *= (-1);
+        }
+        else{
+            for(int j = 0;j<i;j++) nums[j] *=(-1); // 翻转所有的负数
+            k-=i; // 剩下k次翻转最小的正数
+            if(i==nums.size()) i--;
+            if(nums[i]!=0){
+                if(k%2==1){
+                    if(i>0&&nums[i-1]<nums[i]) i--;
+                    nums[i] *= (-1);
+                }
+            }
+        }
+        for(int j=0;j<nums.size();j++) ans+=nums[j];
+        return ans;
+    }  
+};
+```
+
+上面的代码写法还是有点复杂了，可以按照绝对值排序，然后再翻转负数，这样如果有剩余的翻转次数，直接翻转第一个就可以，上面代码还需要对下标进行判断。
+
+```cpp
+
+```
