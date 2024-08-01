@@ -231,8 +231,46 @@ public:
 };
 ```
 
-上面的代码写法还是有点复杂了，可以按照绝对值排序，然后再翻转负数，这样如果有剩余的翻转次数，直接翻转第一个就可以，上面代码还需要对下标进行判断。
+上面的代码写法还是有点复杂了，可以按照绝对值从小到达排序，然后再从后往前翻转负数，这样如果有剩余的翻转次数，直接翻转第一个就可以，上面代码还需要对下标进行判断。
 
 ```cpp
+class Solution {
 
+public:
+
+    static bool cmp(int a, int b) {
+
+        return abs(a) < abs(b);
+
+    }
+
+    int largestSumAfterKNegations(vector<int>& nums, int k) {
+
+        int ans = 0;
+
+        sort(nums.begin(),nums.end(),cmp);
+
+        for(int i = nums.size()-1;i>=0;i--){
+
+            if(k==0)break;
+
+            if(nums[i]< 0){
+
+                nums[i] *= (-1);
+
+                k--;
+
+            }
+
+        }
+
+        if(k>0&&k%2!=0) nums[0]*= (-1);
+
+        for(int i = 0;i<nums.size();i++) ans+=nums[i];
+
+        return ans;
+
+    }  
+
+};
 ```
