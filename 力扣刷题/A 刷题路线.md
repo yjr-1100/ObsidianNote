@@ -198,4 +198,9 @@ struct TreeNode {
 [[9.4 买股票的最佳时机]]
 [[9.5 跳跃游戏]]
 [[9.6 K次取反后最大化数组和]]
-# 9.7 
+# 9.7 加油站
+
+[134. 加油站](https://leetcode.cn/problems/gas-station/)
+
+[讲解](https://programmercarl.com/0134.%E5%8A%A0%E6%B2%B9%E7%AB%99.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
