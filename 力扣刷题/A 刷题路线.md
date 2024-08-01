@@ -237,40 +237,22 @@ public:
 class Solution {
 
 public:
-
     static bool cmp(int a, int b) {
-
         return abs(a) < abs(b);
-
     }
-
     int largestSumAfterKNegations(vector<int>& nums, int k) {
-
         int ans = 0;
-
         sort(nums.begin(),nums.end(),cmp);
-
         for(int i = nums.size()-1;i>=0;i--){
-
             if(k==0)break;
-
             if(nums[i]< 0){
-
                 nums[i] *= (-1);
-
                 k--;
-
             }
-
         }
-
         if(k>0&&k%2!=0) nums[0]*= (-1);
-
         for(int i = 0;i<nums.size();i++) ans+=nums[i];
-
         return ans;
-
     }  
-
 };
 ```
