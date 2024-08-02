@@ -199,3 +199,6 @@ struct TreeNode {
 [[9.5 跳跃游戏]]
 [[9.6 K次取反后最大化数组和]]
 [[9.7 加油站]]
+[[9.8 分发糖果]]
+
+[860. 柠檬水找零](https://leetcode.cn/problems/lemonade-change/)
