@@ -200,45 +200,6 @@ struct TreeNode {
 [[9.6 K次取反后最大化数组和]]
 [[9.7 加油站]]
 [[9.8 分发糖果]]
+[[9.9 柠檬水找零]]
 
-[860. 柠檬水找零](https://leetcode.cn/problems/lemonade-change/)
-
-[讲解](https://programmercarl.com/0860.%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
-
-```cpp
-class Solution {
-public:
-    bool lemonadeChange(vector<int>& bills) {
-        int a[25] = {0};
-        for(int i =0;i<bills.size();i++){
-            a[bills[i]]++;
-            bills[i]-=5;
-            int flag =1;
-            while(bills[i]!=0){
-                if(flag==1&&bills[i]/10!=0){
-                    if(a[10]>0){
-                        bills[i]-=10;
-                        a[10]--;
-                    }
-                    else{
-                        flag = 0;
-                    }
-                }
-                else{
-                    if(a[5]>0){
-                        bills[i]-=5;
-                        a[5]--;
-                    }
-                    else{
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-};
-```
-
-代码还可以更简单一点，情况是固定的，只有5 10 20，收到10就找一个5，收到20就找一个10和一个5或者3个5
-
+[406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/)
