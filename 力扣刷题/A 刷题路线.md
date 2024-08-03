@@ -232,3 +232,35 @@ public:
 ```
 
 其实按照k从小到达先排序也可以，但是按照身高插入的时候就比较麻烦，需要比较身高的同时，
+
+```cpp
+class Solution {
+public:
+    static bool cmp(vector<int>& a,vector<int>& b){
+        if(a[1]==b[1]) return a[0]<b[0];
+        else return a[1]<b[1];
+    }
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+        sort(people.begin(),people.end(),cmp);
+        list<vector<int>> ls;
+        for(int i = 0;i<people.size();i++){
+            int position = people[i][1];
+            list<vector<int>>::iterator it = ls.begin();
+            if(position==0) ls.insert(ls.end(),people[i]);
+            else{
+                for(;it!=ls.end();it++){
+                    if(position>0&&(*it)[0]>=people[i][0]){
+                        position--;
+                    }
+                    else if(position==0&&(*it)[0]>=people[i][0]) { //位置合适以后，还不能影响其它人的位置，必须到下一个身高比自己大的时候才可以，如果自己身高大，hui
+                        // it--;
+                        break;
+                    }
+                }
+                ls.insert(it,people[i]);
+            }
+        }
+        return vector<vector<int>>(ls.begin(),ls.end());
+    }
+};
+```
