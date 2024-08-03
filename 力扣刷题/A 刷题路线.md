@@ -252,7 +252,7 @@ public:
                     if(position>0&&(*it)[0]>=people[i][0]){
                         position--;
                     }
-                    else if(position==0&&(*it)[0]>=people[i][0]) { //位置合适以后，还不能影响其它人的位置，必须到下一个身高比自己大的时候才可以，如果自己身高大，hui
+                    else if(position==0&&(*it)[0]>=people[i][0]) { //位置合适以后，还不能影响其它人的位置，必须到下一个身高比自己大的时候才可以，如果自己身高大，
                         // it--;
                         break;
                     }
