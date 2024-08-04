@@ -203,3 +203,9 @@ struct TreeNode {
 [[9.9 柠檬水找零]]
 [[9.10 根据身高重建队列]]
 [[9.11 用最少数量的箭引爆气球]]
+# 9.12 单调递增的数字
+
+[738. 单调递增的数字](https://leetcode.cn/problems/monotone-increasing-digits/)
+
+[讲解](https://programmercarl.com/0738.%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
