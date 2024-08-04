@@ -209,7 +209,9 @@ struct TreeNode {
 
 [讲解](https://programmercarl.com/0738.%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
-每次出现不合适的，就将其变为9，然后前一位减1；下面的写法是用数字模拟。
+每次出现不合适的，就将其变为9，然后前一位减1；
+
+下面是暴力解法：超时。
 
 ```cpp
 class Solution {
@@ -239,25 +241,24 @@ public:
 };
 ```
 
+使用字符按照上述思路模拟，flag是因为可能后面满足，到中间不满足了，但是这种情况，后面满足的可能不是9，需要最后变为9。
+
 ```cpp
 class Solution {
 public:
-    int monotoneIncreasingDigits(int n) {
-        string input;
-        input = to_string(n);
-        int size = input.size();
-        if (size == 1) return n;
-        int flag =n;
-        for (int i = size - 1; i > 0; i--) {
-            if (input[i - 1] > input[i]) {
-                flag = i;
-                input[i-1]--;
-            }
-        }
-        for (int i = flag; i < input.size(); i++) {
-            input[i] = '9';
-        }
-        return stoi(input);
-    }
+    int monotoneIncreasingDigits(int n) {
+        string s = to_string(n);
+        if(s.size()==1) return n;
+        int flag  = s.size();
+        for(int i = s.size()-1;i>0;i--){
+            if(s[i]<s[i-1]){
+                flag = i;
+                s[i-1]--;
+                s[i] = '9';
+            }
+        }
+        for(int i = flag;i<s.size();i++) s[i] = '9';
+        return stoi(s);
+    }
 };
 ```
