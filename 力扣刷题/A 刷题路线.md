@@ -209,3 +209,55 @@ struct TreeNode {
 
 [讲解](https://programmercarl.com/0738.%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
+每次出现不合适的，就将其变为9，然后前一位减1；下面的写法是用数字模拟。
+
+```cpp
+class Solution {
+public:
+    int monotoneIncreasingDigits(int n) {
+        int next = n;
+        int a = n%10,b;
+        n = n/10;
+        int w = 1;
+        while(n!=0){
+            b = n%10;
+            if(b<=a){
+                a = b;
+                n/=10;
+                w*=10;
+            }
+            else{
+                n = next-a*w-1;
+                next = n;
+                a = n%10;
+                w = 1;
+                n/=10;
+            }
+        }
+        return next;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int monotoneIncreasingDigits(int n) {
+        string input;
+        input = to_string(n);
+        int size = input.size();
+        if (size == 1) return n;
+        int flag =n;
+        for (int i = size - 1; i > 0; i--) {
+            if (input[i - 1] > input[i]) {
+                flag = i;
+                input[i-1]--;
+            }
+        }
+        for (int i = flag; i < input.size(); i++) {
+            input[i] = '9';
+        }
+        return stoi(input);
+    }
+};
+```
