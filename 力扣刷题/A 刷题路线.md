@@ -204,37 +204,11 @@ struct TreeNode {
 [[9.10 根据身高重建队列]]
 [[9.11 用最少数量的箭引爆气球]]
 [[9.12 单调递增的数字]]
-# 9.13 监控二叉树
+[[9.13 监控二叉树]]
 
-[968. 监控二叉树](https://leetcode.cn/problems/binary-tree-cameras/)
+---
+# 10 动态规划
 
-[讲解](https://programmercarl.com/0968.%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+动态规划，英文：Dynamic Programming，简称DP，如果某一问题有很多重叠子问题，使用动态规划是最有效的。
 
-```cpp
-class Solution {
-public:
-    int result = 0;
-    int tranvers(TreeNode* root){
-        if(root==nullptr) return 2;
-        int left = tranvers(root->left);
-        int right = tranvers(root->right);
-
-        if(left==2&&right==2){
-            return 0;
-        }
-        if(left==0||right==0){
-            result++;
-            return 1;
-        }
-        if(left==1||right==1){
-            return 2;
-        }
-        return -1;
-    }
-    int minCameraCover(TreeNode* root) {
-       int rootr = tranvers(root);
-        if(rootr ==0) result++;
-        return result;
-    }
-};
-```
+所以动态规划中每一个状态一定是由上一个状态推导出来的，**这一点就区分于贪心**，贪心没有状态推导，而是从局部直接选最优的，
