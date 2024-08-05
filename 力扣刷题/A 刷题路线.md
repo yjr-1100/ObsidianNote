@@ -204,3 +204,8 @@ struct TreeNode {
 [[9.10 根据身高重建队列]]
 [[9.11 用最少数量的箭引爆气球]]
 [[9.12 单调递增的数字]]
+# 9.13 监控二叉树
+
+[968. 监控二叉树](https://leetcode.cn/problems/binary-tree-cameras/)
+
+[讲解]()
