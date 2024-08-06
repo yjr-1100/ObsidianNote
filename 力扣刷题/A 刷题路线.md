@@ -224,3 +224,12 @@ struct TreeNode {
 
 [[10.1 斐波那契数列]]
 [[10.2 使用最小花费爬楼梯]]
+# 10.3 不同路径
+
+[62. 不同路径](https://leetcode.cn/problems/unique-paths/)
+
+[讲解](https://programmercarl.com/0062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+```
+
+```
