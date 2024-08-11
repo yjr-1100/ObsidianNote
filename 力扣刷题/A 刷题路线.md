@@ -225,20 +225,4 @@ struct TreeNode {
 [[10.1 斐波那契数列]]
 [[10.2 使用最小花费爬楼梯]]
 [[10.3 不同路径]]
-
-
-```cpp
-class Solution {
-public:
-    int integerBreak(int n) {
-        vector<int> dp(n+1,0);
-        dp[2] = 1;
-        for(int i = 3;i<=n;i++){
-            for(int j = 1;j<i-1;j++){
-                dp[i] = max(dp[i],max((i-j)*j,dp[i-j]*j));
-            }
-        }
-        return dp[n];
-    }
-};
-```
+[[10.4 整数拆分]]
