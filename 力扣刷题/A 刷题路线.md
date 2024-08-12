@@ -291,3 +291,34 @@ int main(){
 ```
 
 暴力解法：使用回溯
+
+```cpp
+#include<iostream>
+using namespace std;
+int value[5050],weight[5050];
+int maxvalue = 0;
+void traceback(int num,int leftweight,int id,int currvalue){
+    for(int i =id;i< num;i++){
+        if(weight[i]<=leftweight){
+            maxvalue = max(maxvalue,currvalue+value[i]);
+            traceback(num,leftweight-weight[i],i+1,currvalue+value[i]);
+        }
+        else{
+            traceback(num,leftweight,i+1,currvalue);
+        }
+    }
+}
+int main(){
+    int m,n;
+    cin>>m>>n;
+    
+    for(int i = 0;i<m;i++){
+        cin>>weight[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>value[i];
+    }
+    traceback(m,n,0,0);
+    cout<<maxvalue;
+}
+```
