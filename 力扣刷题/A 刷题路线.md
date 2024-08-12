@@ -261,3 +261,6 @@ int main(){
     cout<<dp[m-1][n];
 }
 ```
+
+使用一维dp数组来求解，[讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-2.html#%E6%80%9D%E8%B7%AF)
+
