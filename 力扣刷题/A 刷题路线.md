@@ -229,3 +229,35 @@ struct TreeNode {
 [[10.5 不同二叉搜索树]]
 # 10.6 0-1背包问题
 
+[46. 携带研究材料（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1046)
+
+[讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.html#%E6%80%9D%E8%B7%AF)
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int m,n;
+    cin>>m>>n;
+    int value[m],weight[m];
+    for(int i = 0;i<m;i++){
+        cin>>weight[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>value[i];
+    }
+    int dp[m][n+1];
+    for(int i = 0;i<m;i++) dp[i][0] = 0;
+    for(int i =0;i<=n;i++){
+        if(i<weight[0]) dp[0][i] = 0;
+        else dp[0][i] = value[0];
+    }
+    for(int i = 1;i<m;i++){
+        for(int j = 1;j<=n;j++){
+            if(j<weight[i]) dp[i][j] = dp[i-1][j];
+            else dp[i][j] = max(dp[i-1][j],dp[i-1][j-weight[i]]+value[i]);
+        }
+    }
+    cout<<dp[m-1][n];
+}
+```
