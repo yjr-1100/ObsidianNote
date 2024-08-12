@@ -264,3 +264,30 @@ int main(){
 
 使用一维dp数组来求解，[讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-2.html#%E6%80%9D%E8%B7%AF)
 
+注意这里背包大小是从后往前遍历，因为从前往后遍历的时候，已经改变了前面的值，也就是当前计算的值是在同一个物品的基础上计算的，我们需要的是在上一个物品的基础上进行计算，而二维数组，上一个物品的值还保留在上一行，所以可以从前往后遍历。
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int m,n;
+    cin>>m>>n;
+    int value[m],weight[m];
+    for(int i = 0;i<m;i++){
+        cin>>weight[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>value[i];
+    }
+    int dp[n+1]={0};
+    for(int i = 0;i<m;i++){
+        for(int j = n;j>=0;j--){
+            if(j>=weight[i])
+                dp[j] = max(dp[j],dp[j-weight[i]]+value[i]);
+        }
+    }
+    cout<<dp[n];
+}
+```
+
+暴力解法：使用回溯
