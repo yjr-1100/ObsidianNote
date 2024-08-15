@@ -228,3 +228,31 @@ struct TreeNode {
 [[10.4 整数拆分]]
 [[10.5 不同二叉搜索树]]
 [[10.6 0-1背包问题]]
+# 10.7 完全背包
+
+[52. 携带研究材料（第七期模拟笔试）](https://kamacoder.com/problempage.php?pid=1052)
+
+[讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85.html#%E6%80%9D%E8%B7%AF)
+
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main(){
+    int n,v;
+    cin>>n>>v;
+    int value[n+1],weight[n+1];
+    for(int i = 0;i<n;i++){
+        cin>>weight[i]>>value[i];
+    }
+    vector<int> dp(v+1,0);
+    dp[0] = 0;
+    for(int i = 0;i<n;i++){
+        for(int j = weight[i];j<=v;j++){
+            dp[j] = max(dp[j],dp[j-weight[i]]+value[i]);
+        }
+    }
+    cout<<dp[v];
+}
+```
