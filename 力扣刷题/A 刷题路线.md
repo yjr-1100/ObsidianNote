@@ -230,3 +230,12 @@ struct TreeNode {
 [[10.6 0-1背包问题]]
 [[10.7 完全背包]]
 [[10.8 单词拆分]]
+# 10.9 多重背包
+
+[56. 携带矿石资源（第八期模拟笔试）](https://kamacoder.com/problempage.php?pid=1066)
+
+[讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85.html#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85)
+
+```
+
+```
