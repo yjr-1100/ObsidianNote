@@ -236,6 +236,41 @@ struct TreeNode {
 
 [讲解](https://programmercarl.com/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85.html#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85)
 
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main(){
+    int c,n,allnum=0;
+    cin>>c>>n;
+    int weight[n],value[n],num[n];
+    for(int i = 0;i<n;i++) cin>>weight[i];
+    for(int i = 0;i<n;i++) cin>>value[i];
+    for(int i = 0;i<n;i++) {
+        cin>>num[i];
+        allnum+=num[i];
+    }
+    int allweight[allnum],allvalue[allnum];
+    int index = 0;
+    for(int i = 0;i<n;i++){
+        while(num[i]>0){
+            allweight[index] = weight[i];
+            allvalue[index] = value[i];
+            index++;
+            num[i]--;
+        }
+    }
+    vector<int> dp(c+1,0) ;
+    for(int i = 0;i<allnum;i++){
+        for(int j=c;j>=allweight[i];j--){
+            dp[j] = max(dp[j],dp[j-allweight[i]]+allvalue[i]);
+        }
+    }
+    
+    cout<<dp[c];
+}
 ```
 
-```
+
+另一种x
