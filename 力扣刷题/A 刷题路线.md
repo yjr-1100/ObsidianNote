@@ -285,6 +285,30 @@ public:
 
 [题解](https://programmercarl.com/0337.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
+带记忆的递归
+
+```cpp
+class Solution {
+public:
+    unordered_map<TreeNode* , int> umap; // 记录计算过的结果
+    int rob(TreeNode* root) {
+        if (root == NULL) return 0;
+        if (root->left == NULL && root->right == NULL) return root->val;
+        if (umap[root]) return umap[root]; // 如果umap里已经有记录则直接返回
+        // 偷父节点
+        int val1 = root->val;
+        if (root->left) val1 += rob(root->left->left) + rob(root->left->right); // 跳过root->left
+        if (root->right) val1 += rob(root->right->left) + rob(root->right->right); // 跳过root->right
+        // 不偷父节点
+        int val2 = rob(root->left) + rob(root->right); // 考虑root的左右孩子
+        umap[root] = max(val1, val2); // umap记录一下结果
+        return max(val1, val2);
+    }
+};
+```
+
+动态规划
+
 ```
 
 ```
