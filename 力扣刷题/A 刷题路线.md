@@ -285,4 +285,28 @@ public:
 
 [题解](https://programmercarl.com/0122.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
+贪心解法：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+      int ans = 0;
+      int tmpans = 0;
+      if(prices.size()==1) return 0;
+      for(int i = 1;i<prices.size();i++){
+        if(prices[i]-prices[i-1]<=0){
+            ans+=tmpans;
+            tmpans = 0;
+        }else{
+            tmpans+= (prices[i]-prices[i-1]);
+        }
+      }
+      return ans+tmpans;
+    }
+};
+```
+
+动态规划
+
 
