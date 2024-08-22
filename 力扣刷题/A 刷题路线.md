@@ -234,3 +234,28 @@ struct TreeNode {
 [[10.10 打家劫舍]]
 # 10.11 买股票的最佳时机
 
+[121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+
+[labuladong 题解](https://labuladong.online/algo/slug.html?slug=best-time-to-buy-and-sell-stock)[思路](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/description/#)
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans = 0;
+        int max_num = prices[0];
+        int min_num = prices[0];
+        for(int i = 1;i<prices.size();i++){
+            min_num = min(min_num,prices[i]);
+            max_num = max(max_num,prices[i]);
+            if(min_num==prices[i]){
+                max_num = min_num;
+            }else{
+                ans = max(ans,max_num-min_num);
+            }
+        }
+        return ans;
+    }
+};
+```
+
