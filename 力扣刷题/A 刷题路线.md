@@ -329,4 +329,24 @@ public:
 
 [题解](https://programmercarl.com/0123.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAIII.html#%E6%80%9D%E8%B7%AF)
 
-
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        vector<vector<int>>dp(prices.size(),vector<int>(5,0));
+        dp[0][0] = 0;// 不操作
+        dp[0][1] = -prices[0]; // 第一次持有
+        dp[0][2] = 0;// 第一次不不持有
+        dp[0][3] = -prices[0];// 第二次持有
+        dp[0][4] = 0;// 第二次不持有
+        for(int i = 1;i<prices.size();i++){
+            dp[i][0] = dp[i-1][0];
+            dp[i][1] = max(dp[i-1][0]-prices[i],dp[i-1][1]);
+            dp[i][2] = max(dp[i-1][1]+prices[i],dp[i-1][2]);
+            dp[i][3] = max(dp[i-1][2]-prices[i],dp[i-1][3]);
+            dp[i][4] = max(dp[i-1][3]+prices[i],dp[i-1][4]);
+        }
+        return dp[prices.size()-1][4];
+    }
+};
+```
