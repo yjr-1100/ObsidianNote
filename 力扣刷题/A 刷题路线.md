@@ -350,3 +350,29 @@ public:
     }
 };
 ```
+
+## [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
+
+[题解](https://programmercarl.com/0188.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAIV.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+
+```cpp
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        vector<vector<int>> dp(prices.size(), vector<int>(2 * k + 1, 0));
+        dp[0][0] = 0;
+        for(int i = 1;i<=2*k;i++){
+            if(i%2==1) dp[0][i] = -prices[0];
+            else dp[0][i] = 0;
+        }
+        for(int i = 1;i<prices.size();i++){
+            dp[i][0] = dp[i-1][0];
+            for(int j = 1;j<=2*k;j++){
+                if(j%2==1) dp[i][j] = max(dp[i-1][j],dp[i-1][j-1]-prices[i]);
+                else dp[i][j] = max(dp[i-1][j],dp[i-1][j-1]+prices[i]);
+            }
+        }
+        return dp[prices.size()-1][2*k];
+    }
+};
+```
