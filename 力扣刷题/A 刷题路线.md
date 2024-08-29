@@ -245,3 +245,43 @@ struct TreeNode {
 并查集
 
 ![[8080b4557f239cc169c7f208c0411691.png]]![[8890857acfdc9f07c43a700028166c6d.png]]
+通过95%
+
+```cpp
+#include <iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+int find(int i,int v[]){
+  if(v[i]==i) return i;
+  else return find(v[i],v);
+}
+int main(){
+  int n,m;
+  cin>>n>>m;
+  if(n<=1){
+    cout<<0;
+    return 0;
+  }
+  if(m==0){
+    cout<<n-1;
+    return 0;
+  }
+  int v[n];
+  for(int i = 0;i<n;i++) v[i] =i;
+  for (size_t i = 0; i < m; i++)
+  {
+    int a,b;
+    cin>>a>>b;
+    v[find(a,v)] = find(b,v);
+  }
+  int ans = n;
+  int fa = find(0,v);
+  for(int i = 0;i<n;i++){
+    if(find(i,v)==fa) ans--;
+    else fa = find(i,v);
+  }
+  cout<<ans;
+}
+```
