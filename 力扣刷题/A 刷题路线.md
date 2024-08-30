@@ -237,9 +237,13 @@ struct TreeNode {
 [[10.13 编辑距离]]
 # 10.14 回文子串
 
+[647. 回文子串](https://leetcode.cn/problems/palindromic-substrings/)
 
+[讲解](https://programmercarl.com/0647.%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2.html#%E6%80%9D%E8%B7%AF)
 
+```cpp
 
+```
 
 
 并查集
