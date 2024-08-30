@@ -235,40 +235,10 @@ struct TreeNode {
 [[10.11 买股票的最佳时机]]
 [[10.12 子序列问题]]
 [[10.13 编辑距离]]
-# 10.14 回文子串
+[[10.14 回文子串]]
 
-[647. 回文子串](https://leetcode.cn/problems/palindromic-substrings/)
-
-[讲解](https://programmercarl.com/0647.%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2.html#%E6%80%9D%E8%B7%AF)
-
-```cpp
-class Solution {
-public:
-    int countSubstrings(string s) {
-        vector<vector<bool>> dp(s.size(),vector<bool>(s.size(),false));
-        int ans = 0;
-        for(int i = 0;i<s.size();i++){
-            for(int j = i;j>=0;j--){
-                if(s[i]==s[j]){
-                    if(i-j>1){
-                        if(dp[i-1][j+1]){
-                            ans++;
-                            dp[i][j] = true;
-                        }
-                    }
-                    else{
-                        ans++;
-                        dp[i][j] = true;
-                    }
-                }
-                else dp[i][j] = false;
-            }
-        }
-        return ans;
-    }
-};
-```
-
+---
+# 11 单调栈
 
 
 并查集
