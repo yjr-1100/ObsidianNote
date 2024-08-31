@@ -241,9 +241,43 @@ struct TreeNode {
 # 11 单调栈
 
 [[11.1 每日温度]]
+# 11.2 下一个更大元素
 
+[496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
 
+[题解](https://programmercarl.com/0496.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I.html#%E6%80%9D%E8%B7%AF)
 
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans(nums1.size(),-1);
+        vector<int> tmp(nums2.size(),-1);
+        stack<int> s;
+        for(int i = 0;i<nums2.size();i++){
+            while(!s.empty()&&nums2[i]>nums2[s.top()]){
+                tmp[s.top()] = nums2[i];
+                s.pop();
+            }
+            s.push(i);
+        }
+        for(int i= 0;i<nums1.size();i++){
+            for(int j =0;j<nums2.size();j++){
+                if(nums1[i]==nums2[j]){
+                    ans[i] = tmp[j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+上面的写法有点废时间，没有重复元素，可以考虑使用map快速查找
+
+```
+
+```
 
 
 
