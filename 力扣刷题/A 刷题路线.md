@@ -248,10 +248,37 @@ struct TreeNode {
 
 [题解](https://programmercarl.com/0042.%E6%8E%A5%E9%9B%A8%E6%B0%B4.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
+双指针法：
+
+```cpp
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        if(height.size()<=2) return 0;
+        int maxleft[height.size()];
+        int maxright[height.size()];
+        for(int i = 0;i<height.size();i++){
+            if(i==0) maxleft[i] = height[i];
+            else maxleft[i] = max(height[i],maxleft[i-1]);
+        }
+        for(int i = height.size()-1;i>=0;i--){
+            if(i==height.size()-1) maxright[i] = height[i];
+            else maxright[i] = max(height[i],maxright[i+1]);
+        }
+        int ans = 0;
+        for(int i = 1;i<height.size()-1;i++){
+            ans+=min(maxleft[i],maxright[i])-height[i];
+        }
+        return ans;
+    }
+};
 ```
+
+单调栈方法：
 
 ```
 
+```
 
 并查集
 
