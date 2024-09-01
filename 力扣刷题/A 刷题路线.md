@@ -273,10 +273,30 @@ public:
 };
 ```
 
-上面的写法有点废时间，没有重复元素，可以考虑使用map快速查找
+上面的写法有点废时间，没有重复元素，可以考虑使用map快速查找,查找时间是O(1)的，这样就zhi'y
 
-```
-
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans(nums1.size(),-1);
+        unordered_map<int,int> getnums1;
+        for(int i = 0;i<nums1.size();i++){
+            getnums1[nums1[i]] = i;
+        }
+        stack<int> s;
+        for(int i = 0;i<nums2.size();i++){
+            while(!s.empty()&&nums2[i]>nums2[s.top()]){
+                if(getnums1.find(nums2[s.top()])!=getnums1.end()){
+                    ans[getnums1[nums2[s.top()]]] = nums2[i];
+                }
+                s.pop();
+            }
+            s.push(i);
+        }
+        return ans;
+    }
+};
 ```
 
 
