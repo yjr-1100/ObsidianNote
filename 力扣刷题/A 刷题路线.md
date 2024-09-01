@@ -241,74 +241,16 @@ struct TreeNode {
 # 11 单调栈
 
 [[11.1 每日温度]]
-# 11.2 下一个更大元素
+[[11.2 下一个更大元素]]
+# 11.3 接雨水
 
-[496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
+[42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
-[题解](https://programmercarl.com/0496.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0I.html#%E6%80%9D%E8%B7%AF)
-
-```cpp
-class Solution {
-public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> ans(nums1.size(),-1);
-        vector<int> tmp(nums2.size(),-1);
-        stack<int> s;
-        for(int i = 0;i<nums2.size();i++){
-            while(!s.empty()&&nums2[i]>nums2[s.top()]){
-                tmp[s.top()] = nums2[i];
-                s.pop();
-            }
-            s.push(i);
-        }
-        for(int i= 0;i<nums1.size();i++){
-            for(int j =0;j<nums2.size();j++){
-                if(nums1[i]==nums2[j]){
-                    ans[i] = tmp[j];
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-上面的写法有点废时间，没有重复元素，可以考虑使用map快速查找,查找时间是O(1)的，这样就整个时间是O(n)的
-
-```cpp
-class Solution {
-public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> ans(nums1.size(),-1);
-        unordered_map<int,int> getnums1;
-        for(int i = 0;i<nums1.size();i++){
-            getnums1[nums1[i]] = i;
-        }
-        stack<int> s;
-        for(int i = 0;i<nums2.size();i++){
-            while(!s.empty()&&nums2[i]>nums2[s.top()]){
-                if(getnums1.find(nums2[s.top()])!=getnums1.end()){
-                    ans[getnums1[nums2[s.top()]]] = nums2[i];
-                }
-                s.pop();
-            }
-            s.push(i);
-        }
-        return ans;
-    }
-};
-```
-
-# 相关题目
-
-## [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
-
-[讲解](https://programmercarl.com/0503.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0II.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
+[题解](https://programmercarl.com/0042.%E6%8E%A5%E9%9B%A8%E6%B0%B4.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
 ```
 
 ```
-
 
 
 并查集
