@@ -247,7 +247,14 @@ struct TreeNode {
 ---
 # 12 图论
 
-# 12.1 
+[12.1 图论理论基础](https://programmercarl.com/kamacoder/%E5%9B%BE%E8%AE%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
+# 12.2 深度优先搜索
+
+[理论基础](https://programmercarl.com/kamacoder/%E5%9B%BE%E8%AE%BA%E6%B7%B1%E6%90%9C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
+
+[98. 所有可达路径](https://kamacoder.com/problempage.php?pid=1170)
+
+[讲解](https://programmercarl.com/kamacoder/0098.%E6%89%80%E6%9C%89%E5%8F%AF%E8%BE%BE%E8%B7%AF%E5%BE%84.html#%E6%8F%92%E6%9B%B2)
 
 
 
