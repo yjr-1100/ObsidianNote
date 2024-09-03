@@ -352,7 +352,47 @@ int main(){
 [讲解](https://programmercarl.com/kamacoder/0099.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%95%B0%E9%87%8F%E6%B7%B1%E6%90%9C.html#%E6%80%9D%E8%B7%AF)
 
 ```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+int dirr[4][2]={1,0,0,1,-1,0,0,-1};
+int ans=0;
+void dfs(vector<vector<int>>& graph, vector<vector<int>>& is_visit,int n,int m,int row,int col){
+    for(int i = 0;i<4;i++){
+        int nextr = row+dirr[i][0];
+        int nextl = col+dirr[i][1];
+        if(nextr<0||nextr>=n||nextl<0||nextl>=m) continue;
+        if(is_visit[nextr][nextl]==0&&graph[nextr][nextl]==1){
+            is_visit[nextr][nextl] = 1;
+            dfs(graph,is_visit,n,m,nextr,nextl);
+        }
+    }
+    
+}
 
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> graph(n,vector<int>(m));
+    vector<vector<int>> is_visit(n,vector<int>(m));
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            cin>>graph[i][j];
+            is_visit[i][j] = 0;
+        }
+    }
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            if(is_visit[i][j]==0&&graph[i][j]==1){
+                is_visit[i][j] = 1;
+                ans++;
+                dfs(graph,is_visit,n,m,i,j);
+            }
+        }
+    }
+    cout<<ans;
+    
+}
 ```
 
 
