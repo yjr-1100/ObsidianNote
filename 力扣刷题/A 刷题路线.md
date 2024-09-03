@@ -347,6 +347,13 @@ int main(){
 }
 ```
 
+## [99. 岛屿数量](https://kamacoder.com/problempage.php?pid=1171)
+
+[讲解](https://programmercarl.com/kamacoder/0099.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%95%B0%E9%87%8F%E6%B7%B1%E6%90%9C.html#%E6%80%9D%E8%B7%AF)
+
+```cpp
+
+```
 
 
 并查集
