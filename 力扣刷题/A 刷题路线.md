@@ -289,6 +289,7 @@ int main(){
         graph[s][t] = 1;
     }
     path.push_back(1);
+    is_visit[1]=1;
     dfs(graph,is_visit,1,n);
     if (result.size() == 0) cout << -1 << endl;
     for(int i =0;i<result.size();i++){
@@ -301,8 +302,47 @@ int main(){
 
 **邻接表版本代码**
 
-```
-
+```cpp
+#include<iostream>
+#include<vector>
+#include<list>
+using namespace std;
+vector<vector<int>> result;
+vector<int> path;
+void dfs(vector<list<int>> &graph,vector<int>& is_visit,int x,int n){
+    if(x==n){
+        result.push_back(path);
+        return;
+    }
+    for(int i: graph[x]){
+        if(is_visit[i]==0){
+            path.push_back(i);
+            is_visit[i] = 1;
+            dfs(graph,is_visit,i,n);
+            path.pop_back();
+            is_visit[i] = 0;
+        }
+    }
+}
+int main(){
+    int n,m,s,t;
+    cin>>n>>m;
+    vector<list<int>> graph(n+1);
+    vector<int> is_visit(n+1,0);
+    for(int i = 0;i<m;i++){
+        cin>>s>>t;
+        graph[s].push_back(t);
+    }
+    path.push_back(1);
+    is_visit[1] = 1;
+    dfs(graph,is_visit,1,n);
+    if (result.size() == 0) cout << -1 << endl;
+    for(int i =0;i<result.size();i++){
+        for(int j = 0;j<result[i].size()-1;j++)
+             cout<<result[i][j]<<" ";
+        cout<<result[i][result[i].size()-1]<<endl;
+    }
+}
 ```
 
 
