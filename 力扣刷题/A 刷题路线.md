@@ -254,6 +254,8 @@ struct TreeNode {
 
 ## [98. 所有可达路径](https://kamacoder.com/problempage.php?pid=1170)
 
+对应力扣的题目是 [797. 所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target/)
+
 [讲解](https://programmercarl.com/kamacoder/0098.%E6%89%80%E6%9C%89%E5%8F%AF%E8%BE%BE%E8%B7%AF%E5%BE%84.html#%E6%8F%92%E6%9B%B2)
 
 **邻接矩阵版本代码**，本题题目说是无环图，所以is_visit数组可以不用。
