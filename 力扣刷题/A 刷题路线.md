@@ -251,6 +251,12 @@ struct TreeNode {
 [[12.2 深度优先搜索]]
 # 12.3 广度优先搜索
 
+## [广度优先搜索理论基础](https://programmercarl.com/kamacoder/%E5%9B%BE%E8%AE%BA%E5%B9%BF%E6%90%9C%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html#%E5%B9%BF%E6%90%9C%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF)
+
+## [99. 岛屿数量](https://kamacoder.com/problempage.php?pid=1171)
+
+[讲解](https://programmercarl.com/kamacoder/0099.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%95%B0%E9%87%8F%E5%B9%BF%E6%90%9C.html)
+
 
 
 并查集
