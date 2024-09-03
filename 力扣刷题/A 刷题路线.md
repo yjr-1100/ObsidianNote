@@ -257,8 +257,54 @@ struct TreeNode {
 
 [讲解](https://programmercarl.com/kamacoder/0099.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%95%B0%E9%87%8F%E5%B9%BF%E6%90%9C.html)
 
-```
+```cpp
+#include<iostream>
+#include<vector>
+#include<queue>
+using namespace std;
+int dirr[4][2]={1,0,0,1,-1,0,0,-1};
+int ans=0;
+int n,m;
+void bfs(vector<vector<int>>& graph, vector<vector<int>>& is_visit,int row,int col){
+    queue<pair<int,int>> que;
+    que.push({row,col});
+    while(!que.empty()){
+        int currrow = que.front().first;
+        int currcol = que.front().second;
+        que.pop();
+        for(int i = 0;i<4;i++){
+            int nextr = currrow+dirr[i][0];
+            int nextl = currcol+dirr[i][1];
+            if(nextr<0||nextr>=n||nextl<0||nextl>=m) continue;
+            if(is_visit[nextr][nextl]==0&&graph[nextr][nextl]==1){
+                is_visit[nextr][nextl] = 1;
+                que.push({nextr,nextl});
+            }
+        }
+    }
+}
 
+int main(){
+    cin>>n>>m;
+    vector<vector<int>> graph(n,vector<int>(m));
+    vector<vector<int>> is_visit(n,vector<int>(m));
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            cin>>graph[i][j];
+            is_visit[i][j] = 0;
+        }
+    }
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            if(is_visit[i][j]==0&&graph[i][j]==1){
+                is_visit[i][j] = 1;
+                ans++;
+                bfs(graph,is_visit,i,j);
+            }
+        }
+    }
+    cout<<ans;
+}
 ```
 
 并查集
