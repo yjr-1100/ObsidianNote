@@ -251,6 +251,15 @@ struct TreeNode {
 [[12.2 深度优先搜索]]
 [[12.3 广度优先搜索]]
 [[12.4 有向图的完全可达性]]
+# 12.5 岛屿的周长
+
+[106. 岛屿的周长](https://kamacoder.com/problempage.php?pid=1178)
+
+[题解](https://programmercarl.com/kamacoder/0106.%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF.html#%E6%80%9D%E8%B7%AF)
+
+```
+
+```
 
 
 并查集
