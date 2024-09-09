@@ -301,7 +301,47 @@ int main(){
 本题可以不用bfs，它不需要知道谁和谁是连在一起的岛，直接找岛屿四周水的个数就可以了
 
 ```
+class Solution {
 
+public:
+
+    int islandPerimeter(vector<vector<int>>& grid) {
+
+        int dir[4][2] = {1,0,0,1,-1,0,0,-1};
+
+        int n = grid.size();
+
+        int m = grid[0].size();
+
+        int ans=0;
+
+        for(int i = 0;i<n;i++){
+
+            for(int j = 0;j<m;j++){
+
+                if(grid[i][j]==1){
+
+                    for(int k = 0;k<4;k++){
+
+                        int tmpx = i+dir[k][0];
+
+                        int tmpy = j+dir[k][1];
+
+                        if(tmpx<0||tmpy<0||tmpx>=n||tmpy>=m|| grid[tmpx][tmpy] == 0) ans++;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return ans;
+
+    }
+
+};
 ```
 
 并查集
