@@ -250,43 +250,8 @@ struct TreeNode {
 [12.1 图论理论基础](https://programmercarl.com/kamacoder/%E5%9B%BE%E8%AE%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
 [[12.2 深度优先搜索]]
 [[12.3 广度优先搜索]]
-# 12.4 有向图的完全可达性
+[[12.4 有向图的完全可达性]]
 
-[105. 有向图的完全可达性](https://kamacoder.com/problempage.php?pid=1177)
-
-[题解](https://programmercarl.com/kamacoder/0105.%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%AE%8C%E5%85%A8%E5%8F%AF%E8%BE%BE%E6%80%A7.html)
-
-```cpp
-#include<iostream>
-#include<vector>
-#include<list>
-using namespace std;
-int n,k;
-void dfs(vector<list<int>>& graph,vector<bool>& is_visited,int x){
-    is_visited[x]=true;
-    for(int i:graph[x]){
-        if(!is_visited[i]) dfs(graph,is_visited,i);
-    }
-}
-int main(){
-    cin>>n>>k;
-    vector<list<int>>graph(n+1);
-    vector<bool>is_visited(n+1,false);
-    int s,t;
-    for(int i = 0;i<k;i++){
-        cin>>s>>t;
-        graph[s].push_back(t);
-    }
-    dfs(graph,is_visited,1);
-    for(int i = 1;i<=n;i++) {
-        if(is_visited[i]==false){
-            cout<<-1;
-            return 0;
-        }
-    }
-    cout<<1;
-}
-```
 
 并查集
 
