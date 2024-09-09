@@ -253,7 +253,7 @@ struct TreeNode {
 [[12.4 有向图的完全可达性]]
 # 12.5 岛屿的周长
 
-[106. 岛屿的周长](https://kamacoder.com/problempage.php?pid=1178)
+[106. 岛屿的周长](https://kamacoder.com/problempage.php?pid=1178)  力扣同款 [463. 岛屿的周长](https://leetcode.cn/problems/island-perimeter/)
 
 [题解](https://programmercarl.com/kamacoder/0106.%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF.html#%E6%80%9D%E8%B7%AF)
 
@@ -298,8 +298,11 @@ int main(){
 }
 ```
 
-本题可以不用bfs，它不需要指导，直接找岛屿四周水的个数就可以了
+本题可以不用bfs，它不需要知道谁和谁是连在一起的岛，直接找岛屿四周水的个数就可以了
 
+```
+
+```
 
 并查集
 
