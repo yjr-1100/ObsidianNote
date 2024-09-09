@@ -257,9 +257,48 @@ struct TreeNode {
 
 [题解](https://programmercarl.com/kamacoder/0106.%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF.html#%E6%80%9D%E8%B7%AF)
 
+```cpp
+#include<iostream>
+#include<vector>
+#include<list>
+using namespace std;
+int n,m,ans = 0;
+int dir[4][2] = {1,0,0,1,-1,0,0,-1};
+void dfs(vector<vector<int>>& grid,vector<vector<int>>& is_visited,int x,int y){
+    is_visited[x][y] = 1;
+    for(int i =0;i<4;i++){
+        int currx = x+dir[i][0];
+        int curry = y+dir[i][1];
+        if(currx<0||curry<0||currx>=n||curry>=m) ans++;
+        else if(grid[currx][curry]==0) ans++;
+        else if(grid[currx][curry]==1&&is_visited[currx][curry]==0){
+            dfs(grid,is_visited,currx,curry);
+        }
+    }
+}
+int main(){
+    cin>>n>>m;
+    vector<vector<int>> grid(n,vector<int>(m));
+    vector<vector<int>> is_visited(n,vector<int>(m));
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            cin>>grid[i][j];
+            is_visited[i][j] = 0;
+        }
+    }
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            if(grid[i][j]==1&&is_visited[i][j]==0){
+                dfs(grid,is_visited,i,j);
+            }
+        }
+    }
+    cout<<ans;
+    
+}
 ```
 
-```
+本题可以不用bfs，它不需要指导，直接找岛屿四周水的个数就可以了
 
 
 并查集
