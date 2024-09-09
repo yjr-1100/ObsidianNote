@@ -250,6 +250,12 @@ struct TreeNode {
 [12.1 图论理论基础](https://programmercarl.com/kamacoder/%E5%9B%BE%E8%AE%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)
 [[12.2 深度优先搜索]]
 [[12.3 广度优先搜索]]
+# 12.4 有向图的完全可达性
+
+[105. 有向图的完全可达性](https://kamacoder.com/problempage.php?pid=1177)
+
+[题解](https://programmercarl.com/kamacoder/0105.%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%AE%8C%E5%85%A8%E5%8F%AF%E8%BE%BE%E6%80%A7.html)
+
 
 
 并查集
