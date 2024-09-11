@@ -254,27 +254,4 @@ struct TreeNode {
 [[12.5 岛屿的周长]]
 [[12.6 并查集]]
 [[12.7 最小生成树prim]]
-# 12.8 最小生成树 kruskal
-
-**prim 算法是维护节点的集合，而 Kruskal 是维护边的集合**。
-
-**kruscal的思路：**
-- 边的权值排序，因为要优先选最小的边加入到生成树里
-- 遍历排序后的边
-    - 如果边首尾的两个节点在同一个集合，说明如果连上这条边图中会出现环
-    - 如果边首尾的两个节点不在同一个集合，加入到最小生成树，并把两个节点加入同一个集合
-
-# [53. 寻宝（第七期模拟笔试）](https://kamacoder.com/problempage.php?pid=1053)
-
-[题解](https://programmercarl.com/kamacoder/0053.%E5%AF%BB%E5%AE%9D-Kruskal.html#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF)
-
-因为kruscal维护的是边，因此我们需要定义一个数据结构去保存边 
-
-```cpp
-// l,r为 边两边的节点，val为边的数值
-struct Edge {
-    int l, r, val;
-};
-```
-
-
+[[12.8 最小生成树 kruskal]]
