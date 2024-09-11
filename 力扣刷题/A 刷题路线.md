@@ -260,3 +260,47 @@ prim算法核心就是三步，我称为**prim三部曲**，大家一定要熟�
 1. 第一步，选距离生成树最近节点
 2. 第二步，最近节点加入生成树
 3. 第三步，更新非生成树节点到生成树的距离（即更新minDist数组）
+
+
+
+```cpp
+#include<iostream>
+#include<vector>
+#include <climits>
+using namespace std;
+int v,e;
+int main(){
+    cin>>v>>e;
+    vector<vector<int>> graph(v+1,vector<int>(v+1,10001));
+    int a,b,val;
+    // 建图
+    while(e--){
+        cin>>a>>b>>val;
+        graph[a][b] = val;
+        graph[b][a] = val;
+    }
+    vector<int> minDist(v+1,10001); // 没加入树种的节点距离树的最短距离
+    vector<bool> isintree(v+1,false); // 是否加入树种
+    for(int i=1;i<v;i++){//每次循环加入一个节点 n个节点只需要循环n-1次就可以建成树了
+        int curr = -1; 
+        int minval = INT_MAX;
+        for(int j = 1;j<=v;j++){
+            if(!isintree[j]&&minDist[j]<minval){
+                minval = minDist[j];
+                curr = j;
+            }
+        }
+        
+        isintree[curr] = true; // 当前选择的节点接入树中
+        
+        for(int j = 1;j<=v;j++){ // 更新mindist数组
+            if(!isintree[j]&&minDist[j]>graph[curr][j]){
+                minDist[j] = graph[curr][j];
+            }
+        }
+    }
+    int result = 0;
+    for(int i = 2;i<=v;i++) result+=minDist[i];
+    cout<<result;
+}
+```
