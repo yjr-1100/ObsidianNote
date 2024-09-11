@@ -268,5 +268,13 @@ struct TreeNode {
 
 [题解](https://programmercarl.com/kamacoder/0053.%E5%AF%BB%E5%AE%9D-Kruskal.html#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF)
 
+因为kruscal维护的是边，因此我们需要定义一个数据结构去保存边 
+
+```cpp
+// l,r为 边两边的节点，val为边的数值
+struct Edge {
+    int l, r, val;
+};
+```
 
 
