@@ -268,6 +268,8 @@ struct TreeNode {
 
 **minDist数组 用来记录 每一个节点距离源点的最小距离**。
 
+这里看起来和prim算法很像，但注意，prim算法是最小生成树，是说把图中所有节点连起来的权值最小，而dijkstra算法是说源点到图中任意一个节点的距离最小，两个是有区别的。
+
 [47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E6%9C%B4%E7%B4%A0.html#%E6%80%9D%E8%B7%AF)
