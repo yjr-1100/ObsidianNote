@@ -262,6 +262,12 @@ struct TreeNode {
 
 **dijkstra算法**：在有权图（权值非负数）中求从起点到其他节点的最短路径算法。
 
+1. 第一步，选源点到哪个节点近且该节点未被访问过
+2. 第二步，该最近节点被标记访问过
+3. 第三步，更新非访问节点到源点的距离（即更新minDist数组）
+
+**minDist数组 用来记录 每一个节点距离源点的最小距离**。
+
 [47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E6%9C%B4%E7%B4%A0.html#%E6%80%9D%E8%B7%AF)
