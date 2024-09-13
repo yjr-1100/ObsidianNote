@@ -260,6 +260,8 @@ struct TreeNode {
 
 ## dijkstra (朴素版)
 
+**dijkstra算法**：在有权图（权值非负数）中求从起点到其他节点的最短路径算法。
+
 [47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E6%9C%B4%E7%B4%A0.html#%E6%80%9D%E8%B7%AF)
