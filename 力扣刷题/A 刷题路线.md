@@ -274,6 +274,42 @@ struct TreeNode {
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E6%9C%B4%E7%B4%A0.html#%E6%80%9D%E8%B7%AF)
 
-```
+```cpp
+#include<iostream>
+#include<vector>
+#include <climits>
 
+using namespace std;
+int n,m;
+int main(){
+    int s,t,v;
+    cin>>n>>m;
+    vector<int> minDist(n+1,INT_MAX);
+    vector<bool> isvisit(n+1,false);
+    vector<vector<int>> graph(n+1,vector<int>(n+1,INT_MAX));
+    while(m--){
+        cin>>s>>t>>v;
+        graph[s][t] = v;
+    }
+    minDist[1] = 0;
+    for(int i =1;i<=n;i++){
+        int minv = INT_MAX;
+        int curr = 1;;
+        for(int j=1;j<=n;j++)
+            if(!isvisit[j]&&minDist[j]<minv){
+                minv = minDist[j];
+                curr = j;
+            }
+        
+        isvisit[curr] = true;
+        
+        for(int j = 1;j<=n;j++){
+            if(!isvisit[j]&&graph[curr][j] != INT_MAX&&minDist[j]>graph[curr][j]+minDist[curr]){
+                minDist[j] = graph[curr][j]+minDist[curr];
+            }
+        }
+    }
+    if (minDist[n] == INT_MAX) cout << -1 << endl; // 不能到达终点
+    else cout << minDist[n] << endl; // 到达终点最短路径
+}
 ```
