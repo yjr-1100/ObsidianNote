@@ -334,6 +334,8 @@ int main(){
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E5%A0%86.html#%E6%80%9D%E8%B7%AF)
 
+ 时间复杂度：O(ElogE) E 为边的数量
+
 ```cpp
 #include<iostream>
 #include<vector>
