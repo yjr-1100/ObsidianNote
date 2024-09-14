@@ -379,6 +379,5 @@ int main(){
     }
     if(minDist[n]==INT_MAX) cout<<-1<<endl;
     else cout<<minDist[n];
-   
 }
 ```
