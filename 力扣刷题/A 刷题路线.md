@@ -333,3 +333,52 @@ int main(){
 [47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E5%A0%86.html#%E6%80%9D%E8%B7%AF)
+
+```cpp
+#include<iostream>
+#include<vector>
+#include <climits>
+#include<list>
+#include <queue>
+using namespace std;
+int n,m;
+struct Edge{
+    int target;
+    int val;
+    Edge(int t,int v):target(t),val(v){}
+};
+class mycomparision{
+    public:
+    bool operator()(const pair<int,int>& l,const pair<int,int>& r){
+        return l.second>r.second;
+    }
+};
+priority_queue<pair<int,int>,vector<pair<int,int>>,mycomparision> pq;
+int main(){
+    int s,t,v;
+    cin>>n>>m;
+    vector<int> minDist(n+1,INT_MAX);
+    vector<bool> isvisit(n+1,false);
+    vector<list<Edge>> graph(n+1);
+    while(m--){
+        cin>>s>>t>>v;
+        graph[s].push_back(Edge(t,v));
+    }
+    pq.push(pair<int,int>(1,0));
+    minDist[1]=0;
+    while(!pq.empty()){
+        pair<int,int> cur = pq.top();
+        pq.pop();
+        if(isvisit[cur.first]) continue;
+        for(Edge edge:graph[cur.first]){
+            if(!isvisit[edge.target]&&cur.second+edge.val<minDist[edge.target]){
+                minDist[edge.target] = cur.second+edge.val;
+                pq.push(pair<int,int>(edge.target,minDist[edge.target]));
+            }
+        }
+    }
+    if(minDist[n]==INT_MAX) cout<<-1<<endl;
+    else cout<<minDist[n];
+   
+}
+```
