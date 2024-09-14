@@ -270,6 +270,8 @@ struct TreeNode {
 
 这里看起来和prim算法很像，但注意，prim算法是最小生成树，是说把图中所有节点连起来的权值最小，而dijkstra算法是说源点到图中任意一个节点的距离最小，两个是有区别的。
 
+时间复杂度是O(n^2) 对于节点少的稠密图比较适合
+
 [47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
 
 [题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E6%9C%B4%E7%B4%A0.html#%E6%80%9D%E8%B7%AF)
@@ -313,3 +315,21 @@ int main(){
     else cout << minDist[n] << endl; // 到达终点最短路径
 }
 ```
+
+## dijkstra(堆优化版)
+
+朴素版的对于节点少的图比较合适，但是如果节点多，边少的图，我们可以优化解法。
+
+对于节点多边少的稀疏图，我们一般使用邻接表来存储
+
+邻接表的优点：
+- 对于稀疏图的存储，只需要存储边，空间利用率高
+- 遍历节点链接情况相对容易
+缺点：
+- 检查任意两个节点间是否存在边，效率相对低，需要 O(V)时间，V表示某节点链接其他节点的数量。
+- 实现相对复杂，不易理解
+
+
+[47. 参加科学大会（第六期模拟笔试）](https://kamacoder.com/problempage.php?pid=1047)
+
+[题解](https://programmercarl.com/kamacoder/0047.%E5%8F%82%E4%BC%9Adijkstra%E5%A0%86.html#%E6%80%9D%E8%B7%AF)
