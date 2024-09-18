@@ -430,3 +430,10 @@ int main(){
     
 }
 ```
+
+## Bellman_ford 队列优化算法（SPFA）
+
+[94. 城市间货物运输 I](https://kamacoder.com/problempage.php?pid=1152)
+
+[题解](https://programmercarl.com/kamacoder/0094.%E5%9F%8E%E5%B8%82%E9%97%B4%E8%B4%A7%E7%89%A9%E8%BF%90%E8%BE%93I-SPFA.html#%E8%83%8C%E6%99%AF)
+
