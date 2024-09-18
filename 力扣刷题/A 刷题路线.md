@@ -474,7 +474,7 @@ int main(){
         q.pop();
         isvisit[curr]=false;
         for(Edge e:edge[curr]){
-            if(mindist[e.t]>mindist[curr]+e.v){
+            if(mindist[e.t]>mindist[curr]+e.v){ //图中存在正权回路，会因为mindist数组的值不再改变，而不再加入队列，所以不会死循环
                 mindist[e.t] = mindist[curr]+e.v;
                 if(!isvisit[e.t]){
                     q.push(e.t);
