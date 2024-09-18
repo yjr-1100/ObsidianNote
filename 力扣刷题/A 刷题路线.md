@@ -392,8 +392,41 @@ int main(){
 
 本题中存在负的权值，不可以使用dijkstra算法去求解。
 
-存在负权值需要
+存在负权值需要注意负权回路，负权回路是指一系列道路的总权值为负，这样的回路使得通过反复经过回路中的道路，理论上可以无限地减少总成本或无限地增加总收益。
 
-```
+```cpp
+#include<iostream>
+#include<vector>
+#include <list>
+#include <climits>
+using namespace std;
 
+struct Edge{
+    int s,t,v;
+    Edge(int s,int t,int val):s(s),t(t),v(val){}
+};
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<int> mindist(n+1,INT_MAX);
+    vector<Edge> edge;
+    int s,t,v;
+    while(m--){
+        cin>>s>>t>>v;
+        edge.push_back(Edge(s,t,v));
+    }
+    mindist[1] = 0;
+    for(int i = 1;i<n;i++){
+        for(Edge e:edge){
+            if(mindist[e.s]==INT_MAX) continue;
+            if(mindist[e.t]>mindist[e.s]+e.v){
+                mindist[e.t] = mindist[e.s]+e.v;
+            }
+        }
+    }
+    if(mindist[n]==INT_MAX) cout<<"unconnected"<<endl;
+    else cout<<mindist[n];
+    
+}
 ```
