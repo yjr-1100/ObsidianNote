@@ -437,3 +437,50 @@ int main(){
 
 [题解](https://programmercarl.com/kamacoder/0094.%E5%9F%8E%E5%B8%82%E9%97%B4%E8%B4%A7%E7%89%A9%E8%BF%90%E8%BE%93I-SPFA.html#%E8%83%8C%E6%99%AF)
 
+```cpp
+#include<iostream>
+#include<vector>
+#include <list>
+#include <climits>
+#include<queue>
+using namespace std;
+
+struct Edge{
+    int t,v;
+    Edge(int t,int val):t(t),v(val){}
+};
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<int> mindist(n+1,INT_MAX);
+    vector<list<Edge>> edge(n+1);
+    vector<bool> isvisit(n+1,false);
+    queue<int> q;
+    int s,t,v;
+    while(m--){
+        cin>>s>>t>>v;
+        edge[s].push_back(Edge(t,v));
+    }
+    mindist[1] = 0;
+    q.push(1);
+    isvisit[1] = true;
+    while(!q.empty()){
+        int curr = q.front();
+        q.pop();
+        isvisit[curr]=false;
+        for(Edge e:edge[curr]){
+            if(mindist[e.t]>mindist[curr]+e.v){
+                mindist[e.t] = mindist[curr]+e.v;
+                if(!isvisit[e.t]){
+                    q.push(e.t);
+                    isvisit[e.t] = true;
+                }
+            }
+        }
+    }
+    if(mindist[n]==INT_MAX) cout<<"unconnected"<<endl;
+    else cout<<mindist[n];
+    
+}
+```
